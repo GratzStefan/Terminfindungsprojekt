@@ -1,0 +1,19 @@
+﻿<Window x:Class="Terminfindungsapp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Terminfindungsapp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Name="btnUser" Margin="743,24,27,380" Width="30" Height="30">
+            <Button.Background>
+                <ImageBrush ImageSource="/user_icon.png"/>
+            </Button.Background>
+        </Button>
+        <Label Content="Organizations:" FontWeight="Bold" FontSize="18" Margin="4,15,659,380"/>
+        <StackPanel Name="panOrganization" Margin="0,56,608,0" Background="#FFB12121"/>
+
+    </Grid>
+</Window>
