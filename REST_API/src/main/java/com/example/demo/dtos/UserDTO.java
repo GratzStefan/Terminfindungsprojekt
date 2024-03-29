@@ -1,8 +1,9 @@
 package com.example.demo.dtos;
 
 import com.example.demo.models.UserEntity;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.bson.types.ObjectId;
-
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public record UserDTO (
     String id,
     String username,

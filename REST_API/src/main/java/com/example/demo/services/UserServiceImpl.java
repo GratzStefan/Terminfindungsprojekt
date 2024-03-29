@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public ObjectId login(String username, String password) {
+    public UserDTO login(String username, String password) {
         return userRepository.login(username, password);
     }
 

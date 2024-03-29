@@ -1,5 +1,6 @@
 package com.example.demo.repositories;
 
+import com.example.demo.dtos.UserDTO;
 import com.example.demo.models.UserEntity;
 import com.mongodb.ReadConcern;
 import com.mongodb.ReadPreference;
@@ -13,14 +14,6 @@ import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.springframework.security.crypto.scrypt.SCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
-
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
-import java.nio.charset.StandardCharsets;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.KeySpec;
 
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.ReturnDocument.AFTER;
@@ -53,18 +46,22 @@ public class MongoDBUserRepository implements UserRepository {
         userEntity.setId(new ObjectId());
         userEntity.setPassword(hashPassword(userEntity.getPassword()));
         usersCollections.insertOne(userEntity);
+
         return userEntity;
     }
 
     @Override
-    public ObjectId login(String username, String password){
+    public UserDTO login(String username, String password){
         Document doc = new Document();
         doc.append("username", username);
 
         UserEntity entity = usersCollections.find(doc).first();
         if(entity != null){
             SCryptPasswordEncoder encoder = new SCryptPasswordEncoder(16384, 8, 4, 32, 64);
-            if(encoder.matches(password, entity.getPassword())) return entity.getId();
+            if(encoder.matches(password, entity.getPassword())){
+                entity.setPassword(null);
+                return new UserDTO(entity);
+            }
         }
 
         return null;

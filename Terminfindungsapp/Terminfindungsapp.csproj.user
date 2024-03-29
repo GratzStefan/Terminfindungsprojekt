@@ -7,21 +7,39 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="LoginWindow.xaml.cs">
+    <Compile Update="UserControls\CreateOrganizationControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="RegisterWindow.xaml.cs">
+    <Compile Update="UserControls\SearchOrganizationControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Windows\LoginWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControls\OrganizationControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Windows\RegisterWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="LoginWindow.xaml">
+    <Page Update="UserControls\CreateOrganizationControl.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MainWindow.xaml">
+    <Page Update="UserControls\SearchOrganizationControl.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="RegisterWindow.xaml">
+    <Page Update="Windows\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\OrganizationControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\RegisterWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

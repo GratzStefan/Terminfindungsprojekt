@@ -5,7 +5,7 @@ import org.bson.types.ObjectId;
 
 public interface UserService {
     UserDTO register(UserDTO UserDTO);
-    ObjectId login(String username, String password);
+    UserDTO login(String username, String password);
     UserDTO update(UserDTO UserDTO);
     long delete(String id);
 }

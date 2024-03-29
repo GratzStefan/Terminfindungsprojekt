@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\HTL_GITProjekte\\Terminfindungsapp\\Terminfindungsapp.csproj",
+      "projectUniqueName": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\Terminfindungsapp.csproj",
       "projectName": "Terminfindungsapp",
-      "projectPath": "C:\\HTL_GITProjekte\\Terminfindungsapp\\Terminfindungsapp.csproj",
+      "projectPath": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\Terminfindungsapp.csproj",
       "packagesPath": "C:\\Users\\Stefan\\.nuget\\packages\\",
-      "outputPath": "C:\\HTL_GITProjekte\\Terminfindungsapp\\obj\\",
+      "outputPath": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Stefan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -60,7 +60,7 @@
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           },
-          "Microsoft.WindowsDesktop.App.WPF": {
+          "Microsoft.WindowsDesktop.App": {
             "privateAssets": "none"
           }
         },

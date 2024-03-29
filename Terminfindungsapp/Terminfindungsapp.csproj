@@ -5,14 +5,16 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="user_icon.png" />
+    <None Remove="Windows\user_icon.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="user_icon.png" />
+    <Resource Include="Windows\user_icon.png" />
   </ItemGroup>
 
 </Project>
