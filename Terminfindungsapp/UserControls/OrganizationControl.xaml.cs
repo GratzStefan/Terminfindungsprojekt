@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,22 @@ namespace Terminfindungsapp
     /// </summary>
     public partial class OrganizationControl : UserControl
     {
-        public OrganizationControl()
+        private PostOrganization org;
+        public OrganizationControl(PostOrganization org)
         {
             InitializeComponent();
+            this.org = org;
+            lblName.Content = org.name;
+        }
+
+        private async void btnAddUser_Click(object sender, RoutedEventArgs e)
+        {
+            await APICall.PostAsync<List<PostOrganization>>($"http://localhost:8080/api/organization/searchOrganizations/{User.GetInstance(null).ID}", null);
+        }
+
+        private void btnAddDate_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,17 +23,36 @@ namespace Terminfindungsapp
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<PostOrganization> postOrganizations;
         public MainWindow()
         {
             InitializeComponent();
 
             //lblUsername.Content = User.GetInstance(null).Username;
-            contentControl.Content = new OrganizationControl();
-            /*List<PostOrganization> organizations = await APICall.RunAsync<List<PostOrganization>>($"http://localhost:8080/api/organization/search/{txtOrganizationName.Text}", null);
-            foreach(PostOrganization org in organizations)
-            {
+            //contentControl.Content = new OrganizationControl();
+            User user = new User();
+            user.ID = "5u843jfidfjid";
+            User.GetInstance(user);
+            LoadOrganizationsOfUser();
+        }
 
-            }*/
+        private async void LoadOrganizationsOfUser()
+        {
+            postOrganizations = await APICall.RunAsync<List<PostOrganization>>($"http://localhost:8080/api/organization/searchOrganizations/{User.GetInstance(null).ID}", null);
+            foreach (PostOrganization org in postOrganizations)
+            {
+                Button btnOrganization = new Button();
+                btnOrganization.Content = org.name;
+                btnOrganization.Click += btnOrganization_Click;
+                staUserOrganizations.Children.Add(btnOrganization);
+            }
+        }
+
+        private void btnOrganization_Click(object sender, RoutedEventArgs e)
+        {
+            Button clickedButton = sender as Button;
+            PostOrganization clickedOrganization = postOrganizations.FirstOrDefault(org => org.name == clickedButton.Content.ToString());
+            contentControl.Content = new OrganizationControl(clickedOrganization);  
         }
 
         private void btnCreateOrganization_Click(object sender, RoutedEventArgs e)

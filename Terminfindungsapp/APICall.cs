@@ -10,6 +10,7 @@ using System.Net;
 using System.Diagnostics;
 using System.Text.Json;
 using System.Net.Http.Json;
+using System.Windows.Markup;
 
 namespace Terminfindungsapp
 {
@@ -62,7 +63,6 @@ namespace Terminfindungsapp
                     
                     var response = client.PostAsync(url.Split('/').Last(), new StringContent(json, Encoding.UTF8, "application/json")).Result;
 
-
                     return response.IsSuccessStatusCode;
                 }
             }
@@ -71,7 +71,25 @@ namespace Terminfindungsapp
                 Console.WriteLine(ex.Message);
                 return false;
             }
+        }
 
+        public static async Task<bool> PutAsync<T>(string url)
+        {
+            try
+            {
+                using (var client = GetHttpClient(url))
+                {
+
+                    //var response = client.PostAsync(url.Split('/').Last(), new StringContent(json, Encoding.UTF8, "application/json")).Result;
+                    client.PutAsync(url.Split('/').Last(), new StringContent(json, Encoding.UTF8, "application/json"));
+                    return response.IsSuccessStatusCode;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
         }
     }
 }

@@ -31,12 +31,11 @@ namespace Terminfindungsapp.UserControls
 
         private async void txtOrganizationName_TextChanged(object sender, TextChangedEventArgs e)
         {
+            staOrganization.Children.Clear();
             if (txtOrganizationName.Text == "")
                 return;
 
             List<PostOrganization> organizations = await APICall.RunAsync<List<PostOrganization>>($"http://localhost:8080/api/organization/search/{txtOrganizationName.Text}", null);
-
-            staOrganization.Children.Clear();
 
             if(organizations is not null)
             {

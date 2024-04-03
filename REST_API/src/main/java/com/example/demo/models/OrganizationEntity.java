@@ -10,7 +10,8 @@ public class OrganizationEntity {
     private ObjectId id;
 
     private String name;
-    private HashMap<UserEntity, Integer> userlist = new HashMap<UserEntity, Integer>();
+    private String creatorid;
+    private HashMap<String, Integer> userlist = new HashMap<String, Integer>();
 
     public OrganizationEntity() {
     }
@@ -18,6 +19,12 @@ public class OrganizationEntity {
     public OrganizationEntity(ObjectId id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public OrganizationEntity(ObjectId id, String name, HashMap<String, Integer> userlist) {
+        this.id = id;
+        this.name = name;
+        this.userlist = userlist;
     }
 
     public ObjectId getId() {
@@ -36,24 +43,34 @@ public class OrganizationEntity {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "OrganizationEntity{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+    public void addUser(String userid){
+        userlist.put(userid, OrganizationRole.User.ordinal());
+    }
+    public void setUserlist(HashMap<String, Integer> userlist) {
+        this.userlist = userlist;
+    }
+    public HashMap<String, Integer> getUserlist() {
+        return userlist;
+    }
+
+    public String getCreatorid() {
+        return creatorid;
+    }
+
+    public void setCreatorid(String creatorid) {
+        this.creatorid = creatorid;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        OrganizationEntity that = (OrganizationEntity) o;
-        return Objects.equals(id, that.id) && Objects.equals(name, that.name);
+        OrganizationEntity entity = (OrganizationEntity) o;
+        return Objects.equals(id, entity.id) && Objects.equals(name, entity.name) && Objects.equals(creatorid, entity.creatorid) && Objects.equals(userlist, entity.userlist);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(id, name, creatorid, userlist);
     }
 }

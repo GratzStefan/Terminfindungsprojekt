@@ -25,13 +25,18 @@ public class OrganizationServiceImpl implements OrganizationService{
     }
 
     @Override
-    public ObjectId addUser(String userid, String organizationid, String adminid) {
+    public int addUser(String userid, String organizationid, String adminid) {
         return organizationRepository.addUser(userid, organizationid, adminid);
     }
 
     @Override
     public List<OrganizationDTO> search(String organizationName) {
         return organizationRepository.search(organizationName).stream().map(OrganizationDTO::new).toList();
+    }
+
+    @Override
+    public List<OrganizationDTO> searchOrganizations(String userid) {
+        return organizationRepository.searchOrganization(userid).stream().map(OrganizationDTO::new).toList();
     }
 
     @Override

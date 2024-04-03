@@ -28,7 +28,6 @@ C:\HTL_GITProjekte\Terminfindungsprojekt\Terminfindungsapp\bin\Debug\net6.0-wind
 C:\HTL_GITProjekte\Terminfindungsprojekt\Terminfindungsapp\bin\Debug\net6.0-windows\Terminfindungsapp.runtimeconfig.json
 C:\HTL_GITProjekte\Terminfindungsprojekt\Terminfindungsapp\bin\Debug\net6.0-windows\Terminfindungsapp.dll
 C:\HTL_GITProjekte\Terminfindungsprojekt\Terminfindungsapp\bin\Debug\net6.0-windows\Terminfindungsapp.pdb
-C:\HTL_GITProjekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-windows\Terminfindungsapp.csproj.AssemblyReference.cache
 C:\HTL_GITProjekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-windows\App.g.cs
 C:\HTL_GITProjekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-windows\Terminfindungsapp_MarkupCompile.cache
 C:\HTL_GITProjekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-windows\Terminfindungsapp_MarkupCompile.lref
@@ -54,3 +53,4 @@ C:\HTL_GITProjekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-wind
 C:\HTL_GITProjekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-windows\Windows\LoginWindow.baml
 C:\HTL_GITProjekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-windows\Windows\MainWindow.baml
 C:\HTL_GITProjekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-windows\Windows\RegisterWindow.baml
+C:\HTL_GITProjekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-windows\Terminfindungsapp.sourcelink.json

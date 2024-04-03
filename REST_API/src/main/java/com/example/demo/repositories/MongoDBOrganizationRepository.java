@@ -51,19 +51,20 @@ public class MongoDBOrganizationRepository implements OrganizationRepository{
     }
 
     @Override
-    public ObjectId addUser(String userid, String organizationid, String adminid) {
+    public int addUser(String userid, String organizationid, String adminid) {
         Document doc = new Document();
-        doc.append("organizationid", organizationid);
-        doc.append("users.userid", adminid);
+        doc.append("_id", new ObjectId(organizationid));
+        doc.append("userlist." + adminid, 0);
 
-        if(organizationsCollection.find(doc).first() != null) return null;
+        OrganizationEntity organization = organizationsCollection.find(doc).first();
+        if(organization == null) return 404;
 
+        organization.addUser(userid);
 
+        FindOneAndReplaceOptions options = new FindOneAndReplaceOptions().returnDocument(AFTER);
+        if(organizationsCollection.findOneAndReplace(eq("_id", new ObjectId(organizationid)), organization, options) == null) return 500;
 
-        organizationEntity.setId(new ObjectId());
-        organizationsCollection.insertOne(organizationEntity);
-
-        return organizationEntity.getId();
+        return 200;
     }
 
     @Override
@@ -71,6 +72,13 @@ public class MongoDBOrganizationRepository implements OrganizationRepository{
         var regexFilter = Filters.regex("name", ".*?" + organizationName + ".*?", "i");
 
         return organizationsCollection.find(regexFilter).into(new ArrayList<>());
+    }
+
+    @Override
+    public List<OrganizationEntity> searchOrganization(String userid) {
+        Document doc = new Document();
+        doc.append("userlist." + userid, 0);
+        return organizationsCollection.find(doc).into(new ArrayList<>());
     }
 
     @Override

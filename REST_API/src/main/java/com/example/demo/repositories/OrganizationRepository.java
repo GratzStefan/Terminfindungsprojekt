@@ -8,8 +8,9 @@ import java.util.List;
 
 public interface OrganizationRepository {
     ObjectId create(OrganizationEntity organizationEntity);
-    ObjectId addUser(String userid, String organizationid, String adminid);
+    int addUser(String userid, String organizationid, String adminid);
     List<OrganizationEntity> search(String organizationName);
+    List<OrganizationEntity> searchOrganization(String userid);
     OrganizationEntity modify(OrganizationEntity organizationEntity);
     long delete(String id);
 }
