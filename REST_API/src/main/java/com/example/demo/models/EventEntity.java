@@ -1,6 +1,7 @@
 package com.example.demo.models;
 
 import org.bson.types.ObjectId;
+import org.springframework.cglib.core.Local;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -12,17 +13,19 @@ public class EventEntity {
 
     private String titel;
     private String description;
-    private LocalDateTime datetime;
+    private LocalDateTime datetimestart;
+    private LocalDateTime datetimeend;
     private String organizationid;
 
     public EventEntity() {
     }
 
-    public EventEntity(ObjectId id, String titel, String description, LocalDateTime datetime, String organizationid) {
+    public EventEntity(ObjectId id, String titel, String description, LocalDateTime datetimestart, LocalDateTime datetimeend, String organizationid) {
         this.id = id;
         this.titel = titel;
         this.description = description;
-        this.datetime = datetime;
+        this.datetimestart = datetimestart;
+        this.datetimeend = datetimeend;
         this.organizationid = organizationid;
     }
 
@@ -50,12 +53,20 @@ public class EventEntity {
         this.description = description;
     }
 
-    public LocalDateTime getDateTime() {
-        return datetime;
+    public LocalDateTime getDatetimestart() {
+        return datetimestart;
     }
 
-    public void setDateTime(LocalDateTime datetime) {
-        this.datetime = datetime;
+    public void setDatetimestart(LocalDateTime datetimestart) {
+        this.datetimestart = datetimestart;
+    }
+
+    public LocalDateTime getDatetimeend() {
+        return datetimeend;
+    }
+
+    public void setDatetimeend(LocalDateTime datetimeend) {
+        this.datetimeend = datetimeend;
     }
 
     public String getOrganizationid() {
@@ -71,11 +82,11 @@ public class EventEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         EventEntity that = (EventEntity) o;
-        return Objects.equals(id, that.id) && Objects.equals(titel, that.titel) && Objects.equals(description, that.description) && Objects.equals(datetime, that.datetime) && Objects.equals(organizationid, that.organizationid);
+        return Objects.equals(id, that.id) && Objects.equals(titel, that.titel) && Objects.equals(description, that.description) && Objects.equals(datetimestart, that.datetimestart) && Objects.equals(datetimeend, that.datetimeend) && Objects.equals(organizationid, that.organizationid);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, titel, description, datetime, organizationid);
+        return Objects.hash(id, titel, description, datetimestart, datetimeend, organizationid);
     }
 }

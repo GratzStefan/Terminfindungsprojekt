@@ -40,7 +40,7 @@ namespace Terminfindungsapp
                 foreach (PostEvent ev in events)
                 {
                     Button btn = new Button();
-                    btn.Content = ev.titel + ";" + ev.description + ";" + ev.datetime;
+                    btn.Content = ev.titel + ";" + ev.description + ";" + ev.datetimestart + ";" + ev.datetimeend;
                     staEvents.Children.Add(btn);
                 }
             }
@@ -60,7 +60,7 @@ namespace Terminfindungsapp
 
         private async void btnAddEvent_Click(object sender, RoutedEventArgs e)
         {
-            if (await APICall.PostAsync<PostEvent>("http://localhost:8080/api/events/add", new PostEvent("Titel", "Description", DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss"), org.id)))
+            if (await APICall.PostAsync<PostEvent>("http://localhost:8080/api/events/add", new PostEvent("Titel", "Description", DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss"), DateTime.Now.AddHours(1).ToString("yyyy-MM-ddTHH:mm:ss"), org.id)))
             {
                 MessageBox.Show("Added event");
             }

@@ -14,17 +14,18 @@ public record EventDTO (
         String id,
         String titel,
         String description,
-        String datetime,
+        String datetimestart,
+        String datetimeend,
         String organizationid) {
 
     public EventDTO(EventEntity e){
-        this(e.getId() == null ? new ObjectId().toHexString() : e.getId().toHexString(), e.getTitel(), e.getDescription(), e.getDateTime().toString(), e.getOrganizationid());
+        this(e.getId() == null ? new ObjectId().toHexString() : e.getId().toHexString(), e.getTitel(), e.getDescription(), e.getDatetimestart().toString(), e.getDatetimeend().toString(), e.getOrganizationid());
     }
 
     public EventEntity toEventEntity(){
         ObjectId _id = id == null ? new ObjectId() : new ObjectId(id);
 
-        return new EventEntity(_id, titel, description, LocalDateTime.parse(datetime), organizationid);
+        return new EventEntity(_id, titel, description, LocalDateTime.parse(datetimestart), LocalDateTime.parse(datetimeend), organizationid);
     }
 }
 
