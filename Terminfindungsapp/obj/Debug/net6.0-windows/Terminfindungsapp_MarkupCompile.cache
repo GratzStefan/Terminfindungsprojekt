@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\HTL_GITProjekte\Terminfindungsprojekt\Terminfindungsapp\App.xaml
-61484619113
+7-1093146526
 
-13972463748
+15738306768
 203-297069038
-UserControls\CreateOrganizationControl.xaml;UserControls\OrganizationControl.xaml;UserControls\SearchOrganizationControl.xaml;Windows\LoginWindow.xaml;Windows\MainWindow.xaml;Windows\RegisterWindow.xaml;
+UserControls\CreateOrganizationControl.xaml;UserControls\OrganizationControl.xaml;UserControls\SearchOrganizationControl.xaml;UserControls\UserSettingsControl.xaml;Windows\LoginWindow.xaml;Windows\MainWindow.xaml;Windows\RegisterWindow.xaml;
 
 False
 

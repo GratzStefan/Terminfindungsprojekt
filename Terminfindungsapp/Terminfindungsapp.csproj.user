@@ -13,6 +13,9 @@
     <Compile Update="UserControls\SearchOrganizationControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControls\UserSettingsControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Windows\LoginWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -28,6 +31,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\SearchOrganizationControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\UserSettingsControl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\LoginWindow.xaml">

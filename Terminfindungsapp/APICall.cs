@@ -79,9 +79,7 @@ namespace Terminfindungsapp
             {
                 using (var client = GetHttpClient(url))
                 {
-
-                    //var response = client.PostAsync(url.Split('/').Last(), new StringContent(json, Encoding.UTF8, "application/json")).Result;
-                    client.PutAsync(url.Split('/').Last(), new StringContent(json, Encoding.UTF8, "application/json"));
+                    var response = client.PutAsync(url.Split('/').Last(), null).Result;
                     return response.IsSuccessStatusCode;
                 }
             }

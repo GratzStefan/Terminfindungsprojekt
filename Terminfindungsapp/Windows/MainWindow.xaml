@@ -7,29 +7,30 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <StackPanel Background="DimGray" Margin="0,0,608,0">
-            <Label Content="Organizations:" FontWeight="Bold" FontSize="18" Margin="4,15,0,0"/>
-            <StackPanel x:Name="panOrganization" Background="#FFB12121" Height="386">
-                <StackPanel Name="staUserOrganizations" Height="300">
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Left" Background="DimGray" Margin="0,0,0,0">
+                <Label Content="Organizations:" FontWeight="Bold" FontSize="18" Margin="4,15,0,0"/>
+                <StackPanel x:Name="panOrganization" Background="#FFB12121" Height="386">
+                    <StackPanel Name="staUserOrganizations" Height="300"></StackPanel>
+                    <StackPanel>
+                        <Button Name="btnCreateOrganization" Content="Create Organization" Height="35" Margin="10,0,10,0" Click="btnCreateOrganization_Click"/>
+                        <Button Name="btnSearchOrganization" Content="Search Organization" Height="35" Margin="10,10,10,10" Click="btnSearchOrganization_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            <DockPanel DockPanel.Dock="Top" LastChildFill="False" Background="Blue" Margin="0,0,0,0">
+                <StackPanel DockPanel.Dock="Right" Width="75" Background="AntiqueWhite">
+                    <Button x:Name="btnUser" VerticalAlignment="Center" HorizontalAlignment="Center" Width="30" Height="30" Click="btnUser_Click" Content="">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Windows/user_icon.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Label x:Name="lblUsername" VerticalAlignment="Top" HorizontalAlignment="Center" Content="" Width="Auto"/>
+                </StackPanel>
+            </DockPanel>
 
-                </StackPanel>
-                <StackPanel>
-                    <Button Name="btnCreateOrganization" Content="Create Organization" Height="35" Margin="10,0,10,0" Click="btnCreateOrganization_Click"/>
-                    <Button Name="btnSearchOrganization" Content="Search Organization" Height="35" Margin="10,10,10,10" Click="btnSearchOrganization_Click"/>
-                </StackPanel>
-            </StackPanel>
-        </StackPanel>
-        <DockPanel LastChildFill="False" Background="Blue" Margin="192,0,0,381">
-            <StackPanel DockPanel.Dock="Right" Width="75" Background="AntiqueWhite">
-                <Button x:Name="btnUser" VerticalAlignment="Center" HorizontalAlignment="Center" Width="30" Height="30" Click="btnUser_Click" Content="">
-                    <Button.Background>
-                        <ImageBrush ImageSource="/Windows/user_icon.png"/>
-                    </Button.Background>
-                </Button>
-                <Label x:Name="lblUsername" VerticalAlignment="Top" HorizontalAlignment="Center" Content="" Width="Auto"/>
-            </StackPanel>
+            <ContentControl DockPanel.Dock="Right" Name="contentControl" Margin="0,0,0,0" MinHeight="381" MinWidth="608" Height="Auto" Width="Auto"/>
         </DockPanel>
-
-        <ContentControl Name="contentControl" HorizontalAlignment="Left" Margin="192,53,0,0" VerticalAlignment="Top" MinHeight="381" MinWidth="608" Height="Auto" Width="Auto"/>
+        
     </Grid>
 </Window>

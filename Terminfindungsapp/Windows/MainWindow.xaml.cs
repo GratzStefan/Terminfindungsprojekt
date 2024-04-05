@@ -24,6 +24,7 @@ namespace Terminfindungsapp
     public partial class MainWindow : Window
     {
         private List<PostOrganization> postOrganizations;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -39,12 +40,15 @@ namespace Terminfindungsapp
         private async void LoadOrganizationsOfUser()
         {
             postOrganizations = await APICall.RunAsync<List<PostOrganization>>($"http://localhost:8080/api/organization/searchOrganizations/{User.GetInstance(null).ID}", null);
-            foreach (PostOrganization org in postOrganizations)
+            if(postOrganizations != null)
             {
-                Button btnOrganization = new Button();
-                btnOrganization.Content = org.name;
-                btnOrganization.Click += btnOrganization_Click;
-                staUserOrganizations.Children.Add(btnOrganization);
+                foreach (PostOrganization org in postOrganizations)
+                {
+                    Button btnOrganization = new Button();
+                    btnOrganization.Content = org.name;
+                    btnOrganization.Click += btnOrganization_Click;
+                    staUserOrganizations.Children.Add(btnOrganization);
+                }
             }
         }
 
@@ -67,7 +71,7 @@ namespace Terminfindungsapp
 
         private void btnUser_Click(object sender, RoutedEventArgs e)
         {
-
+            contentControl.Content = new UserSettingsControl();
         }
     }
 }

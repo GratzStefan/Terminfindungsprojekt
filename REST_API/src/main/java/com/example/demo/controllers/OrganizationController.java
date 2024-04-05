@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/organization")
 public class OrganizationController {
-    private final static Logger LOGGER = LoggerFactory.getLogger(UserController.class);
+    private final static Logger LOGGER = LoggerFactory.getLogger(OrganizationController.class);
     private final OrganizationService organizationService;
 
     public OrganizationController(OrganizationService organizationService) {
@@ -53,6 +53,7 @@ public class OrganizationController {
 
         return ResponseEntity.status(HttpStatus.valueOf(id)).build();
     }
+
     @PutMapping("/modify")
     public OrganizationDTO putOrganization(@RequestBody OrganizationDTO OrganizationDTO) {
         return organizationService.modify(OrganizationDTO);

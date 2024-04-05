@@ -27,7 +27,7 @@ namespace Terminfindungsapp
 
         private async void btnCreate_Click(object sender, RoutedEventArgs e)
         {
-            if(await APICall.PostAsync<PostOrganization>($"http://localhost:8080/api/organization/addUser", );
+            if(await APICall.PostAsync<PostOrganization>($"http://localhost:8080/api/organization/create", new PostOrganization(txtName.Name, User.GetInstance(null).ID)))
             {
                 MessageBox.Show("Successful!");
                 //TODO: Change to Organization-Perspective

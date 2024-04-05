@@ -54,3 +54,5 @@ C:\HTL_GITProjekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-wind
 C:\HTL_GITProjekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-windows\Windows\MainWindow.baml
 C:\HTL_GITProjekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-windows\Windows\RegisterWindow.baml
 C:\HTL_GITProjekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-windows\Terminfindungsapp.sourcelink.json
+C:\HTL_GITProjekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-windows\UserControls\UserSettingsControl.g.cs
+C:\HTL_GITProjekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-windows\UserControls\UserSettingsControl.baml

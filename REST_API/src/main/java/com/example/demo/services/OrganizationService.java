@@ -1,7 +1,6 @@
 package com.example.demo.services;
 
 import com.example.demo.dtos.OrganizationDTO;
-import com.example.demo.dtos.UserDTO;
 import org.bson.types.ObjectId;
 
 import java.util.List;

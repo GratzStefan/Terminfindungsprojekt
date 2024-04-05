@@ -4,12 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Terminfindungsapp"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="LightSkyBlue">
         <Label Name="lblName" HorizontalAlignment="Left" Margin="38,24,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <StackPanel Name="staEvents" Margin="0,56,0,159"/>
         <Button Content="Add user" Name="btnAddUser" HorizontalAlignment="Left" Margin="132,368,0,0" VerticalAlignment="Top" Click="btnAddUser_Click"/>
-        <Button Content="Add date" Name="btnAddDate" HorizontalAlignment="Left" Margin="229,368,0,0" VerticalAlignment="Top" Click="btnAddDate_Click"/>
-
+        <Button Content="Add event" Name="btnAddEvent" HorizontalAlignment="Left" Margin="229,368,0,0" VerticalAlignment="Top" Click="btnAddEvent_Click"/>
+        <TextBox Name="txtUserID" HorizontalAlignment="Left" Margin="107,328,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </UserControl>
