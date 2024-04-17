@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {AuthService} from "../auth.service";
+import { AuthService, DataService} from "../auth.service";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {JsonPipe} from "@angular/common";
 import {Router} from "@angular/router";
@@ -22,7 +22,8 @@ export class LoginComponent {
   constructor(
     private authService: AuthService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private dataService: DataService,
   ) {}
 
   login(){
@@ -31,11 +32,16 @@ export class LoginComponent {
       this.form.value.password
     );
 
-    if(!user) {
-      alert('Invalid username or password');
-    }
-    else {
-      this.router.navigateByUrl('/admin');
-    }
+    user.subscribe(data => {
+        this.dataService.sendData(data.id)
+        this.router.navigateByUrl('/homepage');
+      },
+      err => {
+        alert('Invalid username or password');
+      });
+  }
+
+  signup() {
+    this.router.navigateByUrl('/signup');
   }
 }

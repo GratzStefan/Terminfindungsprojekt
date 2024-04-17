@@ -3,16 +3,48 @@
   "WorkspaceRootPath": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|c:\\htl_gitprojekte\\terminfindungsprojekt\\terminfindungsapp\\usercontrols\\organizationcontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:usercontrols\\organizationcontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\windows\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:windows\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|c:\\htl_gitprojekte\\terminfindungsprojekt\\terminfindungsapp\\entities\\postevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:entities\\postevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|c:\\htl_gitprojekte\\terminfindungsprojekt\\terminfindungsapp\\entities\\postuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:entities\\postuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|c:\\htl_gitprojekte\\terminfindungsprojekt\\terminfindungsapp\\entities\\postorganization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:entities\\postorganization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\windows\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:windows\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\usercontrols\\organizationcontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:usercontrols\\organizationcontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\usercontrols\\organizationcontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:usercontrols\\organizationcontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\windows\\registerwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:windows\\registerwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\windows\\registerwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:windows\\registerwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\windows\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:windows\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\windows\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:windows\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\entities\\postevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:entities\\postevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,11 +54,107 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "PostUser.cs",
+              "DocumentMoniker": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\Entities\\PostUser.cs",
+              "RelativeDocumentMoniker": "Entities\\PostUser.cs",
+              "ToolTip": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\Entities\\PostUser.cs",
+              "RelativeToolTip": "Entities\\PostUser.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-17T10:56:46.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PostOrganization.cs",
+              "DocumentMoniker": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\Entities\\PostOrganization.cs",
+              "RelativeDocumentMoniker": "Entities\\PostOrganization.cs",
+              "ToolTip": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\Entities\\PostOrganization.cs",
+              "RelativeToolTip": "Entities\\PostOrganization.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T16:58:07.345Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\Windows\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Windows\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\Windows\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Windows\\MainWindow.xaml.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T16:52:08.349Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\Windows\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Windows\\MainWindow.xaml",
+              "ToolTip": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\Windows\\MainWindow.xaml",
+              "RelativeToolTip": "Windows\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-12T16:52:03.898Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "RegisterWindow.xaml.cs",
+              "DocumentMoniker": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\Windows\\RegisterWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Windows\\RegisterWindow.xaml.cs",
+              "ToolTip": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\Windows\\RegisterWindow.xaml.cs",
+              "RelativeToolTip": "Windows\\RegisterWindow.xaml.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAACQAAABbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-11T16:08:02.935Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RegisterWindow.xaml",
+              "DocumentMoniker": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\Windows\\RegisterWindow.xaml",
+              "RelativeDocumentMoniker": "Windows\\RegisterWindow.xaml",
+              "ToolTip": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\Windows\\RegisterWindow.xaml",
+              "RelativeToolTip": "Windows\\RegisterWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-11T16:07:57.56Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "LoginWindow.xaml.cs",
+              "DocumentMoniker": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\Windows\\LoginWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Windows\\LoginWindow.xaml.cs",
+              "ToolTip": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\Windows\\LoginWindow.xaml.cs",
+              "RelativeToolTip": "Windows\\LoginWindow.xaml.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-11T08:50:56.315Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "LoginWindow.xaml",
+              "DocumentMoniker": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\Windows\\LoginWindow.xaml",
+              "RelativeDocumentMoniker": "Windows\\LoginWindow.xaml",
+              "ToolTip": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\Windows\\LoginWindow.xaml",
+              "RelativeToolTip": "Windows\\LoginWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-11T08:50:47.085Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "PostEvent.cs",
               "DocumentMoniker": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\Entities\\PostEvent.cs",
               "RelativeDocumentMoniker": "Entities\\PostEvent.cs",
@@ -34,33 +162,30 @@
               "RelativeToolTip": "Entities\\PostEvent.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAABUAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-05T07:41:11.908Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-05T07:41:11.908Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "OrganizationControl.xaml.cs",
               "DocumentMoniker": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\UserControls\\OrganizationControl.xaml.cs",
               "RelativeDocumentMoniker": "UserControls\\OrganizationControl.xaml.cs",
               "ToolTip": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\UserControls\\OrganizationControl.xaml.cs",
               "RelativeToolTip": "UserControls\\OrganizationControl.xaml.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAIA5wCgAAAARAAAA",
+              "ViewState": "AQIAABsAAAAAAAAAAAAhwCgAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-04T09:13:18.761Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-04T09:13:18.761Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "OrganizationControl.xaml",
               "DocumentMoniker": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\UserControls\\OrganizationControl.xaml",
               "RelativeDocumentMoniker": "UserControls\\OrganizationControl.xaml",
               "ToolTip": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\UserControls\\OrganizationControl.xaml",
               "RelativeToolTip": "UserControls\\OrganizationControl.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-04T09:09:00.334Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-04T09:09:00.334Z"
             }
           ]
         }

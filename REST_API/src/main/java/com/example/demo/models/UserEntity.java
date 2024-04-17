@@ -6,6 +6,8 @@ import java.util.Objects;
 
 public class UserEntity {
     private ObjectId id;
+    private String firstname;
+    private String lastname;
     private String username;
     private String password;
 
@@ -13,8 +15,10 @@ public class UserEntity {
 
     }
 
-    public UserEntity(ObjectId id, String username, String password) {
+    public UserEntity(ObjectId id, String firstname, String lastname, String username, String password) {
         this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.username = username;
         this.password = password;
     }
@@ -25,6 +29,22 @@ public class UserEntity {
 
     public void setId(ObjectId id) {
         this.id = id;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getUsername() {
@@ -47,6 +67,8 @@ public class UserEntity {
     public String toString() {
         return "UserEntity{" +
                 "id=" + id +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';
@@ -56,12 +78,12 @@ public class UserEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UserEntity that = (UserEntity) o;
-        return Objects.equals(id, that.id) && Objects.equals(username, that.username) && Objects.equals(password, that.password);
+        UserEntity entity = (UserEntity) o;
+        return Objects.equals(id, entity.id) && Objects.equals(firstname, entity.firstname) && Objects.equals(lastname, entity.lastname) && Objects.equals(username, entity.username) && Objects.equals(password, entity.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, password);
+        return Objects.hash(id, firstname, lastname, username, password);
     }
 }

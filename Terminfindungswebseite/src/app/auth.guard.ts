@@ -3,7 +3,7 @@ import {inject} from "@angular/core";
 import {AuthService} from "./auth.service";
 
 export const authGuard: CanActivateFn = (route, state) => {
-  if(inject(AuthService).session) return true;
+  if(inject(AuthService)) return true;
   inject(Router).navigateByUrl('/');
   return false;
 };

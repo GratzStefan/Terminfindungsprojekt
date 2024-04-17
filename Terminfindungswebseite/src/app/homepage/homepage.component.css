@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: row;
+  margin: 0;
+}
+.navbar {
+  background: #D7E8D4;
+  flex: 1;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 5;
+}
+.content {
+  display: flex;
+  flex-direction: row;
+}
+.content > app-search {
+  flex: 4;
+  min-height: 60vh;
+}
+header, footer {
+  background: yellowgreen;
+  height: 20vh;
+}
+header, footer, app-search, nav {
+  padding: 1em;
+}
+#org {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.orgButton {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  background-color: lightslategrey;
+  color: #fff;
+  border: 0px;
+  outline: none;
+  margin-top: 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.orgButton:hover {
+  background-color: #CCC;
+  color: #666;
+}

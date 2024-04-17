@@ -19,17 +19,18 @@ public class UserController {
     }
 
     @GetMapping("/login")
-
-    public ResponseEntity<UserDTO> getUser(@RequestParam String username, @RequestParam String password) {
+    public ResponseEntity<UserDTO> getUser( @RequestParam String username, @RequestParam String password) {
         UserDTO dto = userService.login(username, password);
         if (dto == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         return ResponseEntity.ok(dto);
     }
 
-    @PostMapping("/register")
+    @PostMapping("/signup")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<UserDTO> postUser(@RequestBody UserDTO UserDTO) {
-        return ResponseEntity.ok(userService.register(UserDTO));
+        UserDTO dto = userService.register(UserDTO);
+        if (dto == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        return ResponseEntity.ok(dto);
     }
     @PutMapping("/modifyUser")
     public UserDTO putUser(@RequestBody UserDTO UserDTO) {

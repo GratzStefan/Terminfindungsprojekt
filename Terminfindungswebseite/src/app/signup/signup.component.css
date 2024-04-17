@@ -36,8 +36,24 @@
       cursor: not-allowed;
     }
 
+    #signup {
+      text-decoration: underline;
+    }
+
     #signup:hover {
       color: blue;
     }
+  }
+}
+
+#name {
+  display: flex;
+  justify-content: flex-start;
+  input{
+    width: 125px;
+    margin-right: 10px;
+  }
+  input:last-child {
+    margin-right: 0;
   }
 }
