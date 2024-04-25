@@ -40,6 +40,7 @@ public class OrganizationController {
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<String> postOrganization(@RequestBody OrganizationDTO OrganizationDTO) {
+        System.out.println(OrganizationDTO.name());
         ObjectId id = organizationService.create(OrganizationDTO);
         if(id == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         return ResponseEntity.ok(id.toHexString());

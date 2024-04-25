@@ -1,10 +1,13 @@
 #orgList {
   margin-top: 10px;
-  background-color: yellow;
 }
 
 .containerSearch {
-  border: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  border: 5px;
+  padding: 20px 0 20px 20px;
   margin-top: 10px;
-  background-color: #5c2ee4;
+  background-color: darkgray;
 }
+

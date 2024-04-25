@@ -3,18 +3,28 @@
 <body>
     <nav class="navbar">
       <p id="org">Your Organizations</p>
-      <div id="containerList">
-
+      <div id="containerList" (click)="clickedOnOrganization($event)">
+        <div class="userOrgs" *ngFor="let org of orgs">{{org.name}}</div>
       </div>
-      <div class="orgButton" (click)="type=ComponentType.Create">Create Organization</div>
-      <div class="orgButton" (click)="type=ComponentType.Search">Search Organization</div>
+      <div id="bottom">
+        <hr>
+        <div class="orgButton" (click)="type=ComponentType.Create">
+          <p>Create Organization</p>
+          <img ngSrc="assets/right_arrow.png" alt="Right Arrow" height="512" width="512">
+        </div>
+        <div class="orgButton" (click)="type=ComponentType.Search">
+          <p>Search Organization</p>
+          <img ngSrc="assets/right_arrow.png" alt="Right Arrow" height="512" width="512">
+        </div>
+      </div>
     </nav>
     <div class="container">
         <header>Header</header>
         <main class="content">
-            <ng-container [ngSwitch]="type">
+            <ng-container id="comContainer" [ngSwitch]="type">
               <app-search *ngSwitchCase="ComponentType.Search"></app-search>
               <app-create *ngSwitchCase="ComponentType.Create"></app-create>
+              <app-organization [orgName]="orgName" *ngSwitchCase="ComponentType.Organization"></app-organization>
             </ng-container>
         </main>
     </div>

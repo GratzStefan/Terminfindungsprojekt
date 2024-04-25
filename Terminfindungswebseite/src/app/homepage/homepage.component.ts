@@ -1,8 +1,9 @@
 import { Component, AfterViewInit, ElementRef } from '@angular/core';
-import {RouterLink, RouterOutlet, ɵEmptyOutletComponent} from "@angular/router";
+import {ɵEmptyOutletComponent, RouterLink, RouterOutlet } from "@angular/router";
 import {AuthService, DataService, Organization} from "../auth.service";
 import {SearchComponent} from "./search/search.component";
-import {NgSwitch, NgSwitchCase} from "@angular/common";
+import {OrganizationComponent} from "./organization/organization.component";
+import {NgForOf, NgOptimizedImage, NgSwitch, NgSwitchCase} from "@angular/common";
 import {CreateComponent} from "./create/create.component";
 
 @Component({
@@ -15,34 +16,36 @@ import {CreateComponent} from "./create/create.component";
     ɵEmptyOutletComponent,
     NgSwitch,
     NgSwitchCase,
-    CreateComponent
+    CreateComponent,
+    NgForOf,
+    NgOptimizedImage,
+    OrganizationComponent
   ],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css'
 })
 export class HomepageComponent {
   type: ComponentType = ComponentType.Default;
-  constructor(private elementRef: ElementRef, private authService: AuthService, private dataService: DataService) {}
+  orgs: Organization[] = new Array<Organization>();
+  constructor(private elementRef: ElementRef, private authService: AuthService) {}
 
   ngAfterViewInit(){
-    var data = this.dataService.data;
-    if(typeof data === "string"){
+    const data = DataService.data;
+    if(data != null){
       this.authService.getuserorganizations(data).subscribe(organizations => {
-        organizations.forEach(org => {
-          this.addContainer(org.name);
-        });
+        this.orgs = organizations;
       });
     }
   }
-
-  addContainer(org: string | undefined) {
-    if (typeof org === "string") {
-      var newContainer = document.createElement("div");
-      newContainer.className = "container";
-      var containerContent = document.createTextNode(org);
-      newContainer.appendChild(containerContent);
-      var containerList = document.getElementById("containerList");
-      containerList?.appendChild(newContainer);
+  orgName: string = "";
+  clickedOnOrganization(event: MouseEvent){
+    const clickedElement = event.target as HTMLElement;
+    if (clickedElement.classList.contains('userOrgs')) {
+      const value = clickedElement.textContent?.trim();
+      if(value != null){
+        this.orgName = value;
+        this.type = ComponentType.Organization;
+      }
     }
   }
 
@@ -52,5 +55,6 @@ export class HomepageComponent {
 export enum ComponentType {
   Default,
   Search,
-  Create
+  Create,
+  Organization
 }

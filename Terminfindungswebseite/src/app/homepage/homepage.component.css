@@ -9,8 +9,11 @@ body {
   margin: 0;
 }
 .navbar {
+  display: flex;
+  flex-direction: column;
   background: #D7E8D4;
   flex: 1;
+  position: relative;
 }
 .container {
   display: flex;
@@ -21,7 +24,7 @@ body {
   display: flex;
   flex-direction: row;
 }
-.content > app-search {
+.content > #comContainer {
   flex: 4;
   min-height: 60vh;
 }
@@ -29,28 +32,62 @@ header, footer {
   background: yellowgreen;
   height: 20vh;
 }
-header, footer, app-search, nav {
+header, footer, #comContainer, nav {
   padding: 1em;
 }
 #org {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
 }
 
 .orgButton {
-  width: 100%;
-  text-align: center;
-  padding: 20px 0;
   background-color: lightslategrey;
-  color: #fff;
-  border: 0px;
+  border: 0;
   outline: none;
-  margin-top: 20px;
   text-transform: uppercase;
   cursor: pointer;
+  margin: 20px 1em 20px 1em;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  p {
+    color: #fff;
+    padding-left: 20px;
+  }
+  img {
+    width: 24px;
+    height: 24px;
+    margin-right: 20px;
+  }
 }
 
 .orgButton:hover {
   background-color: #CCC;
   color: #666;
+}
+
+#bottom {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+#containerList {
+  display: flex;
+  flex-direction: column;
+  .userOrgs {
+    margin-top: 10px;
+    padding: 20px 10px;
+    background-color: lightslategrey;
+    color: #fff;
+    border: black;
+  }
+}
+
+header {
+  height: 4em;
 }

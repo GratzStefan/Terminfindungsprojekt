@@ -41,8 +41,14 @@ export class AuthService {
     return this.http.get<Organization[]>(`${this.apiUrl}organization/searchOrganizations/${userid}`);
   }
 
-  createorganization(){
+  createorganization(orgName: string){
+    let org: Organization = {
+      name: orgName,
+      creatorid: DataService.data
+    }
+    console.log(org.id, org.name, org.creatorid);
 
+    return this.http.post<string>(`${this.apiUrl}organization/create`, org);
   }
 
   searchorganizations(name: string) {
@@ -65,17 +71,14 @@ export interface User {
 }
 
 export interface Organization {
-  id: string;
+  id?: string;
   name: string;
+  creatorid?: string;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  data: string | undefined = "";
-
-  sendData(data: string | undefined) {
-    this.data = data;
-  }
+  static data: string | undefined = "";
 }

@@ -22,8 +22,7 @@ export class LoginComponent {
   constructor(
     private authService: AuthService,
     private fb: FormBuilder,
-    private router: Router,
-    private dataService: DataService,
+    private router: Router
   ) {}
 
   login(){
@@ -33,7 +32,8 @@ export class LoginComponent {
     );
 
     user.subscribe(data => {
-        this.dataService.sendData(data.id)
+      DataService.data = data.id;
+      //this.dataService.sendData(data.id)
         this.router.navigateByUrl('/homepage');
       },
       err => {
