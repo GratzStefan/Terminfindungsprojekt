@@ -55,6 +55,22 @@ export class AuthService {
     return this.http.get<Organization[]>(`${this.apiUrl}organization/search/${name}`);
   }
 
+  geteventsorganization(orgid: string){
+    return this.http.get<Event[]>(`${this.apiUrl}events/search/${orgid}`);
+  }
+
+  getuserlist(orgid: string) {
+    return this.http.get<User[]>(`${this.apiUrl}organization/userListOrganization/${orgid}`);
+  }
+
+  promoteUser(userid: string | undefined, orgid: string | undefined, adminid: string | undefined) {
+    return this.http.put(`${this.apiUrl}organization/promote?userid=${userid}&orgid=${orgid}&adminid=${adminid}`, null);
+  }
+
+  removeuserorganization(userid: string | undefined, orgid: string | undefined, adminid: string | undefined) {
+    return this.http.delete(`${this.apiUrl}organization/removeUser?userid=${userid}&orgid=${orgid}&adminid=${adminid}`);
+  }
+
   logout(){
     //this.session = undefined;
     //localStorage.removeItem('session');
@@ -76,6 +92,14 @@ export interface Organization {
   creatorid?: string;
 }
 
+export interface Event {
+  id?: string;
+  titel: string;
+  description: string;
+  datetimestart: Date;
+  datetimeend: Date;
+  organizationid: string;
+}
 @Injectable({
   providedIn: 'root'
 })

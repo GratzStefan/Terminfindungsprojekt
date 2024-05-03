@@ -1,5 +1,3 @@
-<!doctype html>
-<title>Example</title>
 <body>
     <nav class="navbar">
       <p id="org">Your Organizations</p>
@@ -21,10 +19,10 @@
     <div class="container">
         <header>Header</header>
         <main class="content">
-            <ng-container id="comContainer" [ngSwitch]="type">
-              <app-search *ngSwitchCase="ComponentType.Search"></app-search>
-              <app-create *ngSwitchCase="ComponentType.Create"></app-create>
-              <app-organization [orgName]="orgName" *ngSwitchCase="ComponentType.Organization"></app-organization>
+            <ng-container [ngSwitch]="type">
+              <app-search class="comContainer" *ngSwitchCase="ComponentType.Search"></app-search>
+              <app-create class="comContainer" *ngSwitchCase="ComponentType.Create"></app-create>
+              <app-organization class="comContainer" [org]="org" *ngSwitchCase="ComponentType.Organization"></app-organization>
             </ng-container>
         </main>
     </div>

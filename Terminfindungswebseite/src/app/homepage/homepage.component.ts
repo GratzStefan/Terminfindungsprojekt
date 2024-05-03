@@ -37,13 +37,13 @@ export class HomepageComponent {
       });
     }
   }
-  orgName: string = "";
+  org: Organization | undefined;
   clickedOnOrganization(event: MouseEvent){
     const clickedElement = event.target as HTMLElement;
     if (clickedElement.classList.contains('userOrgs')) {
       const value = clickedElement.textContent?.trim();
       if(value != null){
-        this.orgName = value;
+        this.org = this.orgs.find(o => o.name === value);
         this.type = ComponentType.Organization;
       }
     }

@@ -2,14 +2,16 @@ package com.example.demo.services;
 
 import com.example.demo.dtos.OrganizationDTO;
 import com.example.demo.dtos.UserDTO;
-import com.example.demo.models.OrganizationEntity;
 import com.example.demo.models.UserEntity;
 import com.example.demo.repositories.OrganizationRepository;
-import com.example.demo.repositories.UserRepository;
+import com.example.demo.repositories.Pair;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class OrganizationServiceImpl implements OrganizationService{
@@ -40,12 +42,27 @@ public class OrganizationServiceImpl implements OrganizationService{
     }
 
     @Override
+    public List<UserDTO> userListOfOrganization(String orgid) {
+        return organizationRepository.userListOfOrganization(orgid).stream().map(UserDTO::new).toList();
+    }
+
+    @Override
     public OrganizationDTO modify(OrganizationDTO OrganizationDTO) {
         return new OrganizationDTO(organizationRepository.modify(OrganizationDTO.toOrganizationEntity()));
     }
 
     @Override
+    public boolean promoteUser(String orgid, String userid, String adminid) {
+        return organizationRepository.promoteUser(orgid, userid, adminid);
+    }
+
+    @Override
     public long delete(String id) {
         return organizationRepository.delete(id);
+    }
+
+    @Override
+    public boolean removeUser(String userid, String orgid, String adminid) {
+        return organizationRepository.removeUser(userid, orgid, adminid);
     }
 }

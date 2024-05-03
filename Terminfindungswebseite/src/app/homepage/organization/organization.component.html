@@ -1,1 +1,30 @@
-<p>{{ orgName }}</p>
+<body>
+  <h1>{{ this.org?.name }}</h1>
+  <div id="containers">
+    <div id="containerEventList">
+      <h2>Events: </h2>
+      <div *ngIf="events.length!=0">
+        <div *ngFor="let group of groupedEvents">
+          <h3>{{ group.date | date: 'fullDate' }}</h3>
+          <div class="event" *ngFor="let event of group.events">
+            <div id="titel">{{event.titel}}</div>
+            <div id="time">{{event.datetimestart.toString().split('T')[1] + " - " + event.datetimeend.toString().split('T')[1] }}</div>
+          </div>
+        </div>
+      </div>
+      <p *ngIf="events.length==0">There are no existing events!</p>
+    </div>
+    <div id="containerUserList">
+      <h2>Users:</h2>
+      <div class="user" *ngFor="let user of users">
+        <div id="name">{{user.username}}</div>
+        <img id="promote" alt="https://www.flaticon.com/free-icon/advertisement_9581612?term=promote&page=2&position=61&origin=search&related_id=9581612"
+             ngSrc="assets/promote.png" height="32" width="32"
+             (click)="promoteUser(user.id)"/>
+        <img id="remove" alt="https://www.flaticon.com/free-icon/remove_2984959?term=remove&page=1&position=3&origin=search&related_id=2984959"
+             ngSrc="assets/remove.png" height="32" width="32"
+             (click)="removeUserFromOrganization(user.id)"/>
+      </div>
+    </div>
+  </div>
+</body>

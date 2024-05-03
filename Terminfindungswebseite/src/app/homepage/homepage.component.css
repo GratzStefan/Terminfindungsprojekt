@@ -2,92 +2,94 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
+
 body {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
   flex-direction: row;
-  margin: 0;
 }
+
 .navbar {
   display: flex;
   flex-direction: column;
   background: #D7E8D4;
   flex: 1;
   position: relative;
+  padding: 1em;
+
+  #org {
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  #containerList {
+    display: flex;
+    flex-direction: column;
+
+    .userOrgs {
+      margin-top: 10px;
+      padding: 20px 10px;
+      background-color: lightslategrey;
+      color: #fff;
+      border: black;
+    }
+  }
+
+  #bottom {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+
+    .orgButton {
+      background-color: lightslategrey;
+      border: 0;
+      outline: none;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin: 20px 1em 20px 1em;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      p {
+        color: #fff;
+        padding-left: 20px;
+      }
+
+      img {
+        width: 24px;
+        height: 24px;
+        margin-right: 20px;
+      }
+    }
+
+    .orgButton:hover {
+      background-color: #CCC;
+      color: #666;
+    }
+  }
 }
+
 .container {
   display: flex;
   flex-direction: column;
   flex: 5;
-}
-.content {
-  display: flex;
-  flex-direction: row;
-}
-.content > #comContainer {
-  flex: 4;
-  min-height: 60vh;
-}
-header, footer {
-  background: yellowgreen;
-  height: 20vh;
-}
-header, footer, #comContainer, nav {
-  padding: 1em;
-}
-#org {
-  font-size: 25px;
-  font-weight: bold;
-}
+  height: 100vh;
 
-.orgButton {
-  background-color: lightslategrey;
-  border: 0;
-  outline: none;
-  text-transform: uppercase;
-  cursor: pointer;
-  margin: 20px 1em 20px 1em;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  p {
-    color: #fff;
-    padding-left: 20px;
+  header {
+    background: yellowgreen;
+    height: 50px;
+    padding: 1em;
   }
-  img {
-    width: 24px;
-    height: 24px;
-    margin-right: 20px;
+
+  .content {
+    flex-grow: 1;
+
+    #comContainer {
+      height: 100%;
+    }
   }
-}
-
-.orgButton:hover {
-  background-color: #CCC;
-  color: #666;
-}
-
-#bottom {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-}
-
-#containerList {
-  display: flex;
-  flex-direction: column;
-  .userOrgs {
-    margin-top: 10px;
-    padding: 20px 10px;
-    background-color: lightslategrey;
-    color: #fff;
-    border: black;
-  }
-}
-
-header {
-  height: 4em;
 }
