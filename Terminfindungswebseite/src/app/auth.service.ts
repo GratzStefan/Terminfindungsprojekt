@@ -63,6 +63,10 @@ export class AuthService {
     return this.http.get<User[]>(`${this.apiUrl}organization/userListOrganization/${orgid}`);
   }
 
+  addEvent(event: Event){
+    return this.http.post<Event>(`${this.apiUrl}events/add`, event)
+  }
+
   promoteUser(userid: string | undefined, orgid: string | undefined, adminid: string | undefined) {
     return this.http.put(`${this.apiUrl}organization/promote?userid=${userid}&orgid=${orgid}&adminid=${adminid}`, null);
   }
@@ -95,7 +99,7 @@ export interface Organization {
 export interface Event {
   id?: string;
   titel: string;
-  description: string;
+  description?: string;
   datetimestart: Date;
   datetimeend: Date;
   organizationid: string;

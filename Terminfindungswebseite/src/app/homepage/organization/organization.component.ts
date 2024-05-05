@@ -1,25 +1,59 @@
 import {Component, Input, SimpleChanges} from '@angular/core';
 import {AuthService, Organization, Event, User, DataService} from "../../auth.service";
-import {DatePipe, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
+import {DatePipe, NgClass, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
+
+import {animate, state, style, transition, trigger} from "@angular/animations";
+import {FormsModule} from "@angular/forms";
+
 
 @Component({
   selector: 'app-organization',
   standalone: true,
+  providers: [],
   imports: [
     NgForOf,
     NgIf,
     NgOptimizedImage,
-    DatePipe
+    DatePipe,
+    NgClass,
+    FormsModule,
   ],
   templateUrl: './organization.component.html',
-  styleUrl: './organization.component.css'
+  styleUrl: './organization.component.css',
+  animations: [
+    trigger('expandCollapse', [
+      state('hidden', style({
+        height: '55px',
+        opacity: 1
+      })),
+      state('expanded', style({
+        height: '*',
+        opacity: 1
+      })),
+      transition('hidden <=> expanded', [
+        animate('0.5s')
+      ]),
+    ]),
+  ]
 })
+
 export class OrganizationComponent {
   @Input()
   org: Organization | undefined;
 
+  titel: string = "";
+  description?: string;
+  start: Date = new Date();
+  end: Date = new Date();
+
   events: Event[] = new Array<Event>;
   users: Array<User> = new Array<User>();
+
+  isExpanded: boolean = false;
+
+  toggleSize() {
+    this.isExpanded = !this.isExpanded;
+  }
 
   constructor(private authService: AuthService) {}
 
@@ -30,7 +64,6 @@ export class OrganizationComponent {
       if(orgId != null){
         this.authService.geteventsorganization(orgId).subscribe(events => {
           this.events = events
-          //this.groupedEvents();
         });
         this.authService.getuserlist(orgId).subscribe(users => this.users = users);
       }
@@ -47,6 +80,32 @@ export class OrganizationComponent {
       grouped[dateKey].events.push(event);
     });
     return Object.values(grouped);
+  }
+
+  addEvent() {
+    if(this.titel != "" && this.org?.id != undefined) {
+      if(this.start<this.end)
+      {
+        if(this.description == ""){
+          this.description = undefined;
+        }
+        let newEvent: Event = {
+          titel: this.titel,
+          description: this.description,
+          datetimestart: this.start,
+          datetimeend: this.end,
+          organizationid: this.org?.id,
+        }
+        console.log(newEvent);
+        this.authService.addEvent(newEvent).subscribe(value => console.log(value));
+      }
+      else {
+        console.log("End-Date is smaller or the same");
+      }
+    }
+    else{
+      console.log("Event got to have a titel!")
+    }
   }
 
   promoteUser(userid: string|undefined){
@@ -75,6 +134,6 @@ export class OrganizationComponent {
 
 interface GroupedEvent {
   date: Date;
-  events: any[]; // Adjust this type according to your event structure
+  events: any[];
 }
 

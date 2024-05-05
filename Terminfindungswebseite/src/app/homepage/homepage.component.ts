@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ElementRef } from '@angular/core';
+import {Component, ElementRef} from '@angular/core';
 import {ɵEmptyOutletComponent, RouterLink, RouterOutlet } from "@angular/router";
 import {AuthService, DataService, Organization} from "../auth.service";
 import {SearchComponent} from "./search/search.component";
@@ -22,7 +22,9 @@ import {CreateComponent} from "./create/create.component";
     OrganizationComponent
   ],
   templateUrl: './homepage.component.html',
-  styleUrl: './homepage.component.css'
+  styleUrl: './homepage.component.css',
+  //TODO: Delete afterwards (for testing purposes)
+  host: {ngSkipHydration: 'true'},
 })
 export class HomepageComponent {
   type: ComponentType = ComponentType.Default;
@@ -30,8 +32,12 @@ export class HomepageComponent {
   constructor(private elementRef: ElementRef, private authService: AuthService) {}
 
   ngAfterViewInit(){
-    const data = DataService.data;
-    if(data != null){
+    let data = DataService.data;
+
+    //TODO: Delete afterwards (Due to testing purposes)
+    data = "663519a065014269ff6d96ac";
+
+    if(data != null && data != ""){
       this.authService.getuserorganizations(data).subscribe(organizations => {
         this.orgs = organizations;
       });

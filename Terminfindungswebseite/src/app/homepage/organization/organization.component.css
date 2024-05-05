@@ -1,16 +1,15 @@
-* {
-  margin: 1.5em;
-}
-
 body {
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
+  background-color: #cccccc;
 }
 
-h1 {
-  #flex: 1;
+#orgName {
+  background-color: #666666;
+  margin: 0;
+  padding: 1em;
 }
 
 #containers {
@@ -18,54 +17,126 @@ h1 {
   flex-direction: row;
   height: 100%;
   width: 100%;
-  margin: 0 auto;
+  padding-top: 1em;
 
   #containerEventList {
-    width: 70%;
-    .event {
-      background-color: #666666;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+
+    #grouped {
       display: flex;
-      flex-direction: row;
-      justify-content: center;
+      flex-direction: column;
+      .event {
+        background-color: #666666;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 1.5em;
 
-      #titel {
-        font-weight: bold;
-        margin-right: auto;
-      }
+        #evTitel {
+          font-weight: bold;
+          margin-right: auto;
+        }
 
-      #time {
-        margin-left: auto;
+        #time {
+          margin-left: auto;
+        }
       }
     }
+
+    #grouped > div:not(:last-child) {
+      margin-bottom: 15px;
+    }
+
+    #addEvent {
+        margin-top: auto;
+
+        display: flex;
+        flex-direction: column;
+        height: auto;
+
+        background-color: #555555;
+        border-radius: 15px 15px 0 0;
+
+        h3 {
+          padding-left: 1.5em;
+          padding-right: 1.5em;
+        }
+
+        #content {
+          background-color: #666666;
+          padding-left: 1.5em;
+          padding-right: 1.5em;
+
+          #addTitel {
+            display: flex;
+            flex-direction: column;
+          }
+
+          #addDescription {
+            display: flex;
+            flex-direction: column;
+          }
+
+          #timeline {
+            display: flex;
+            flex-direction: column;
+            #dates {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+            }
+          }
+
+          #btnAdd {
+            background-color: #3ae03a;
+            width: 100px;
+            height: 25px;
+            justify-self: center;
+            margin-top: 1.5em;
+            margin-bottom: 1.5em;
+          }
+        }
+      }
   }
 
   #containerUserList {
-    width: 30%;
+    width: 40%;
     border-left: 6px solid black;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    margin-bottom: 1em;
+
     .user {
       background-color: #666666;
       display: flex;
       flex-direction: row;
       align-items: center;
+      padding: 0.75em 1.5em;
 
       #name {
         font-weight: bold;
-        justify-content: flex-start;
       }
 
-      img {
-        margin-right: auto;
-        justify-content: flex-end;
-      }
+      #icons {
+        margin-left: auto;
+        display: flex;
 
-      #promote:hover {
-        background-color: blue;
-      }
+        #remove {
+          margin-left: 20px;
+        }
 
-      #remove:hover {
-        background-color: red;
+        #promote:hover {
+          background-color: #4848ff;
+        }
+
+        #remove:hover {
+          background-color: #ff4d4d;
+        }
       }
     }
   }
 }
-
