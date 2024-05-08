@@ -59,7 +59,7 @@ export class AuthService {
     return this.http.get<Event[]>(`${this.apiUrl}events/search/${orgid}`);
   }
 
-  getuserlist(orgid: string) {
+  getuserlist(orgid: string | undefined) {
     return this.http.get<User[]>(`${this.apiUrl}organization/userListOrganization/${orgid}`);
   }
 

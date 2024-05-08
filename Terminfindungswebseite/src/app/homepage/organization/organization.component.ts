@@ -5,7 +5,6 @@ import {DatePipe, NgClass, NgForOf, NgIf, NgOptimizedImage} from "@angular/commo
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {FormsModule} from "@angular/forms";
 
-
 @Component({
   selector: 'app-organization',
   standalone: true,
@@ -37,6 +36,7 @@ import {FormsModule} from "@angular/forms";
   ]
 })
 
+
 export class OrganizationComponent {
   @Input()
   org: Organization | undefined;
@@ -49,11 +49,8 @@ export class OrganizationComponent {
   events: Event[] = new Array<Event>;
   users: Array<User> = new Array<User>();
 
-  isExpanded: boolean = false;
+  isExpandedAddEvent: boolean = false;
 
-  toggleSize() {
-    this.isExpanded = !this.isExpanded;
-  }
 
   constructor(private authService: AuthService) {}
 
@@ -62,10 +59,24 @@ export class OrganizationComponent {
       this.events = new Array<Event>();
       let orgId = this.org?.id;
       if(orgId != null){
-        this.authService.geteventsorganization(orgId).subscribe(events => {
-          this.events = events
-        });
+        this.authService.geteventsorganization(orgId).subscribe(events => this.events = events);
         this.authService.getuserlist(orgId).subscribe(users => this.users = users);
+        /* -- Test Data --
+        this.users = [
+          { username: "test", lastname: "hi", firstname: "test", password: "test"},
+          { username: "test", lastname: "hi", firstname: "test", password: "test"},
+          { username: "test", lastname: "hi", firstname: "test", password: "test"},
+          { username: "test", lastname: "hi", firstname: "test", password: "test"},
+          { username: "test", lastname: "hi", firstname: "test", password: "test"},
+          { username: "test", lastname: "hi", firstname: "test", password: "test"},
+          { username: "test", lastname: "hi", firstname: "test", password: "test"},
+          { username: "test", lastname: "hi", firstname: "test", password: "test"},
+          { username: "test", lastname: "hi", firstname: "test", password: "test"},
+          { username: "test", lastname: "hi", firstname: "test", password: "test"},
+          { username: "test", lastname: "hi", firstname: "test", password: "test"},
+          { username: "test", lastname: "hi", firstname: "test", password: "test"},
+          { username: "test", lastname: "hi", firstname: "test", password: "test"},
+        ];*/
       }
     }
   }
@@ -73,7 +84,7 @@ export class OrganizationComponent {
   get groupedEvents(){
     const grouped: { [date: string]: GroupedEvent } = {};
     this.events.forEach(event => {
-      const dateKey = event.datetimestart.toString().split('T')[0]; // Grouping by date only
+      const dateKey = event.datetimestart.toString().split('T')[0];
       if (!grouped[dateKey]) {
         grouped[dateKey] = { date: event.datetimestart, events: [] };
       }
@@ -96,25 +107,27 @@ export class OrganizationComponent {
           datetimeend: this.end,
           organizationid: this.org?.id,
         }
-        console.log(newEvent);
+
         this.authService.addEvent(newEvent).subscribe(value => console.log(value));
+        this.authService.geteventsorganization(this.org?.id).subscribe(events => this.events = events);
+        alert("Added Event successfully!");
       }
       else {
-        console.log("End-Date is smaller or the same");
+        alert("End-Date has to be smaller or the same");
       }
     }
     else{
-      console.log("Event got to have a titel!")
+      alert("Event got to have a titel!");
     }
   }
 
   promoteUser(userid: string|undefined){
     this.authService.promoteUser(userid, this.org?.id, DataService.data).subscribe(worked => {
       if(worked){
-        console.log("Worked");
+        alert("Promoted User");
       }
       else {
-        console.log("Did not work!")
+        alert("You do not have the rights!")
       }
     });
   }
@@ -122,18 +135,17 @@ export class OrganizationComponent {
   removeUserFromOrganization(userid: string|undefined) {
     this.authService.removeuserorganization(userid, this.org?.id, DataService.data).subscribe(worked => {
       if(worked){
-        console.log("Worked");
+        alert("Removed User")
+        this.authService.getuserlist(this.org?.id).subscribe(users => this.users = users);
       }
       else {
-        console.log("Did not work!")
+        alert("You do not have the rights!")
       }
     });
   }
-
 }
 
 interface GroupedEvent {
   date: Date;
   events: any[];
 }
-
