@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <p *ngIf="events.length==0">There are no existing events!</p>
+      <p *ngIf="events.length==0" style="flex: 1; font-style: italic">There are no existing events!</p>
       <div id="addEvent" [@expandCollapse]="isExpandedAddEvent ? 'expanded' : 'hidden'">
          <h3 (click)="isExpandedAddEvent = !isExpandedAddEvent">New Event</h3>
          <div id="content" *ngIf="isExpandedAddEvent">
