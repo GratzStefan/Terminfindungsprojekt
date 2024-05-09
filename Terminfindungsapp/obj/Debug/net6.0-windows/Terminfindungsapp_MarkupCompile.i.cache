@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\HTL_GITProjekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-windows\
+C:\Projekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-windows\
 Terminfindungsapp
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\HTL_GITProjekte\Terminfindungsprojekt\Terminfindungsapp\App.xaml
+C:\Projekte\Terminfindungsprojekt\Terminfindungsapp\App.xaml
 7-1093146526
 
 17622629561
-203-297069038
+203-900020589
 UserControls\CreateOrganizationControl.xaml;UserControls\OrganizationControl.xaml;UserControls\SearchOrganizationControl.xaml;UserControls\UserSettingsControl.xaml;Windows\LoginWindow.xaml;Windows\MainWindow.xaml;Windows\RegisterWindow.xaml;
 
-False
+True
 

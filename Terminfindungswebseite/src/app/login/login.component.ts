@@ -32,8 +32,7 @@ export class LoginComponent {
     );
 
     user.subscribe(data => {
-      DataService.data = data.id;
-      //this.dataService.sendData(data.id)
+        DataService.user = data;
         this.router.navigateByUrl('/homepage');
       },
       err => {

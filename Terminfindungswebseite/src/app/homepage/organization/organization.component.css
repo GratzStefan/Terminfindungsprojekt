@@ -34,7 +34,6 @@ body {
       overflow-y: auto;
       flex: 1;
       padding: 0.25em 1.65em 1em;
-
       background-color: #a1a1a1;
 
       #grouped {
@@ -188,7 +187,17 @@ body {
   }
 }
 
+/* width */
 ::-webkit-scrollbar {
-  width: 0;
-  background: transparent;
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track{
+  padding-block: 25px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #474747;
+  border-radius: 10px;
 }

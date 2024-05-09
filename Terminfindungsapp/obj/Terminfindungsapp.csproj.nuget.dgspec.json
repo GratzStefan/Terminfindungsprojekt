@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\Terminfindungsapp.csproj": {}
+    "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\Terminfindungsapp.csproj": {}
   },
   "projects": {
-    "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\Terminfindungsapp.csproj": {
+    "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\Terminfindungsapp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\Terminfindungsapp.csproj",
+        "projectUniqueName": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\Terminfindungsapp.csproj",
         "projectName": "Terminfindungsapp",
-        "projectPath": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\Terminfindungsapp.csproj",
+        "projectPath": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\Terminfindungsapp.csproj",
         "packagesPath": "C:\\Users\\Stefan\\.nuget\\packages\\",
-        "outputPath": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\obj\\",
+        "outputPath": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Stefan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -55,6 +55,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.29, 6.0.29]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.29, 6.0.29]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.29, 6.0.29]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.29, 6.0.29]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -63,7 +81,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     }

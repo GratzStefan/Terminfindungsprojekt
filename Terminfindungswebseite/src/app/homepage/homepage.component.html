@@ -1,29 +1,47 @@
 <link rel="stylesheet" href="homepage.component.css">
 <body>
     <nav class="navbar">
-      <p id="org">Your Organizations</p>
+      <h3 id="org">Organizations:</h3>
       <div id="containerList" (click)="clickedOnOrganization($event)">
-        <div class="userOrgs" *ngFor="let org of orgs">{{org.name}}</div>
+        <div class="userOrgs" [class.selected]="org.id===this.curOrg?.id && this.type==ComponentType.Organization" *ngFor="let org of orgs">{{org.name}}</div>
       </div>
       <div id="bottom">
         <hr>
-        <div class="orgButton" (click)="type=ComponentType.Create">
+        <div class="orgButton" [class.selected]="this.type==ComponentType.Create" (click)="type=ComponentType.Create">
           <p>Create Organization</p>
           <img ngSrc="assets/right_arrow.png" alt="Right Arrow" height="512" width="512">
         </div>
-        <div class="orgButton" (click)="type=ComponentType.Search">
+        <div class="orgButton" [class.selected]="this.type==ComponentType.Search" (click)="type=ComponentType.Search">
           <p>Search Organization</p>
           <img ngSrc="assets/right_arrow.png" alt="Right Arrow" height="512" width="512">
         </div>
       </div>
     </nav>
     <div class="container">
-        <header>Header</header>
+        <header>
+          <h1 id="name">SuperPlaner</h1>
+          <div id="tabs">
+            <div id="home" [class.selected]="this.type==ComponentType.Default" (click)="type=ComponentType.Default">
+              <img src="assets/home.png" alt="https://www.flaticon.com/free-icon/home_1946488?term=home&page=1&position=2&origin=search&related_id=1946488"/>
+              <p>Home</p>
+            </div>
+            <div id="user" [class.selected]="this.type==ComponentType.User" (click)="type=ComponentType.User">
+              <img src="assets/user.png" alt="https://www.flaticon.com/free-icon/user_747376?term=user&page=1&position=10&origin=search&related_id=747376"/>
+              <p>{{ DataService.user?.username }}</p>
+            </div>
+            <div id="logout" (click)="this.authService.logout()">
+              <img src="assets/exit.png" alt="https://www.flaticon.com/free-icon/exit_1286853?term=logout&page=1&position=7&origin=search&related_id=1286853"/>
+              <p>Logout</p>
+            </div>
+          </div>
+        </header>
         <main class="content">
             <ng-container [ngSwitch]="type">
+              <app-home class="comContainer" *ngSwitchCase="ComponentType.Default"></app-home>
               <app-search class="comContainer" *ngSwitchCase="ComponentType.Search"></app-search>
               <app-create class="comContainer" *ngSwitchCase="ComponentType.Create"></app-create>
-              <app-organization class="comContainer" [org]="org" *ngSwitchCase="ComponentType.Organization"></app-organization>
+              <app-organization class="comContainer" [org]="curOrg" *ngSwitchCase="ComponentType.Organization"></app-organization>
+              <app-user class="comContainer" *ngSwitchCase="ComponentType.User"></app-user>
             </ng-container>
         </main>
     </div>

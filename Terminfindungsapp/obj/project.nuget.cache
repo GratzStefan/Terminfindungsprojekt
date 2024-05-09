@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "Ma5fQkL3znnTDBUEo0mrGsrt9WCvdlSX108KgiWX8Pv5q/eQ9mhPPXM6SihpAjxWef76wXFcP5J9xqJEUaopDw==",
+  "dgSpecHash": "F7xV1kt4BH+BBN7z//Nbocjpdsof6WJlms5pcyM14/xSd5LFD+dTgxio5yvX0USXe9VjQz0bzSjmWcM68ZrdEg==",
   "success": true,
-  "projectFilePath": "C:\\HTL_GITProjekte\\Terminfindungsprojekt\\Terminfindungsapp\\Terminfindungsapp.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\Terminfindungsapp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Stefan\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.29\\microsoft.windowsdesktop.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\Stefan\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.29\\microsoft.netcore.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\Stefan\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.29\\microsoft.aspnetcore.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\Stefan\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.29\\microsoft.netcore.app.host.win-x64.6.0.29.nupkg.sha512"
+  ],
   "logs": []
 }

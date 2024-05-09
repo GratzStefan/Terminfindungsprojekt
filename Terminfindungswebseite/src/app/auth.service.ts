@@ -44,11 +44,10 @@ export class AuthService {
   createorganization(orgName: string){
     let org: Organization = {
       name: orgName,
-      creatorid: DataService.data
+      creatorid: DataService.user?.id
     }
-    console.log(org.id, org.name, org.creatorid);
 
-    return this.http.post<string>(`${this.apiUrl}organization/create`, org);
+    return this.http.post(`${this.apiUrl}organization/create`, org, {responseType: "text"});
   }
 
   searchorganizations(name: string) {
@@ -64,7 +63,7 @@ export class AuthService {
   }
 
   addEvent(event: Event){
-    return this.http.post<Event>(`${this.apiUrl}events/add`, event)
+    return this.http.post(`${this.apiUrl}events/add`, event, {responseType: "text"})
   }
 
   promoteUser(userid: string | undefined, orgid: string | undefined, adminid: string | undefined) {
@@ -87,7 +86,7 @@ export interface User {
   firstname: string;
   lastname: string;
   username: string;
-  password: string;
+  password?: string;
 }
 
 export interface Organization {
@@ -108,5 +107,6 @@ export interface Event {
   providedIn: 'root'
 })
 export class DataService {
-  static data: string | undefined = "";
+  //static data: string | undefined = "";
+  static user: User | undefined;
 }
