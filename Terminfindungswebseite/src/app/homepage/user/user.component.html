@@ -1,1 +1,33 @@
-<p>user works!</p>
+<body>
+  <div id="settings">
+    <h1>Settings</h1>
+    <div id="container">
+      <div id="username">
+        <h3>Username:</h3>
+        <input [(ngModel)]="username"/>
+      </div>
+      <div id="firstname">
+        <h3>Firstname:</h3>
+        <input [(ngModel)]="firstname"/>
+      </div>
+      <div id="lastname">
+        <h3>Lastname:</h3>
+        <input [(ngModel)]="lastname"/>
+      </div>
+      <button id="btnChange" (click)="changeUserInformation()">Change</button>
+    </div>
+  </div>
+  <div id="notifications">
+    <h1>Sent Notifications</h1>
+    <div id="requests" *ngIf="requests.length!=0">
+        <div class="request" *ngFor="let request of requests">
+          <h3 id="orgName">{{request.org.name}}</h3>
+          <img *ngIf="request.status === StatusType.WAITING" src="assets/hourglass.png" width="36px" height="36px" alt="https://www.flaticon.com/free-icon/hourglass_483610">
+          <img *ngIf="request.status === StatusType.ACCEPTED" src="assets/tick.png" width="36px" height="36px">
+          <img *ngIf="request.status === StatusType.REJECTED" src="assets/cross.png" width="36px" height="36px">
+        </div>
+    </div>
+    <p *ngIf="requests.length==0" style="flex: 1; font-style: italic; padding: 0.5em 1em;">No Notifications</p>
+  </div>
+</body>
+

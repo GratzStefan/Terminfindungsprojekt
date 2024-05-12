@@ -1,63 +1,17 @@
 <body>
-  <h1 id="orgName">{{ this.org?.name }}</h1>
-  <div id="containers">
-    <div id="containerEventList">
-      <h2>Events: </h2>
-      <div id="events" *ngIf="events.length!=0">
-        <div id="grouped" *ngFor="let group of groupedEvents">
-          <h3>{{ group.date | date: 'fullDate' }}</h3>
-          <div class="event" *ngFor="let event of group.events">
-            <div id="evTitel">{{event.titel}}</div>
-            <div id="detailedInfo">
-              <div class="evDescription" *ngIf="event.description!=undefined">{{event.description}}</div>
-              <div class="evDescription" *ngIf="event.description==undefined" style="font-style: italic">There is no description!</div>
-
-              <div id="evTime">{{event.datetimestart.toString() | date: 'dd. MMMM y, HH:mm' }} - {{event.datetimeend.toString() | date: 'dd. MMMM y, HH:mm' }}</div>
-            </div>
-          </div>
-        </div>
+  <div id="header">
+    <h1 id="orgName">{{ this.org?.name }}</h1>
+    <div id="buttons">
+      <div id="btnDashboard" [class.selected]="this.type==OrganizationComponentType.Dashboard" (click)="type=OrganizationComponentType.Dashboard">
+        <img src="assets/dashboard.png" width="36px" height="36px" alt="https://www.flaticon.com/free-icon/menu_3388614?term=dashboard&page=1&position=18&origin=search&related_id=3388614">
       </div>
-      <p *ngIf="events.length==0" style="flex: 1; font-style: italic">There are no existing events!</p>
-      <div id="addEvent" [@expandCollapse]="isExpandedAddEvent ? 'expanded' : 'hidden'">
-         <h3 (click)="isExpandedAddEvent = !isExpandedAddEvent">New Event</h3>
-         <div id="content" *ngIf="isExpandedAddEvent">
-           <div id="information">
-             <div id="addTitel">
-               <h4>Titel:</h4>
-               <input id="inpTitel" [(ngModel)]="titel"/>
-             </div>
-             <div id="addDescription">
-               <h4>Description:</h4>
-               <input id="inpDescription" [(ngModel)]="description"/>
-             </div>
-             <div id="timeline">
-               <h4>Timeline:</h4>
-               <div id="dates">
-                 <input [(ngModel)]="start" max="2999-12-31T23:59" type="datetime-local">
-                 <p>-</p>
-                 <input [(ngModel)]="end" min="{{start}}" max="2999-12-31T23:59" type="datetime-local">
-               </div>
-             </div>
-           </div>
-           <button id="btnAdd" (click)="addEvent()">Add</button>
-         </div>
-       </div>
-    </div>
-    <div id="containerUserList">
-      <h2>Users:</h2>
-      <div id="users">
-        <div class="user" *ngFor="let user of users">
-          <div id="name">{{user.username}}</div>
-          <div id="icons">
-            <img id="promote" alt="https://www.flaticon.com/free-icon/advertisement_9581612?term=promote&page=2&position=61&origin=search&related_id=9581612"
-                 ngSrc="assets/promote.png" height="32" width="32"
-                 (click)="promoteUser(user.id)"/>
-            <img id="remove" alt="https://www.flaticon.com/free-icon/remove_2984959?term=remove&page=1&position=3&origin=search&related_id=2984959"
-                 ngSrc="assets/remove.png" height="32" width="32"
-                 (click)="removeUserFromOrganization(user.id)"/>
-          </div>
-        </div>
+      <div id="btnNotification" [class.selected]="this.type==OrganizationComponentType.Notification" (click)="type=OrganizationComponentType.Notification">
+        <img src="assets/notification.png" width="36px" height="36px" alt="https://www.flaticon.com/free-icon/bell_2529521?term=notification&page=1&position=5&origin=search&related_id=2529521">
       </div>
     </div>
   </div>
+  <ng-container [ngSwitch]="type">
+    <app-dashboard class="appContainer" [org]="org" *ngSwitchCase="OrganizationComponentType.Dashboard"></app-dashboard>
+    <app-notification class="appContainer" [org]="org" *ngSwitchCase="OrganizationComponentType.Notification"></app-notification>
+  </ng-container>
 </body>

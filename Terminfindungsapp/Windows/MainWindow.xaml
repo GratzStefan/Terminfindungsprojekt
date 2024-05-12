@@ -5,32 +5,95 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Terminfindungsapp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="1000">
     <Grid>
-        <DockPanel>
-            <StackPanel DockPanel.Dock="Left" Background="DimGray" Margin="0,0,0,0">
-                <Label Content="Organizations:" FontWeight="Bold" FontSize="18" Margin="4,15,0,0"/>
-                <StackPanel x:Name="panOrganization" Background="#FFB12121" Height="386">
-                    <StackPanel Name="staUserOrganizations" Height="300"></StackPanel>
-                    <StackPanel>
-                        <Button Name="btnCreateOrganization" Content="Create Organization" Height="35" Margin="10,0,10,0" Click="btnCreateOrganization_Click"/>
-                        <Button Name="btnSearchOrganization" Content="Search Organization" Height="35" Margin="10,10,10,10" Click="btnSearchOrganization_Click"/>
-                    </StackPanel>
-                </StackPanel>
-            </StackPanel>
-            <DockPanel DockPanel.Dock="Top" LastChildFill="False" Background="Blue" Margin="0,0,0,0">
-                <StackPanel DockPanel.Dock="Right" Width="75" Background="AntiqueWhite">
-                    <Button x:Name="btnUser" VerticalAlignment="Center" HorizontalAlignment="Center" Width="30" Height="30" Click="btnUser_Click" Content="">
-                        <Button.Background>
-                            <ImageBrush ImageSource="/Windows/user_icon.png"/>
-                        </Button.Background>
-                    </Button>
-                    <Label x:Name="lblUsername" VerticalAlignment="Top" HorizontalAlignment="Center" Content="" Width="Auto"/>
-                </StackPanel>
-            </DockPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="17*" />
+            <ColumnDefinition Width="83*" />
+        </Grid.ColumnDefinitions>
 
-            <ContentControl DockPanel.Dock="Right" Name="contentControl" Margin="0,0,0,0" MinHeight="381" MinWidth="608" Height="Auto" Width="Auto"/>
-        </DockPanel>
+        <Grid Grid.Column="0" Background="gainsboro" Width="Auto">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="15*" />
+                <RowDefinition Height="85*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Content="Organizations:" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Padding="10, 0, 0, 0"
+                   FontWeight="Bold" FontSize="16" Background="#a1a1a1"/>
+            <ScrollViewer Grid.Row="1" DockPanel.Dock="Top" VerticalScrollBarVisibility="Auto" Margin="10, 5, 5, 5">
+                <StackPanel Name="staUserOrganizations" Margin="0, 0, 5, 0"></StackPanel>
+            </ScrollViewer>
+            <StackPanel Grid.Row="2"
+                        Background="LightSlateGray">
+                <Button x:Name="btnCreateOrganization" Content="Create Organization" Height="35" Margin="10,10,10,0" Click="btnCreateOrganization_Click"
+                        Background="#778899FF"/>
+                <Button x:Name="btnSearchOrganization" Content="Search Organization" Height="35" Margin="10,10,10,10" Click="btnSearchOrganization_Click"
+                        Background="#778899FF"/>
+            </StackPanel>
+        </Grid>
         
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*" />
+                <RowDefinition Height="90*" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0"  Background="#505050">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90*" />
+                    <ColumnDefinition Width="350" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Content="SuperPlaner" VerticalAlignment="Stretch" VerticalContentAlignment="Center"
+                    FontWeight="Bold" FontSize="25" Foreground="White"
+                       Margin="10, 0, 0, 0"/>
+
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="33*" />
+                        <ColumnDefinition Width="33*" />
+                        <ColumnDefinition Width="33*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0" Margin="5" Width="100" Height="50" VerticalAlignment="Center">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="/Windows/home.png" Width="24" Height="24" Margin="0 0 15 0" />
+                            <TextBlock Grid.Column="1" Text="Home" VerticalAlignment="Center" />
+                        </Grid>
+                    </Button>
+
+                    <Button Grid.Column="1" Margin="5" Width="100" Height="50" VerticalAlignment="Center">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="/Windows/user.png" Width="24" Height="24" Margin="0 0 15 0" />
+                            <TextBlock x:Name="lblUsername" Grid.Column="1" Text="" VerticalAlignment="Center" />
+                        </Grid>
+                    </Button>
+
+                    <Button Grid.Column="2" Margin="5" Width="100" Height="50" VerticalAlignment="Center">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="/Windows/exit.png" Width="24" Height="24" Margin="0 0 15 0" />
+                            <TextBlock Grid.Column="1" Text="Logout" VerticalAlignment="Center" />
+                        </Grid>
+                    </Button>
+
+                </Grid>
+             </Grid>
+            
+            <ContentControl Grid.Row="1"  Name="contentControl" Margin="0,0,0,0" />
+            
+        </Grid>
     </Grid>
 </Window>

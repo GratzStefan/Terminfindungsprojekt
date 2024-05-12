@@ -61,7 +61,7 @@ namespace Terminfindungsapp
                 {
                     string json = JsonSerializer.Serialize<T>(data);
                     
-                    var response = client.PostAsync(url.Split('/').Last(), new StringContent(json, Encoding.UTF8, "application/json")).Result;
+                    var response = client.PostAsync(url, new StringContent(json, Encoding.UTF8, "application/json")).Result;
 
                     return response.IsSuccessStatusCode;
                 }

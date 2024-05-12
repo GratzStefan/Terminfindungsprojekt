@@ -27,15 +27,21 @@ namespace Terminfindungsapp
 
         private async void btnCreate_Click(object sender, RoutedEventArgs e)
         {
-            if(await APICall.PostAsync<PostOrganization>($"http://localhost:8080/api/organization/create", new PostOrganization(txtName.Name, User.GetInstance(null).ID)))
+            if (txtName.Text != "")
             {
-                MessageBox.Show("Successful!");
-                //TODO: Change to Organization-Perspective
+                if (await APICall.PostAsync<PostOrganization>($"http://localhost:8080/api/organization/create", new PostOrganization(txtName.Text, User.GetInstance(null).ID)))
+                {
+                    txtName.Name = "";
+                    MessageBox.Show("Successful!");
+                }
+                else
+                {
+                    MessageBox.Show("Something went wrong!");
+                }
             }
             else
             {
-                MessageBox.Show("Unsuccessful!");
-                //TODO: Display Reason, why request was unsuccessful
+                MessageBox.Show("Organizations must have a name!");
             }
         }
     }

@@ -28,7 +28,7 @@ import {UserComponent} from "./user/user.component";
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css',
   //TODO: Delete afterwards (for testing purposes)
-  host: {ngSkipHydration: 'true'},
+  //host: {ngSkipHydration: 'true'},
 })
 export class HomepageComponent {
   type: ComponentType = ComponentType.Default;
@@ -36,31 +36,25 @@ export class HomepageComponent {
   constructor(private elementRef: ElementRef, protected authService: AuthService) {}
 
   ngAfterViewInit(){
-    //let data = DataService.user;
-
+    let data = DataService.user;
     //TODO: Delete afterwards (Due to testing purposes)
-    let data: User = {
+    /*let data: User = {
       firstname: "Stefan", lastname: "Gratz",
       id: "663519a065014269ff6d96ac",
       username: "test"
     };
-    DataService.user = data;
+    DataService.user = data;*/
 
     if(data.id != undefined && data.id != "") {
+      console.log(data.id);
       this.authService.getuserorganizations(data?.id).subscribe(organizations => this.orgs = organizations);
     }
   }
 
   curOrg: Organization | undefined;
-  clickedOnOrganization(event: MouseEvent){
-    const clickedElement = event.target as HTMLElement;
-    if (clickedElement.classList.contains('userOrgs')) {
-      const value = clickedElement.textContent?.trim();
-      if(value != null){
-        this.curOrg = this.orgs.find(o => o.name === value);
-        this.type = ComponentType.Organization;
-      }
-    }
+  clickedOnOrganization(org: Organization) {
+    this.curOrg = org;
+    this.type = ComponentType.Organization;
   }
 
   protected readonly ComponentType = ComponentType;

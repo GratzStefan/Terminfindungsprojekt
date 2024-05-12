@@ -33,7 +33,7 @@ public class UserController {
         return ResponseEntity.ok(dto);
     }
     @PutMapping("/modifyUser")
-    public UserDTO putUser(@RequestBody UserDTO UserDTO) {
+    public long putUser(@RequestBody UserDTO UserDTO) {
         return userService.update(UserDTO);
     }
 

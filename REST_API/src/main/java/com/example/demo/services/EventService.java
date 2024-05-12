@@ -8,7 +8,5 @@ import java.util.List;
 public interface EventService {
     ObjectId create(EventDTO EventDTO);
     List<EventDTO> search(String organizationid);
-    /*
-    EventDTO modify(EventDTO OrganizationDTO);
-    long delete(String id);*/
+    List<EventDTO> findEventsOfUser(String userid);
 }

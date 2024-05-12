@@ -29,8 +29,8 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public UserDTO update(UserDTO UserDTO) {
-        return new UserDTO(userRepository.update(UserDTO.toUserEntity()));
+    public long update(UserDTO UserDTO) {
+        return userRepository.update(UserDTO.toUserEntity());
     }
 
     @Override

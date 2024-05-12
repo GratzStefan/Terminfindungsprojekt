@@ -10,6 +10,12 @@
     <Compile Update="UserControls\CreateOrganizationControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControls\DashboardControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControls\NotificationControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControls\SearchOrganizationControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -28,6 +34,12 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="UserControls\CreateOrganizationControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\DashboardControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\NotificationControl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\SearchOrganizationControl.xaml">

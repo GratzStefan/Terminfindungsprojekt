@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import {NgForOf, NgSwitchCase} from "@angular/common";
 import {SearchComponent} from "../search/search.component";
 import {FormsModule} from "@angular/forms";
-import {AuthService} from "../../auth.service";
+import {AuthService, DataService, Organization} from "../../auth.service";
+import {OrganizationComponent} from "../organization/organization.component";
+import {HomepageComponent} from "../homepage.component";
 
 @Component({
   selector: 'app-create',
@@ -19,10 +21,28 @@ import {AuthService} from "../../auth.service";
 export class CreateComponent {
   orgName: string = "";
 
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService, private parentComponent: HomepageComponent){}
+
   createOrganization() {
-    this.authService.createorganization(this.orgName).subscribe(org => {
-      console.log(org);
-    });
+    if(this.orgName!="") {
+      let org: Organization = {
+        name: this.orgName,
+        creatorid: DataService.user?.id
+      }
+
+      try{
+        this.authService.createorganization(org).subscribe(id => {
+          org.id = id;
+          this.parentComponent.orgs.push(org);
+          alert("Created organization successfully!");
+        });
+      }
+      catch {
+        alert("Something went wrong!");
+      }
+    }
+    else {
+      alert("Organization must have a name!")
+    }
   }
 }

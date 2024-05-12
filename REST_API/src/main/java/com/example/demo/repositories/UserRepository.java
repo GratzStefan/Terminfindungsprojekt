@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository {
     UserEntity register(UserEntity userEntity);
     UserDTO login(String username, String password);
-    UserEntity update(UserEntity userEntity);
+    long update(UserEntity userEntity);
     long delete(String id);
 }

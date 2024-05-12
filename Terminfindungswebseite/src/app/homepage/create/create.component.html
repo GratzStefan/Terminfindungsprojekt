@@ -1,6 +1,12 @@
-<h1>Create Organizations:</h1>
-<div>
-  <h2>Organization-Name:</h2>
-  <input type="text" [(ngModel)]="orgName" placeholder="Name of Organization"/>
-</div>
-<button (click)="createOrganization()">Create</button>
+<body>
+  <div id="container">
+    <div id="inputs">
+      <h1>Create Organization</h1>
+      <div id="information">
+        <h3>Organization-Name:</h3>
+        <input type="text" [(ngModel)]="orgName"/>
+      </div>
+    </div>
+    <button id="btnCreate" (click)="createOrganization()">Create</button>
+  </div>
+</body>

@@ -1,19 +1,58 @@
-div {
+body {
   display: flex;
-  flex-direction: row;
-  h2 {
-    padding-right: 20px;
-  }
-  input {
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: #cccccc;
+  margin: 0;
 }
 
-button {
-  align-items: flex-end;
-  justify-content: center;
-  border-style: none;
-  background-color: #3ae03a;
-  #color: gray;
+#container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-self: center;
+  margin: 1.5em 3em;
+  align-items: center;
+  width: 30%;
+
+  #inputs {
+    display: flex;
+    flex-direction: column;
+    background-color: #666666;
+    border-radius: 15px;
+    flex: 1;
+    margin-bottom: 0.75em;
+    width: 100%;
+
+    h1 {
+      padding-left: 1em;
+      padding-right: 1em;
+      align-self: center;
+    }
+
+    #information {
+      padding: 0.5em 1.5em 1em;
+      background-color: #a1a1a1;
+      flex: 1;
+      border-radius: 0 0 15px 15px;
+
+      input {
+        font-size: 1.25em;
+        width: 100%;
+      }
+    }
+  }
+
+  #btnCreate {
+    background-color: #1da81d;
+    border-style: none;
+    padding: 1em;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-top: auto;
+    margin-bottom: 1em;
+    width: 100%;
+  }
 }

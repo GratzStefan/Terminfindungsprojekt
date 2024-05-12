@@ -15,6 +15,9 @@ import org.bson.types.ObjectId;
 import org.springframework.security.crypto.scrypt.SCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.ReturnDocument.AFTER;
 
@@ -68,10 +71,29 @@ public class MongoDBUserRepository implements UserRepository {
     }
 
     @Override
-    public UserEntity update(UserEntity userEntity) {
-        FindOneAndReplaceOptions options = new FindOneAndReplaceOptions().returnDocument(AFTER);
-        userEntity.setPassword(hashPassword(userEntity.getPassword()));
-        return usersCollections.findOneAndReplace(eq("_id", userEntity.getId()), userEntity, options);
+    public long update(UserEntity userEntity) {
+        Map<String, Object> changes = new HashMap<>();
+
+        if(userEntity.getUsername() != null) {
+            changes.put("username", userEntity.getUsername());
+        }
+
+        if(userEntity.getPassword() != null) {
+            changes.put("password", hashPassword(userEntity.getPassword()));
+        }
+
+        if(userEntity.getFirstname() != null) {
+            changes.put("firstname", userEntity.getFirstname());
+        }
+
+        if(userEntity.getLastname() != null) {
+            changes.put("lastname", userEntity.getLastname());
+        }
+
+        Document filter = new Document("_id", userEntity.getId());
+        Document update = new Document("$set", changes);
+
+        return usersCollections.updateOne(filter, update).getModifiedCount();
     }
 
     @Override

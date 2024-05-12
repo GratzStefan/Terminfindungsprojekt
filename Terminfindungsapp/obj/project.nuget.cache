@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "F7xV1kt4BH+BBN7z//Nbocjpdsof6WJlms5pcyM14/xSd5LFD+dTgxio5yvX0USXe9VjQz0bzSjmWcM68ZrdEg==",
+  "dgSpecHash": "5A2NZAzyjCm2zQ0/B0t1YR4rMbFnMVMZYe6JJzdi91lCBsnyXyhDj0OUxy+3D7fSqt1AgrE/wbnLDLZfJy38LQ==",
   "success": true,
   "projectFilePath": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\Terminfindungsapp.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Stefan\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.29\\microsoft.windowsdesktop.app.ref.6.0.29.nupkg.sha512",
-    "C:\\Users\\Stefan\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.29\\microsoft.netcore.app.ref.6.0.29.nupkg.sha512",
-    "C:\\Users\\Stefan\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.29\\microsoft.aspnetcore.app.ref.6.0.29.nupkg.sha512",
-    "C:\\Users\\Stefan\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.29\\microsoft.netcore.app.host.win-x64.6.0.29.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

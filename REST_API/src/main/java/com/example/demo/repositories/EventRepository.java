@@ -9,8 +9,5 @@ public interface EventRepository {
     ObjectId create(EventEntity eventEntity);
 
     List<EventEntity> search(String organizationId);
-
-    /*
-    OrganizationEntity modify(OrganizationEntity organizationEntity);
-    long delete(String id);*/
+    List<EventEntity> findEventsOfUser(String userId);
 }

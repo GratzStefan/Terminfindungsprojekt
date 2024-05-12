@@ -9,12 +9,68 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="UserControls\dashboard.png" />
+    <None Remove="UserControls\notification.png" />
     <None Remove="user_icon.png" />
-    <None Remove="Windows\user_icon.png" />
+    <None Remove="Images\cross.png" />
+    <None Remove="Images\dashboard.png" />
+    <None Remove="Images\exit.png" />
+    <None Remove="Images\home.png" />
+    <None Remove="Images\hourglass.png" />
+    <None Remove="Images\notification.png" />
+    <None Remove="Images\promote.png" />
+    <None Remove="Images\remove.png" />
+    <None Remove="Images\request.png" />
+    <None Remove="Images\right_arrow.png" />
+    <None Remove="Images\tick.png" />
+    <None Remove="Images\user.png" />
+    <None Remove="Windows\exit.png" />
+    <None Remove="Windows\home.png" />
+    <None Remove="Windows\user.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Windows\user_icon.png" />
+    <Resource Include="Images\cross.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\dashboard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\exit.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\home.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\hourglass.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\notification.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\promote.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\remove.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="UserControls\dashboard.png" />
+    <Resource Include="UserControls\notification.png" />
+    <Resource Include="UserControls\request.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\right_arrow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\tick.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\user.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Windows\exit.png" />
+    <Resource Include="Windows\home.png" />
+    <Resource Include="Windows\user.png" />
   </ItemGroup>
 
 </Project>

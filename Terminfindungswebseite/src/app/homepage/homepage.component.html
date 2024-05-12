@@ -2,8 +2,8 @@
 <body>
     <nav class="navbar">
       <h3 id="org">Organizations:</h3>
-      <div id="containerList" (click)="clickedOnOrganization($event)">
-        <div class="userOrgs" [class.selected]="org.id===this.curOrg?.id && this.type==ComponentType.Organization" *ngFor="let org of orgs">{{org.name}}</div>
+      <div id="containerList">
+        <div class="userOrgs" (click)="clickedOnOrganization(org)" [class.selected]="org.id===this.curOrg?.id && this.type==ComponentType.Organization" *ngFor="let org of orgs">{{org.name}}</div>
       </div>
       <div id="bottom">
         <hr>

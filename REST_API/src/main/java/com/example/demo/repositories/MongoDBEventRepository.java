@@ -1,12 +1,15 @@
 package com.example.demo.repositories;
 
 import com.example.demo.models.EventEntity;
+import com.example.demo.models.OrganizationEntity;
+import com.example.demo.models.UserEntity;
 import com.mongodb.ReadConcern;
 import com.mongodb.ReadPreference;
 import com.mongodb.TransactionOptions;
 import com.mongodb.WriteConcern;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.model.Projections;
 import jakarta.annotation.PostConstruct;
 import org.bson.Document;
 import org.bson.types.ObjectId;
@@ -14,6 +17,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class MongoDBEventRepository implements EventRepository{
@@ -24,6 +28,7 @@ public class MongoDBEventRepository implements EventRepository{
             .build();
     private final MongoClient client;
     private MongoCollection<EventEntity> eventsCollection;
+    private MongoCollection<OrganizationEntity> organizationsCollection;
 
     public MongoDBEventRepository(MongoClient mongoClient) {
         this.client = mongoClient;
@@ -32,6 +37,7 @@ public class MongoDBEventRepository implements EventRepository{
     @PostConstruct
     void init() {
         eventsCollection = client.getDatabase("Terminfindungsapp").getCollection("events", EventEntity.class);
+        organizationsCollection = client.getDatabase("Terminfindungsapp").getCollection("organizations",OrganizationEntity.class);
     }
 
     @Override
@@ -49,15 +55,19 @@ public class MongoDBEventRepository implements EventRepository{
         return eventsCollection.find(doc).into(new ArrayList<>());
     }
 
-    /*
     @Override
-    public OrganizationEntity modify(OrganizationEntity organizationEntity) {
-        FindOneAndReplaceOptions options = new FindOneAndReplaceOptions().returnDocument(AFTER);
-        return organizationsCollection.findOneAndReplace(eq("_id", organizationEntity.getId()), organizationEntity, options);
-    }
+    public List<EventEntity> findEventsOfUser(String userId) {
+        Document filter = new Document();
+        filter.append("userlist." + userId, new Document("$exists", true));
+        List<String> usersOrgs = organizationsCollection.find(filter)
+                .projection(new Document("_id", 1))
+                .map(doc -> doc.getId().toHexString())
+                .into(new ArrayList<>());
 
-    @Override
-    public long delete(String id) {
-        return organizationsCollection.deleteOne(eq("_id", new ObjectId(id))).getDeletedCount();
-    }*/
+
+        Document doc = new Document();
+        doc.append("organizationid", new Document("$in", usersOrgs));
+
+        return eventsCollection.find(doc).into(new ArrayList<>());
+    }
 }

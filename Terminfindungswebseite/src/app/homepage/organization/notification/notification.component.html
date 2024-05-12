@@ -1,0 +1,19 @@
+<body>
+<div id="container">
+  <div id="inputs">
+    <div id="header">
+      <h1>Notifications</h1>
+    </div>
+    <div id="requestList">
+      <div class="containerRequests" *ngFor="let request of requests">
+        <div id="userId">{{request.user.username}}</div>
+        <div id="buttons">
+          <img id="accept" (click)="changeStatus(request, StatusType.ACCEPTED)" src="assets/tick.png" alt="https://www.flaticon.com/free-icon/tick_447147?term=accept&page=1&position=45&origin=search&related_id=447147">
+          <img id="reject" (click)="changeStatus(request, StatusType.REJECTED)" src="assets/cross.png" alt="https://www.flaticon.com/free-icon/cross_8637512">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+

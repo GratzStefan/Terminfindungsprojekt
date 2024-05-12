@@ -1,1 +1,20 @@
-<p>home works!</p>
+<body>
+  <div id="content">
+    <h1>All of your Events</h1>
+    <div id="events" *ngIf="events.length!=0">
+      <div id="grouped" *ngFor="let group of groupedEvents">
+        <h3>{{ group.date | date: 'fullDate' }}</h3>
+        <div class="event" *ngFor="let event of group.events">
+          <div id="evTitel">{{event.titel}}</div>
+          <div id="detailedInfo">
+            <div class="evDescription" *ngIf="event.description!=undefined">{{event.description}}</div>
+            <div class="evDescription" *ngIf="event.description==undefined" style="font-style: italic">There is no description!</div>
+
+            <div id="evTime">{{event.datetimestart.toString() | date: 'dd. MMMM y, HH:mm' }} - {{event.datetimeend.toString() | date: 'dd. MMMM y, HH:mm' }}</div>
+          </div>
+        </div>
+      </div>
+   </div>
+    <p *ngIf="events.length==0" style="flex: 1; font-style: italic; padding: 0.5em 1em;">There are no existing events!</p>
+  </div>
+</body>

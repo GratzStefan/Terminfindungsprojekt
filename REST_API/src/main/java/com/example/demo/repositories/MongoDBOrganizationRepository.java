@@ -72,13 +72,13 @@ public class MongoDBOrganizationRepository implements OrganizationRepository{
     public List<OrganizationEntity> search(String organizationName) {
         var regexFilter = Filters.regex("name", ".*?" + organizationName + ".*?", "i");
 
-        return organizationsCollection.find(regexFilter).into(new ArrayList<>());
+        return organizationsCollection.find(regexFilter).limit(25).into(new ArrayList<>());
     }
 
     @Override
     public List<OrganizationEntity> searchOrganization(String userid) {
         Document doc = new Document();
-        doc.append("userlist." + userid, 0);
+        doc.append("userlist." + userid, new Document("$exists", true));
         return organizationsCollection.find(doc).into(new ArrayList<>());
     }
 
@@ -86,8 +86,6 @@ public class MongoDBOrganizationRepository implements OrganizationRepository{
     public List<UserEntity> userListOfOrganization(String orgid) {
         Document doc = new Document();
         doc.append("_id", new ObjectId(orgid));
-
-        //Document proj = new Document("userlist.", 0);
 
         OrganizationEntity dto = organizationsCollection.find(doc).first();
         if(dto==null){

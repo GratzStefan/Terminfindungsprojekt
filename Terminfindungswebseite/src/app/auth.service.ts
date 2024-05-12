@@ -8,23 +8,23 @@ import {HttpClient} from "@angular/common/http";
 
 export class AuthService {
   private apiUrl = 'http://localhost:8080/api/';
-  //session: any;
+  session: any;
+
   constructor(private router: Router, private http: HttpClient) {
-    /*let session: any = localStorage.getItem('session');
+    let session: any = localStorage.getItem('session');
+
     if(session) {
       session = JSON.parse(session);
     }
 
-    this.session = session;*/
+    this.session = session;
   }
 
   login(username: string, password: string){
-    /*if(user){
-      this.session = user;
-      localStorage.setItem('session', JSON.stringify(this.session));
-    }*/
-
-    return this.http.get<User>(`${this.apiUrl}user/login?username=${username}&password=${password}`);
+    let user = this.http.get<User>(`${this.apiUrl}user/login?username=${username}&password=${password}`);
+    this.session = user;
+    localStorage.setItem('session', JSON.stringify(this.session));
+    return user;
   }
 
   signup(firstname: string, lastname: string, username: string, password: string){
@@ -41,12 +41,7 @@ export class AuthService {
     return this.http.get<Organization[]>(`${this.apiUrl}organization/searchOrganizations/${userid}`);
   }
 
-  createorganization(orgName: string){
-    let org: Organization = {
-      name: orgName,
-      creatorid: DataService.user?.id
-    }
-
+  createorganization(org: Organization){
     return this.http.post(`${this.apiUrl}organization/create`, org, {responseType: "text"});
   }
 
@@ -74,9 +69,33 @@ export class AuthService {
     return this.http.delete(`${this.apiUrl}organization/removeUser?userid=${userid}&orgid=${orgid}&adminid=${adminid}`);
   }
 
+  sendRequestToOrganization(request: Request) {
+    return this.http.post(`${this.apiUrl}request/send`, request, {responseType: "json"});
+  }
+
+  getAllRequestsToOrganization(orgid: string) {
+    return this.http.get<Request[]>(`${this.apiUrl}request/findToOrganization/${orgid}`);
+  }
+
+  changeStatus(request: Request){
+    return this.http.put(`${this.apiUrl}request/changeStatus?adminid=${DataService.user?.id}`, request);
+  }
+
+  getEventsOfUser() {
+    return this.http.get<Event[]>(`${this.apiUrl}events/find/${DataService.user?.id}`);
+  }
+
+  getAllRequestsOfUser() {
+    return this.http.get<Request[]>(`${this.apiUrl}request/findOfUser/${DataService.user?.id}`);
+  }
+
+  changeUser(user: User){
+    return this.http.put(`${this.apiUrl}user/modifyUser`, user);
+  }
+
   logout(){
-    //this.session = undefined;
-    //localStorage.removeItem('session');
+    this.session = undefined;
+    localStorage.removeItem('session');
     this.router.navigateByUrl('/')
   }
 }
@@ -103,10 +122,28 @@ export interface Event {
   datetimeend: Date;
   organizationid: string;
 }
+
+export interface Request {
+  id?: string;
+  user: User;
+  org: Organization;
+  status?: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  //static data: string | undefined = "";
-  static user: User | undefined;
+  static user: User;
+}
+
+export enum StatusType{
+  WAITING,
+  REJECTED,
+  ACCEPTED,
+}
+
+export interface GroupedEvent {
+  date: Date;
+  events: any[];
 }

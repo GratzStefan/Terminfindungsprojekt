@@ -30,6 +30,14 @@ public class EventController {
         return ResponseEntity.ok(eventDTOs);
     }
 
+    @GetMapping("/find/{userid}")
+    public ResponseEntity<List<EventDTO>> getEventsOfUser(@PathVariable String userid) {
+        List<EventDTO> eventDTOs = eventService.findEventsOfUser(userid);
+
+        if (eventDTOs.isEmpty()) return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        return ResponseEntity.ok(eventDTOs);
+    }
+
     @PostMapping("/add")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<String> postEvent(@RequestBody EventDTO EventDTO) {
@@ -37,17 +45,5 @@ public class EventController {
         if(id == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         return ResponseEntity.ok(id.toHexString());
     }
-
-
-    /*
-    @PutMapping("/modify")
-    public OrganizationDTO putOrganization(@RequestBody OrganizationDTO OrganizationDTO) {
-        return organizationService.modify(OrganizationDTO);
-    }
-
-    @DeleteMapping("/delete/{id}")
-    public Long deleteOrganization(@PathVariable String id) {
-        return organizationService.delete(id);
-    }*/
 }
 

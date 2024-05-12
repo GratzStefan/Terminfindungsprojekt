@@ -1,0 +1,114 @@
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: #cccccc;
+  margin: 0;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: auto;
+
+  align-self: center;
+
+  margin: 1.5em 3em;
+  align-items: center;
+  width: 70%;
+
+
+  #inputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex: 1;
+    overflow-y: auto;
+
+    background-color: #a1a1a1;
+    border-radius: 15px;
+
+    #header {
+      background-color: #666666;
+      padding-left: 2em;
+      padding-right: 2em;
+      justify-items: center;
+
+      h1 {
+        text-align: center;
+      }
+    }
+
+    #requestList {
+      margin-top: 1em;
+      margin-right: 0.5em;
+      margin-bottom: 1em;
+      padding: 0.5em 0.5em 1em 1.5em;
+
+      flex: 1;
+      overflow-y: auto;
+
+      border-radius: 0 0 15px 15px;
+
+      .containerRequests {
+        display: flex;
+        flex-direction: row;
+
+        align-items: center;
+        overflow-y: auto;
+        padding: 1em;
+
+        border-radius: 10px;
+        background-color: #8c8b8b;
+
+        #userId {
+          font-size: 20px;
+        }
+
+        #buttons {
+          margin-left: auto;
+          display: flex;
+          flex-direction: row;
+          img {
+            background-color: #333333;
+            padding: 0.5em;
+            border-radius: 15px;
+
+            height: 36px;
+            width: 36px;
+            margin-right: 0.5em;
+          }
+
+          #accept:hover {
+            filter: invert(30%) sepia(93%) saturate(3125%) hue-rotate(82deg) brightness(92%) contrast(91%);
+          }
+
+          #reject:hover {
+            filter: invert(13%) sepia(83%) saturate(4132%) hue-rotate(354deg) brightness(104%) contrast(108%);
+          }
+        }
+      }
+    }
+
+    #requestList > div:not(:last-child) {
+      margin-bottom: 0.5em;
+    }
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track{
+  padding-block: 25px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #474747;
+  border-radius: 10px;
+}

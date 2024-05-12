@@ -86,7 +86,7 @@ namespace Terminfindungsapp {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Terminfindungsapp;V1.0.0.0;component/windows/registerwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Terminfindungsapp;component/windows/registerwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Windows\RegisterWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

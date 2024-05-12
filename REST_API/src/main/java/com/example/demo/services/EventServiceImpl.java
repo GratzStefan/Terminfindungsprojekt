@@ -26,14 +26,9 @@ public class EventServiceImpl implements EventService{
     public List<EventDTO> search(String organizationid) {
         return eventRepository.search(organizationid).stream().map(EventDTO::new).toList();
     }
-    /*
-    @Override
-    public OrganizationDTO modify(OrganizationDTO OrganizationDTO) {
-        return new OrganizationDTO(organizationRepository.modify(OrganizationDTO.toOrganizationEntity()));
-    }
 
     @Override
-    public long delete(String id) {
-        return organizationRepository.delete(id);
-    }*/
+    public List<EventDTO> findEventsOfUser(String userid) {
+        return eventRepository.findEventsOfUser(userid).stream().map(EventDTO::new).toList();
+    }
 }

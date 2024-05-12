@@ -29,11 +29,13 @@ namespace Terminfindungsapp
         {
             InitializeComponent();
 
-            //lblUsername.Content = User.GetInstance(null).Username;
             //contentControl.Content = new OrganizationControl();
             User user = new User();
-            user.ID = "5u843jfidfjid";
+            user.ID = "663519a065014269ff6d96ac";
+            user.Username = "test";
             User.GetInstance(user);
+            
+            lblUsername.Text = User.GetInstance(null).Username;
             LoadOrganizationsOfUser();
         }
 
@@ -46,6 +48,12 @@ namespace Terminfindungsapp
                 {
                     Button btnOrganization = new Button();
                     btnOrganization.Content = org.name;
+                    btnOrganization.Margin = new Thickness
+                    {
+                        Top = 10
+                    };
+                    Color color = (Color)ColorConverter.ConvertFromString("#778899FF");
+                    btnOrganization.Background = new SolidColorBrush(color);
                     btnOrganization.Click += btnOrganization_Click;
                     staUserOrganizations.Children.Add(btnOrganization);
                 }

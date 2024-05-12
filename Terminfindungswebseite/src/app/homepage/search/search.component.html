@@ -1,5 +1,18 @@
-<h1>Search Organizations:</h1>
-<input type="text" [(ngModel)]="inputValue" (ngModelChange)="searchOrganizations()" placeholder="Name of Organization"/>
-<div id="orgList" (click)="clickedOnOrganizations($event)" #orgList>
-  <div class="containerSearch" *ngFor="let child of orgs">{{child.name}}</div>
-</div>
+<body>
+  <div id="container">
+    <div id="inputs">
+      <div id="header">
+        <h1>Search Organizations</h1>
+        <input type="text" [(ngModel)]="inputValue" (ngModelChange)="searchOrganizations()" placeholder="Search Name"/>
+      </div>
+      <div id="orgList" #orgList>
+        <div class="containerSearch" *ngFor="let org of orgs">
+          <div id="orgName">
+            {{org.name}}
+          </div>
+          <img (click)="clickedOnOrganizations(org)" src="assets/request.png" alt="https://www.flaticon.com/free-icon/quote-request_7257795?term=request&page=1&position=1&origin=search&related_id=7257795">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
