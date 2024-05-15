@@ -3,28 +3,24 @@
   "WorkspaceRootPath": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|c:\\projekte\\terminfindungsprojekt\\terminfindungsapp\\usercontrols\\organizationcontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:usercontrols\\organizationcontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|c:\\projekte\\terminfindungsprojekt\\terminfindungsapp\\usercontrols\\notificationcontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:usercontrols\\notificationcontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|c:\\projekte\\terminfindungsprojekt\\terminfindungsapp\\usercontrols\\dashboardcontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:usercontrols\\dashboardcontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|c:\\projekte\\terminfindungsprojekt\\terminfindungsapp\\usercontrols\\organizationcontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:usercontrols\\organizationcontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\usercontrols\\dashboardcontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:usercontrols\\dashboardcontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|c:\\projekte\\terminfindungsprojekt\\terminfindungsapp\\windows\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:windows\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|c:\\projekte\\terminfindungsprojekt\\terminfindungsapp\\usercontrols\\dashboardcontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:usercontrols\\dashboardcontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|c:\\projekte\\terminfindungsprojekt\\terminfindungsapp\\usercontrols\\organizationcontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:usercontrols\\organizationcontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|c:\\projekte\\terminfindungsprojekt\\terminfindungsapp\\windows\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:windows\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,69 +30,31 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "NotificationControl.xaml",
-              "DocumentMoniker": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\UserControls\\NotificationControl.xaml",
-              "RelativeDocumentMoniker": "UserControls\\NotificationControl.xaml",
-              "ToolTip": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\UserControls\\NotificationControl.xaml",
-              "RelativeToolTip": "UserControls\\NotificationControl.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-12T16:57:37.758Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\Windows\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Windows\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\Windows\\MainWindow.xaml.cs",
               "RelativeToolTip": "Windows\\MainWindow.xaml.cs",
-              "ViewState": "AQIAADAAAAAAAAAAAAAowAAAAAAAAAAA",
+              "ViewState": "AQIAABwAAAAAAAAAAAAgwCgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-12T16:54:42.154Z",
+              "WhenOpened": "2024-05-14T13:08:51.831Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DashboardControl.xaml.cs",
-              "DocumentMoniker": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\UserControls\\DashboardControl.xaml.cs",
-              "RelativeDocumentMoniker": "UserControls\\DashboardControl.xaml.cs",
-              "ToolTip": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\UserControls\\DashboardControl.xaml.cs",
-              "RelativeToolTip": "UserControls\\DashboardControl.xaml.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAAAUwCwAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-12T16:52:42.295Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "OrganizationControl.xaml.cs",
-              "DocumentMoniker": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\UserControls\\OrganizationControl.xaml.cs",
-              "RelativeDocumentMoniker": "UserControls\\OrganizationControl.xaml.cs",
-              "ToolTip": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\UserControls\\OrganizationControl.xaml.cs",
-              "RelativeToolTip": "UserControls\\OrganizationControl.xaml.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAewB4AAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-12T16:50:27.925Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DashboardControl.xaml",
-              "DocumentMoniker": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\UserControls\\DashboardControl.xaml",
-              "RelativeDocumentMoniker": "UserControls\\DashboardControl.xaml",
-              "ToolTip": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\UserControls\\DashboardControl.xaml",
-              "RelativeToolTip": "UserControls\\DashboardControl.xaml",
+              "DocumentIndex": 4,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\Windows\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Windows\\MainWindow.xaml",
+              "ToolTip": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\Windows\\MainWindow.xaml",
+              "RelativeToolTip": "Windows\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-12T16:33:37.683Z",
+              "WhenOpened": "2024-05-14T13:08:29.479Z",
               "EditorCaption": ""
             },
             {
@@ -108,7 +66,32 @@
               "ToolTip": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\UserControls\\OrganizationControl.xaml",
               "RelativeToolTip": "UserControls\\OrganizationControl.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-12T16:14:33.153Z",
+              "WhenOpened": "2024-05-14T13:08:02.474Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DashboardControl.xaml.cs",
+              "DocumentMoniker": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\UserControls\\DashboardControl.xaml.cs",
+              "RelativeDocumentMoniker": "UserControls\\DashboardControl.xaml.cs",
+              "ToolTip": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\UserControls\\DashboardControl.xaml.cs",
+              "RelativeToolTip": "UserControls\\DashboardControl.xaml.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAswC0AAABqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-12T16:52:42.295Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DashboardControl.xaml",
+              "DocumentMoniker": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\UserControls\\DashboardControl.xaml",
+              "RelativeDocumentMoniker": "UserControls\\DashboardControl.xaml",
+              "ToolTip": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\UserControls\\DashboardControl.xaml",
+              "RelativeToolTip": "UserControls\\DashboardControl.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-13T16:33:36.336Z",
               "EditorCaption": ""
             }
           ]
