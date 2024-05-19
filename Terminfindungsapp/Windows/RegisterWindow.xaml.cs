@@ -29,12 +29,14 @@ namespace Terminfindungsapp
 
         private async void btnRegister_Click(object sender, RoutedEventArgs e)
         {
+            string firstname = txtFirstname.Text;
+            string lastname = txtLastname.Text;
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
             if (username.Count() > 4 && password.Count() > 8)
             {
-                if(await APICall.PostAsync<PostUser>("http://localhost:8080/api/user/signup", new PostUser(username, password)))
+                if(await APICall.PostAsync<PostUser>("http://localhost:8080/api/user/signup", new PostUser(username, password, firstname, lastname)))
                 {
                     MessageBox.Show("Registration successful!");
                 }

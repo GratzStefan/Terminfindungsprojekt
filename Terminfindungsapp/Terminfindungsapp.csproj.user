@@ -13,6 +13,9 @@
     <Compile Update="UserControls\DashboardControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControls\HomepageControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControls\NotificationControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -37,6 +40,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\DashboardControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\HomepageControl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\NotificationControl.xaml">

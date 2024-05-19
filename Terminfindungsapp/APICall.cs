@@ -11,6 +11,9 @@ using System.Diagnostics;
 using System.Text.Json;
 using System.Net.Http.Json;
 using System.Windows.Markup;
+using System.IO;
+using System.Windows.Controls;
+using System.Windows;
 
 namespace Terminfindungsapp
 {
@@ -73,14 +76,34 @@ namespace Terminfindungsapp
             }
         }
 
-        public static async Task<bool> PutAsync<T>(string url)
+        public static async Task<bool> PutAsync<T>(string url, T data)
         {
             try
             {
                 using (var client = GetHttpClient(url))
                 {
-                    var response = client.PutAsync(url.Split('/').Last(), null).Result;
-                    return response.IsSuccessStatusCode;
+                    string json = JsonSerializer.Serialize(data);
+
+                    var response = client.PutAsync(url, new StringContent(json, Encoding.UTF8, "application/json")).Result;
+                    return response.IsSuccessStatusCode && Convert.ToInt32(await response.Content.ReadAsStringAsync()) == 1;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
+        public static async Task<bool> RemoveAsync(string url)
+        {
+            try
+            {
+                using (var client = GetHttpClient(url))
+                {
+                    var response = client.DeleteAsync(url).Result;
+
+                    return Convert.ToBoolean(await response.Content.ReadAsStringAsync());
                 }
             }
             catch (Exception ex)

@@ -6,14 +6,39 @@
         xmlns:local="clr-namespace:Terminfindungsapp"
         mc:Ignorable="d"
         Title="RegisterWindow" Height="450" Width="800">
-    <Grid>
-        <Label Content="Register" Margin="355,41,355,354" FontSize="20" FontWeight="Bold"/>
-        <Label Content="Username:" Margin="272,106,458,299" FontWeight="Bold"/>
-        <TextBox x:Name="txtUsername" HorizontalAlignment="Left" Margin="280,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Password:" Margin="272,158,458,247" FontWeight="Bold"/>
-        <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Margin="280,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Name="btnRegister" Content="Register" Margin="307,241,367,153" Click="btnRegister_Click"/>
-        <Button Name="btnLogin" Content="Login-Page" HorizontalAlignment="Left" Margin="162,335,0,0" VerticalAlignment="Top" Height="38" Width="78" Click="btnLogin_Click"/>
+    <Grid Background="#cccccc">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="35*" />
+            <ColumnDefinition Width="30*" />
+            <ColumnDefinition Width="35*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" Background="#666666" Margin="0,20,0,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="100*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Sign Up" 
+            FontWeight="Bold" FontSize="30" Padding="15"/>
+            <StackPanel Grid.Row="1" Background="#a1a1a1">
+                <Label Content="Firstname:" FontWeight="Bold" Margin="10,0,0,0"/>
+                <TextBox Name="txtFirstname"  TextWrapping="Wrap" Margin="15,0,10,10"/>
+
+                <Label Content="Lastname:" FontWeight="Bold" Margin="10,0,0,0"/>
+                <TextBox Name="txtLastname"  TextWrapping="Wrap" Margin="15,0,10,10"/>
+
+                <Label Content="Username:" FontWeight="Bold" Margin="10,0,0,0"/>
+                <TextBox Name="txtUsername"  TextWrapping="Wrap" Margin="15,0,10,10"/>
+
+                <Label Content="Password:" FontWeight="Bold" Margin="10,0,0,0"/>
+                <TextBox Name="txtPassword" TextWrapping="Wrap" Margin="15,0,10,10"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Background="#a1a1a1">
+                <Button Name="btnRegister" Content="Register" FontWeight="Bold" Background="CornflowerBlue" Margin="10" Padding="5" Click="btnRegister_Click"/>
+                <Button Name="btnLogin" Content="Login-Page" Margin="10,0,10,10" Padding="5" Click="btnLogin_Click"/>
+            </StackPanel>
+        </Grid>
 
     </Grid>
 </Window>

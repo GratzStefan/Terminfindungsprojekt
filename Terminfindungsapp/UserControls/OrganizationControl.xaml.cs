@@ -42,7 +42,7 @@ namespace Terminfindungsapp
 
         private void btnNotifcation_Click(object sender, RoutedEventArgs e)
         {
-            contentControl.Content = new NotificationControl();
+            contentControl.Content = new NotificationControl(org);
         }
     }
 }

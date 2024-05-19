@@ -30,10 +30,6 @@ namespace Terminfindungsapp
             InitializeComponent();
 
             //contentControl.Content = new OrganizationControl();
-            User user = new User();
-            user.ID = "663519a065014269ff6d96ac";
-            user.Username = "test";
-            User.GetInstance(user);
             
             lblUsername.Text = User.GetInstance(null).Username;
             LoadOrganizationsOfUser();
@@ -77,9 +73,23 @@ namespace Terminfindungsapp
             contentControl.Content = new SearchOrganizationControl();
         }
 
+        private void btnHomepage_Click(object sender, RoutedEventArgs e)
+        {
+            contentControl.Content = new HomepageControl();
+        }
+
         private void btnUser_Click(object sender, RoutedEventArgs e)
         {
             contentControl.Content = new UserSettingsControl();
+        }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            User.GetInstance(new User());
+            LoginWindow login = new LoginWindow();
+            login.Show();
+
+            this.Close();
         }
     }
 }

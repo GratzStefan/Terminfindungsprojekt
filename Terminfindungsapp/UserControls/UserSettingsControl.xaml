@@ -6,7 +6,51 @@
              xmlns:local="clr-namespace:Terminfindungsapp.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="Wheat">
-        <Label Margin="23,23,606,382" Content="User Settings:" FontWeight="Bold" FontSize="24"></Label>
+    <Grid Background="#cccccc">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*" />
+            <ColumnDefinition Width="50*" />
+        </Grid.ColumnDefinitions>
+
+
+        <Grid Grid.Column="0" Margin="20" Background="#a1a1a1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="100*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Padding="15" Background="#666666" FontSize="24" FontWeight="Bold" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" VerticalAlignment="Center" Content="Settings"/>
+
+            <StackPanel Grid.Row="1" Background="#a1a1a1">
+                <StackPanel Margin="10">
+                    <Label Content="Username:" FontWeight="Bold"/>
+                    <TextBox x:Name="txtUsername" Margin="5,5,0,0"/>
+                </StackPanel>
+                <StackPanel Margin="10">
+                    <Label Content="Firstname:" FontWeight="Bold"/>
+                    <TextBox x:Name="txtFirstname" Margin="5,5,0,0"/>
+                </StackPanel>
+                <StackPanel Margin="10">
+                    <Label Content="Lastname:" FontWeight="Bold"/>
+                    <TextBox x:Name="txtLastname" Margin="5,5,0,0"/>
+                </StackPanel>
+            </StackPanel>
+            <Button x:Name="modifyUser" Grid.Row="2" VerticalAlignment="Bottom" Margin="10" Padding="10"
+                    Content="Change" FontWeight="Bold" Background="#1da81d" Click="modifyUser_Click"/>
+        </Grid>
+        <GridSplitter Width="3" IsEnabled="True" Margin="0,10,0,10" Background="Black"></GridSplitter>
+        <Grid Grid.Column="1" Margin="20" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="100*" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Padding="15" Background="#666666" FontSize="24" FontWeight="Bold" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" VerticalAlignment="Center" Content="Sent Notifications"/>
+
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Background="#a1a1a1">
+                <StackPanel x:Name="staRequests" Margin="10, 5, 5, 5"></StackPanel>
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </UserControl>

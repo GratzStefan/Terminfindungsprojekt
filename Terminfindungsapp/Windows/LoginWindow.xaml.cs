@@ -30,25 +30,18 @@ namespace Terminfindungsapp
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
-            if(username.Count()>4 && password.Count() > 8)
+            User user = await APICall.RunAsync<User>($"http://localhost:8080/api/user/login?username={username}&password={password}", null);
+            if (user == null)
             {
-                User user = await APICall.RunAsync<User>("http://localhost:8080/api/user/login", $"?username={username}&password={password}");
-                if(user == null)
-                {
-                    return;
-                }
-
-                User.GetInstance(user);
-                
-
-                MainWindow window = new MainWindow();
-                window.Show();
-                this.Close();
+                return;
             }
-            else
-            {
-                //Display that not valid
-            }
+
+            User.GetInstance(user);
+
+
+            MainWindow window = new MainWindow();
+            window.Show();
+            this.Close();
         }
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)

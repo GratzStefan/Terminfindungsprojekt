@@ -37,7 +37,6 @@ public class RequestController {
     @PostMapping("/send")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<RequestDTO> sendRequest(@RequestBody RequestDTO RequestDTO) {
-        System.out.println("HI");
         RequestDTO dto = requestService.create(RequestDTO);
         if (dto == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         return ResponseEntity.ok(dto);

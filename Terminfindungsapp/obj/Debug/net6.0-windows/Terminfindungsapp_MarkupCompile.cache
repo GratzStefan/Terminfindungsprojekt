@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Projekte\Terminfindungsprojekt\Terminfindungsapp\App.xaml
-9-36456864
+10-1793318248
 
-19-372011095
+21-624255780
 203354107726
-UserControls\CreateOrganizationControl.xaml;UserControls\DashboardControl.xaml;UserControls\NotificationControl.xaml;UserControls\OrganizationControl.xaml;UserControls\SearchOrganizationControl.xaml;UserControls\UserSettingsControl.xaml;Windows\LoginWindow.xaml;Windows\MainWindow.xaml;Windows\RegisterWindow.xaml;
+UserControls\CreateOrganizationControl.xaml;UserControls\DashboardControl.xaml;UserControls\HomepageControl.xaml;UserControls\NotificationControl.xaml;UserControls\OrganizationControl.xaml;UserControls\SearchOrganizationControl.xaml;UserControls\UserSettingsControl.xaml;Windows\LoginWindow.xaml;Windows\MainWindow.xaml;Windows\RegisterWindow.xaml;
 
 False
 

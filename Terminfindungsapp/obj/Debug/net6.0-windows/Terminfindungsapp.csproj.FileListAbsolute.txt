@@ -93,3 +93,5 @@ C:\Projekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-windows\Use
 C:\Projekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-windows\UserControls\NotificationControl.g.cs
 C:\Projekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-windows\UserControls\DashboardControl.baml
 C:\Projekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-windows\UserControls\NotificationControl.baml
+C:\Projekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-windows\UserControls\HomepageControl.g.cs
+C:\Projekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-windows\UserControls\HomepageControl.baml

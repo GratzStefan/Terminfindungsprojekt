@@ -11,6 +11,8 @@ namespace Terminfindungsapp
     {
         private string id;
         private string username;
+        private string firstname;
+        private string lastname;
 
         private static User instance = null;
         private static readonly object padlock = new object();
@@ -31,6 +33,8 @@ namespace Terminfindungsapp
                         instance = new User();
                         instance.id = value.ID;
                         instance.username = value.Username;
+                        instance.firstname = value.firstname;
+                        instance.lastname = value.lastname;
                     }
                 }
             }
@@ -48,6 +52,18 @@ namespace Terminfindungsapp
         {
             set { username = value; }
             get { return username; }
+        }
+        [JsonPropertyName("firstname")]
+        public string Firstname
+        {
+            set { firstname = value; }
+            get { return firstname; }
+        }
+        [JsonPropertyName("lastname")]
+        public string Lastname
+        {
+            set { lastname = value; }
+            get { return lastname; }
         }
     }
 }
