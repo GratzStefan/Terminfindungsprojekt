@@ -7,15 +7,15 @@
       "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:windows\\registerwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|c:\\projekte\\terminfindungsprojekt\\terminfindungsapp\\windows\\registerwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\windows\\registerwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:windows\\registerwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|c:\\projekte\\terminfindungsprojekt\\terminfindungsapp\\entities\\postuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\entities\\postuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:entities\\postuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|c:\\projekte\\terminfindungsprojekt\\terminfindungsapp\\windows\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\windows\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:windows\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
@@ -38,8 +38,7 @@
               "RelativeToolTip": "Entities\\PostUser.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T12:18:42.112Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-18T12:18:42.112Z"
             },
             {
               "$type": "Document",
@@ -51,8 +50,7 @@
               "RelativeToolTip": "Windows\\RegisterWindow.xaml.cs",
               "ViewState": "AQIAAA8AAAAAAAAAAAAnwCYAAACSAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T11:56:57.222Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-18T11:56:57.222Z"
             },
             {
               "$type": "Document",
@@ -75,8 +73,7 @@
               "ToolTip": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\Windows\\LoginWindow.xaml",
               "RelativeToolTip": "Windows\\LoginWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-18T09:59:57.445Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-18T09:59:57.445Z"
             }
           ]
         }
