@@ -93,6 +93,10 @@ export class AuthService {
     return this.http.put(`${this.apiUrl}user/modifyUser`, user);
   }
 
+  deleteOrganization(org: Organization){
+    return this.http.delete(`${this.apiUrl}organization/delete/${org.id}`);
+  }
+
   logout(){
     this.session = undefined;
     localStorage.removeItem('session');

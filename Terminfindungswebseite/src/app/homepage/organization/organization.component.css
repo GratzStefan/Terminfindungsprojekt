@@ -36,6 +36,14 @@ body {
       }
     }
 
+    #btnDeleteOrganization {
+      img:hover {
+        filter: invert(32%) sepia(37%) saturate(6321%) hue-rotate(346deg) brightness(77%) contrast(93%);
+      }
+    }
+
+
+
     .selected {
       background-color: #cacaca;
       border: #3a3a3a solid 1px;

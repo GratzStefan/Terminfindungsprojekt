@@ -8,6 +8,9 @@
       <div id="btnNotification" [class.selected]="this.type==OrganizationComponentType.Notification" (click)="type=OrganizationComponentType.Notification">
         <img src="assets/notification.png" width="36px" height="36px" alt="https://www.flaticon.com/free-icon/bell_2529521?term=notification&page=1&position=5&origin=search&related_id=2529521">
       </div>
+      <div id="btnDeleteOrganization" (click)="deleteOrganization()">
+        <img src="assets/delete.png" width="36px" height="36px" alt="https://www.flaticon.com/free-icon/bell_2529521?term=notification&page=1&position=5&origin=search&related_id=2529521">
+      </div>
     </div>
   </div>
   <ng-container [ngSwitch]="type">

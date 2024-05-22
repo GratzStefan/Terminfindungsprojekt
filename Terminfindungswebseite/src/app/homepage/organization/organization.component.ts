@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Organization} from "../../auth.service";
+import {AuthService, Organization} from "../../auth.service";
 import {DatePipe, NgClass, NgForOf, NgIf, NgOptimizedImage, NgSwitch, NgSwitchCase} from "@angular/common";
 
 import {FormsModule} from "@angular/forms";
@@ -41,9 +41,20 @@ export class OrganizationComponent {
   @Input()
   org: Organization | undefined;
 
+  constructor(private authService: AuthService) {}
 
-  constructor() {}
-
+  deleteOrganization(){
+    if(this.org != undefined){
+      this.authService.deleteOrganization(this.org).subscribe(deletedCount => {
+        if(deletedCount == 1){
+          alert("Successfully deleted organization!");
+        }
+        else {
+          alert("Something went wrong!")
+        }
+      });
+    }
+  }
 
   protected readonly OrganizationComponentType = OrganizationComponentType;
 }

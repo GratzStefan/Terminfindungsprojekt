@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <None Remove="UserControls\dashboard.png" />
+    <None Remove="UserControls\delete.png" />
     <None Remove="UserControls\notification.png" />
     <None Remove="user_icon.png" />
     <None Remove="Images\cross.png" />
@@ -40,6 +41,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\home.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="UserControls\delete.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="UserControls\hourglass.png">

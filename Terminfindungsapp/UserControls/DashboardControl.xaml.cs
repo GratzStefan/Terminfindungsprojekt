@@ -229,7 +229,7 @@ namespace Terminfindungsapp.UserControls
 
             if (user != null)
             {
-                if (await APICall.RemoveAsync($"http://localhost:8080/api/organization/removeUser?userid={user.ID}&orgid={org.id}&adminid={User.GetInstance(null).ID}"))
+                if (await APICall.RemoveAsync<bool>($"http://localhost:8080/api/organization/removeUser?userid={user.ID}&orgid={org.id}&adminid={User.GetInstance(null).ID}"))
                 {
                     users.Remove(user);
                     DisplayUsers();

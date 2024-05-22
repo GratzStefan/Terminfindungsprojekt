@@ -32,7 +32,6 @@ namespace Terminfindungsapp
             lblName.Content = org.name;
             contentControl.Content = new DashboardControl(org);
         }
-
         
 
         private void btnDashboard_Click(object sender, RoutedEventArgs e)
@@ -43,6 +42,18 @@ namespace Terminfindungsapp
         private void btnNotifcation_Click(object sender, RoutedEventArgs e)
         {
             contentControl.Content = new NotificationControl(org);
+        }
+
+        private async void btnDeleteOrganization_Click(object sender, RoutedEventArgs e)
+        {
+            if(await APICall.RemoveAsync<int>($"http://localhost:8080/api/organization/delete/{org.id}")==1)
+            {
+                MessageBox.Show("Successfully deleted organization!");
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong!");
+            }
         }
     }
 }

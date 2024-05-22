@@ -95,7 +95,7 @@ namespace Terminfindungsapp
             }
         }
 
-        public static async Task<bool> RemoveAsync(string url)
+        public static async Task<T> RemoveAsync<T>(string url)
         {
             try
             {
@@ -103,13 +103,13 @@ namespace Terminfindungsapp
                 {
                     var response = client.DeleteAsync(url).Result;
 
-                    return Convert.ToBoolean(await response.Content.ReadAsStringAsync());
+                    return (T)Convert.ChangeType(await response.Content.ReadAsStringAsync(), typeof(T));
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return false;
+                return default(T);
             }
         }
     }
