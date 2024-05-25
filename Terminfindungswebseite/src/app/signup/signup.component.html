@@ -1,11 +1,11 @@
 <div id="container" [formGroup]="form">
-  <h1>Sign Up</h1>
+  <h1>SIGN UP</h1>
   <div id="name">
-    <input type="text" formControlName="firstname" placeholder="First Name*"/>
-    <input type="text" formControlName="lastname" placeholder="Last Name*"/>
+    <input type="text" formControlName="firstname" placeholder="FIRST NAME*"/>
+    <input type="text" formControlName="lastname" placeholder="LAST NAME*"/>
   </div>
-  <input type="text" formControlName="username" placeholder="Username*"/>
-  <input type="password" formControlName="password" placeholder="Password*"/>
-  <button (click)="signup()" [disabled]="!form.valid">Sign Up</button>
-  <p>Already have an account? <b id="signup"(click)="login()">Login here</b></p>
+  <input type="text" formControlName="username" placeholder="USERNAME*"/>
+  <input type="password" formControlName="password" placeholder="PASSWORD*"/>
+  <button (click)="signup()" [disabled]="!form.valid">SIGN UP</button>
+  <p>Already have an account? <b id="signup"(click)="login()">LOGIN HERE</b></p>
 </div>

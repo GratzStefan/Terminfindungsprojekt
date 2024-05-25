@@ -1,24 +1,24 @@
 <body>
   <div id="settings">
-    <h1>Settings</h1>
+    <h1>SETTINGS</h1>
     <div id="container">
-      <div id="username">
-        <h3>Username:</h3>
+      <div>
+        <h3>USERNAME</h3>
         <input [(ngModel)]="username"/>
       </div>
-      <div id="firstname">
-        <h3>Firstname:</h3>
+      <div>
+        <h3>FIRSTNAME</h3>
         <input [(ngModel)]="firstname"/>
       </div>
-      <div id="lastname">
-        <h3>Lastname:</h3>
+      <div>
+        <h3>LASTNAME</h3>
         <input [(ngModel)]="lastname"/>
       </div>
-      <button id="btnChange" (click)="changeUserInformation()">Change</button>
+      <button id="btnChange" (click)="changeUserInformation()">CHANGE</button>
     </div>
   </div>
   <div id="notifications">
-    <h1>Sent Notifications</h1>
+    <h1>SENT NOTIFICATIONS</h1>
     <div id="requests" *ngIf="requests.length!=0">
         <div class="request" *ngFor="let request of requests">
           <h3 id="orgName">{{request.org.name}}</h3>
@@ -27,7 +27,7 @@
           <img *ngIf="request.status === StatusType.REJECTED" src="assets/cross.png" width="36px" height="36px">
         </div>
     </div>
-    <p *ngIf="requests.length==0" style="flex: 1; font-style: italic; padding: 0.5em 1em;">No Notifications</p>
+    <p *ngIf="requests.length==0" style="flex: 1; font-style: italic; padding: 0.5em 1em;">NO NOTIFICATIONS</p>
   </div>
 </body>
 

@@ -3,7 +3,7 @@ body {
   flex-direction: column;
   height: 100%;
   width: 100%;
-  background-color: #cccccc;
+  background-color: #a1988f;
   margin: 0;
 }
 
@@ -14,12 +14,12 @@ body {
   align-self: center;
   margin: 1.5em 3em;
   align-items: center;
-  width: 30%;
+  width: 40%;
 
   #inputs {
     display: flex;
     flex-direction: column;
-    background-color: #666666;
+    background-color: #002159;
     border-radius: 15px;
     flex: 1;
     margin-bottom: 0.75em;
@@ -29,17 +29,23 @@ body {
       padding-left: 1em;
       padding-right: 1em;
       align-self: center;
+      color: #FF595A;
     }
 
     #information {
       padding: 0.5em 1.5em 1em;
-      background-color: #a1a1a1;
       flex: 1;
+
+      background-color: #5483dc;
       border-radius: 0 0 15px 15px;
 
       input {
         font-size: 1.25em;
+        padding: 0.25em;
         width: 100%;
+        border: none;
+        border-radius: 5px;
+        background-color: #CAC0B3;
       }
     }
   }

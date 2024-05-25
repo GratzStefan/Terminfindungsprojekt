@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {PublicComponent} from "./public.component";
 import {LandingComponent} from "./landing/landing.component";
 
+// Routes
 const routes: Routes = [
   {
     path: '', component: PublicComponent,

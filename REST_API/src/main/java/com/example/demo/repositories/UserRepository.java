@@ -2,6 +2,7 @@ package com.example.demo.repositories;
 
 import com.example.demo.dtos.UserDTO;
 import com.example.demo.models.UserEntity;
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Repository;
 
 

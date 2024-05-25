@@ -2,8 +2,8 @@
   <div id="container">
     <div id="inputs">
       <div id="header">
-        <h1>Search Organizations</h1>
-        <input type="text" [(ngModel)]="inputValue" (ngModelChange)="searchOrganizations()" placeholder="Search Name"/>
+        <h1>SEARCH ORGANIZATIONS</h1>
+        <input type="text" [(ngModel)]="inputValue" (ngModelChange)="searchOrganizations()"/>
       </div>
       <div id="orgList" #orgList>
         <div class="containerSearch" *ngFor="let org of orgs">

@@ -1,7 +1,8 @@
 <body>
   <div id="containerEventList">
-    <h2>Events: </h2>
-    <div id="events" *ngIf="events.length!=0">
+    <div id="contentEvents">
+      <h2>EVENTS</h2>
+      <div id="events" *ngIf="events.length!=0">
       <div id="grouped" *ngFor="let group of groupedEvents">
         <h3>{{ group.date | date: 'fullDate' }}</h3>
         <div class="event" *ngFor="let event of group.events">
@@ -15,21 +16,22 @@
         </div>
       </div>
     </div>
-    <p *ngIf="events.length==0" style="flex: 1; font-style: italic">There are no existing events!</p>
+      <p *ngIf="events.length==0" style="padding: 0.25em 1.65em 1em; font-style: italic">There are no existing events!</p>
+    </div>
     <div id="addEvent" [@expandCollapse]="isExpandedAddEvent ? 'expanded' : 'hidden'">
-      <h3 (click)="isExpandedAddEvent = !isExpandedAddEvent">New Event</h3>
+      <h3 (click)="isExpandedAddEvent = !isExpandedAddEvent">NEW EVENT</h3>
       <div id="content" *ngIf="isExpandedAddEvent">
         <div id="information">
           <div id="addTitel">
-            <h4>Titel:</h4>
+            <h4>TITEL</h4>
             <input id="inpTitel" [(ngModel)]="titel"/>
           </div>
           <div id="addDescription">
-            <h4>Description:</h4>
+            <h4>DESCRIPTION</h4>
             <input id="inpDescription" [(ngModel)]="description"/>
           </div>
           <div id="timeline">
-            <h4>Timeline:</h4>
+            <h4>TIMELINE</h4>
             <div id="dates">
               <input [(ngModel)]="start" max="2999-12-31T23:59" type="datetime-local">
               <p>-</p>
@@ -37,21 +39,21 @@
             </div>
           </div>
         </div>
-        <button id="btnAdd" (click)="addEvent()">Add</button>
+        <button id="btnAdd" (click)="addEvent()">ADD</button>
       </div>
     </div>
   </div>
   <div id="containerUserList">
-    <h2>Users:</h2>
+    <h2>USERS</h2>
     <div id="users">
       <div class="user" *ngFor="let user of users">
         <div id="name">{{user.username}}</div>
         <div id="icons">
           <img id="promote" alt="https://www.flaticon.com/free-icon/advertisement_9581612?term=promote&page=2&position=61&origin=search&related_id=9581612"
-               ngSrc="assets/promote.png" height="32" width="32"
+               ngSrc="assets/promote.png" height="36" width="36"
                (click)="promoteUser(user.id)"/>
           <img id="remove" alt="https://www.flaticon.com/free-icon/remove_2984959?term=remove&page=1&position=3&origin=search&related_id=2984959"
-               ngSrc="assets/remove.png" height="32" width="32"
+               ngSrc="assets/remove.png" height="36" width="36"
                (click)="removeUserFromOrganization(user.id)"/>
         </div>
       </div>

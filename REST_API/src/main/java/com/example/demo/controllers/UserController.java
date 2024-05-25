@@ -20,9 +20,9 @@ public class UserController {
 
     @GetMapping("/login")
     public ResponseEntity<UserDTO> getUser( @RequestParam String username, @RequestParam String password) {
-        UserDTO dto = userService.login(username, password);
-        if (dto == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        return ResponseEntity.ok(dto);
+        UserDTO UserDTO = userService.login(username, password);
+        if (UserDTO == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        return ResponseEntity.ok(UserDTO);
     }
 
     @PostMapping("/signup")

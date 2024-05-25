@@ -3,20 +3,22 @@ body {
   flex-direction: column;
   height: 100%;
   width: 100%;
-  background-color: #cccccc;
+  background-color: #a1988f;
   margin: 0;
 }
 
 #header {
   display: flex;
   flex-direction: row;
-  background-color: #666666;
+  background-color: #002159;
   margin: 0;
   align-items: center;
 
   #orgName {
     margin: 0;
     padding: 1em;
+    color: #FF595A;
+    font-size: 2.5em;
   }
 
   #buttons {
@@ -26,29 +28,24 @@ body {
     margin-left: auto;
 
     div {
-      background-color: #a1a1a1;
       border-radius: 15px;
+      border: 2px solid #CAC0B3;
+      img {
+        filter: invert(85%) sepia(11%) saturate(272%) hue-rotate(354deg) brightness(89%) contrast(92%);
+      }
+
+
       padding: 0.5em;
       margin-right: 1em;
-
-      img:hover {
-        filter: invert(19%) sepia(80%) saturate(1483%) hue-rotate(201deg) brightness(94%) contrast(101%);
-      }
     }
-
-    #btnDeleteOrganization {
-      img:hover {
-        filter: invert(32%) sepia(37%) saturate(6321%) hue-rotate(346deg) brightness(77%) contrast(93%);
-      }
-    }
-
-
 
     .selected {
-      background-color: #cacaca;
-      border: #3a3a3a solid 1px;
-      border-radius: 15px;
-      padding: 0.5em;
+      background-color: #FF595A;
+      border: none;
+
+      img {
+        filter: none;
+      }
     }
   }
 }

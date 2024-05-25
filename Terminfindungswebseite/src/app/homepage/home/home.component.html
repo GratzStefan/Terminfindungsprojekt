@@ -1,6 +1,6 @@
 <body>
   <div id="content">
-    <h1>All of your Events</h1>
+    <h1>YOUR EVENTS</h1>
     <div id="events" *ngIf="events.length!=0">
       <div id="grouped" *ngFor="let group of groupedEvents">
         <h3>{{ group.date | date: 'fullDate' }}</h3>
@@ -14,7 +14,7 @@
           </div>
         </div>
       </div>
-   </div>
+    </div>
     <p *ngIf="events.length==0" style="flex: 1; font-style: italic; padding: 0.5em 1em;">There are no existing events!</p>
   </div>
 </body>

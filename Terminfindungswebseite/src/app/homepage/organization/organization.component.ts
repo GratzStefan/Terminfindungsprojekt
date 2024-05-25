@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {AuthService, Organization} from "../../auth.service";
+import {AuthService} from "../../auth.service";
 import {DatePipe, NgClass, NgForOf, NgIf, NgOptimizedImage, NgSwitch, NgSwitchCase} from "@angular/common";
 
 import {FormsModule} from "@angular/forms";
@@ -9,6 +9,8 @@ import {SearchComponent} from "../search/search.component";
 import {UserComponent} from "../user/user.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {NotificationComponent} from "./notification/notification.component";
+import {Organization} from "../../DataTypes/organization";
+import {OrganizationComponentType} from "../../DataTypes/organization.component.type";
 
 @Component({
   selector: 'app-organization',
@@ -36,16 +38,21 @@ import {NotificationComponent} from "./notification/notification.component";
 
 
 export class OrganizationComponent {
+  // Organization Component Window
   type: OrganizationComponentType = OrganizationComponentType.Dashboard;
 
+  // Current Organization
   @Input()
   org: Organization | undefined;
 
   constructor(private authService: AuthService) {}
 
+  // Deletes Organization
   deleteOrganization(){
     if(this.org != undefined){
+      // Sends Request to Delete current Organization
       this.authService.deleteOrganization(this.org).subscribe(deletedCount => {
+        // Output for User, if deleted
         if(deletedCount == 1){
           alert("Successfully deleted organization!");
         }
@@ -57,9 +64,4 @@ export class OrganizationComponent {
   }
 
   protected readonly OrganizationComponentType = OrganizationComponentType;
-}
-
-enum OrganizationComponentType {
-  Dashboard,
-  Notification
 }

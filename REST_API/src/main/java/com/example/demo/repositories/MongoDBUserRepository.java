@@ -10,6 +10,7 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.FindOneAndReplaceOptions;
 import jakarta.annotation.PostConstruct;
+import org.apache.catalina.User;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.springframework.security.crypto.scrypt.SCryptPasswordEncoder;

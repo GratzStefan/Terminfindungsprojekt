@@ -3,32 +3,31 @@ body {
   flex-direction: row;
   height: 100%;
   width: 100%;
-  background-color: #cccccc;
-  overflow-y: auto;
+  background-color: #a1988f;
+}
+
+h1 {
+  background-color: #002159;
+  color: #FF595A;
+  border-radius: 15px 15px 0 0;
+
+  margin: 0;
+  padding: 1em;
 }
 
 #settings {
   width: 50%;
 
-  background-color: #a1a1a1;
-  border-radius: 10px;
+  background-color: #5483dc;
+  border-radius: 15px;
   margin: 3em;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
-
-  h1 {
-    background-color: #656565;
-    margin: 0;
-    padding: 1em;
-    border-radius: 15px 15px 0 0;
-  }
 
   #container {
     display: flex;
     flex-direction: column;
 
-    overflow-y: auto;
     flex: 1;
     margin-top: 1em;
     margin-right: 1em;
@@ -37,19 +36,28 @@ body {
     padding: 0 1em 1em 1.65em;
     border-radius: 10px;
 
+    h3 {
+      font-weight: bold;
+    }
+
     input {
-      font-size: 1.1em;
+      font-size: 1.2em;
       padding: 0.25em;
       width: 100%;
+      border: none;
+      border-radius: 5px;
+      background-color: #CAC0B3;
     }
 
     #btnChange {
       background-color: #1da81d;
       border-style: none;
-      padding: 1em;
+      border-radius: 10px;
+
       font-size: 1em;
       font-weight: bold;
-      border-radius: 10px;
+
+      padding: 1em;
       margin-top: auto;
       margin-bottom: 0.5em;
       width: 100%;
@@ -57,24 +65,15 @@ body {
   }
 }
 
-
-
 #notifications {
   width: 50%;
 
-  background-color: #a1a1a1;
-  border-radius: 10px;
+  background-color: #5483dc;
+  border-radius: 15px;
   margin: 3em;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-
-  h1 {
-    background-color: #656565;
-    margin: 0;
-    padding: 1em;
-    border-radius: 15px 15px 0 0;
-  }
 
   #requests {
     overflow-y: auto;
@@ -87,13 +86,13 @@ body {
     border-radius: 10px;
 
     .request {
-      background-color: #666666;
       display: flex;
       flex-direction: row;
       align-items: center;
       margin-top: 1em;
-
       padding: 0.5em;
+
+      border: 2px solid #CAC0B3;
 
       #orgName {
         margin-right: auto;
@@ -102,6 +101,7 @@ body {
 
       img {
         margin-right: 1em;
+        filter: invert(85%) sepia(11%) saturate(272%) hue-rotate(354deg) brightness(89%) contrast(92%);
       }
     }
   }
@@ -118,6 +118,6 @@ body {
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #474747;
+  background: #002159;
   border-radius: 10px;
 }

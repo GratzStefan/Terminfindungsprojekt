@@ -1,187 +1,184 @@
 * {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
+  color: #CAC0B3;
 }
 
 body {
   display: flex;
   height: 100vh;
   width: 100vw;
-  flex-direction: row;
+  flex-direction: column;
   margin: 0;
   overflow: hidden;
 }
 
-.navbar {
+header {
+  background: #001233;
+  height: 10%;
+
   display: flex;
-  flex-direction: column;
-  background-color: gainsboro;
-  flex: 1;
+  flex-direction: row;
+  align-items: center;
 
-  #org {
-    font-size: 25px;
-    margin: 0;
-    padding: 1.25em 1em;
-    background-color: #a1a1a1;
+  #name {
+    margin: 1em;
+    padding: 0;
+    color: #FF595A;
+    font-size: 2.5em;
   }
 
-  #containerList {
+  #tabs {
+    margin-left: auto;
     display: flex;
-    flex-direction: column;
-    flex: 1;
-    overflow-y: auto;
+    flex-direction: row;
 
-    padding-left: 0.75em;
-    padding-right: 0.75em;
-    margin: 0.5em;
+    div {
+      padding: 0.1em 1.25em;
 
-    .userOrgs {
-      margin-top: 10px;
-      padding: 1em 1em;
-      background-color: lightslategrey;
-      color: black;
-      font-size: 19px;
-      border: black;
-      border-radius: 5px;
-    }
-
-    .userOrgs:hover {
-      background-color: #b3bbc5;
-    }
-    .selected {
-      background-color: #58636e;
-      border: #4c4c4c solid 2px;
-      color: white;
-    }
-  }
-
-  #bottom {
-    margin-top: auto;
-    margin-bottom: 0;
-    width: 100%;
-    padding-left: 1em;
-    padding-right: 1em;
-
-    hr {
-      border-width: 2px;
-    }
-
-    .orgButton {
-      background-color: lightslategrey;
-      border: 0;
-      border-radius: 10px 30px 30px 10px;
-      outline: none;
-      text-transform: uppercase;
-      cursor: pointer;
-      margin: 1em 0;
+      margin-right: 1em;
+      border-radius: 15px;
+      border: 2px solid #CAC0B3;
 
       display: flex;
       flex-direction: row;
-      align-items: center;
-
-      p {
-        color: black;
-        font-weight: bold;
-        margin-left: 0.75em;
-        margin-right: 0.75em;
-      }
 
       img {
-        width: 24px;
-        height: 24px;
-        margin-left: auto;
-        margin-right: 0.75em;
+        height: 36px;
+        width: 36px;
+        align-self: center;
+        margin-right: 1.5em;
+        filter: invert(85%) sepia(11%) saturate(272%) hue-rotate(354deg) brightness(89%) contrast(92%);
+      }
+
+      p {
+        font-size: 1.25em;
+        font-weight: bold;
       }
     }
 
-    .orgButton:hover {
-      background-color: #b3bbc5;
+    #logout:hover {
+      img {
+        filter: invert(45%) sepia(96%) saturate(4215%) hue-rotate(337deg) brightness(118%) contrast(101%);
+      }
     }
 
     .selected {
-      background-color: #58636e;
-      border: #4c4c4c solid 2px;
+      background-color: #FF595A;
+      border: 0;
+
       p {
-        color: white;
+        color: black;
       }
+
+      img {
+        filter: invert(0%) sepia(2%) saturate(0%) hue-rotate(239deg) brightness(100%) contrast(100%);
+      }
+
+
     }
   }
 }
 
 .container {
   display: flex;
-  flex-direction: column;
-  flex: 5;
+  flex-direction: row;
 
-  header {
-    background: #505050;
-    height: 10%;
+  height: 90%;
 
+  .navbar {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    background-color: #5483dc;
+    flex: 1;
 
-    #name {
-      margin-left: 1em;
-      padding: 0;
-      color: #e3e3e3;
+    #org {
+      margin: 0;
+      padding: 1.25em 1em;
+      background-color: #002c7a;
+      color: #FF595A;
     }
 
-    #tabs {
-      margin-left: auto;
+    #containerList {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
+      flex: 1;
+      overflow-y: auto;
 
-      div {
-        background-color: #7e7e7e;
-        padding: 0.1em 1.25em;
+      padding-left: 0.75em;
+      padding-right: 0.75em;
+      margin: 0.5em;
 
-        margin-right: 1em;
-        border-radius: 15px;
+      .userOrgs {
+        margin-top: 10px;
+        padding: 1em 1em;
+
+        font-size: 19px;
+        font-weight: bold;
+
+        border-radius: 5px;
+        border: 2px solid #CAC0B3;
+      }
+
+      .selected {
+        background-color: #FF595A;
+        border: 0;
+
+        color: black;
+      }
+    }
+
+    #bottom {
+      margin-top: auto;
+      margin-bottom: 0;
+      padding-left: 1em;
+      padding-right: 1em;
+      background-color: #002159;
+
+      .orgButton {
+        border: 2px solid #CAC0B3;
+        border-radius: 10px 30px 30px 10px;
+        outline: none;
+        text-transform: uppercase;
+        cursor: pointer;
+        margin: 1em 0;
 
         display: flex;
         flex-direction: row;
-
-        img {
-          height: 36px;
-          width: 36px;
-          align-self: center;
-          margin-right: 1.5em;
-        }
+        align-items: center;
 
         p {
-          color: black;
-          font-size: 1.25em;
           font-weight: bold;
+          margin-left: 0.75em;
+          margin-right: 0.75em;
         }
-      }
 
-      #home:hover, #user:hover {
-        background-color: #b3bbc5;
         img {
-          filter: invert(40%) sepia(9%) saturate(1727%) hue-rotate(183deg) brightness(85%) contrast(82%);
-        }
-      }
-
-      #logout:hover {
-        background-color: #b3bbc5;
-        img {
-          filter: invert(45%) sepia(96%) saturate(4215%) hue-rotate(337deg) brightness(118%) contrast(101%);
+          width: 24px;
+          height: 24px;
+          margin-left: auto;
+          margin-right: 0.75em;
+          filter: invert(85%) sepia(11%) saturate(272%) hue-rotate(354deg) brightness(89%) contrast(92%);
         }
       }
 
       .selected {
-        background-color: #58636e;
-        border: #4c4c4c solid 2px;
+        background-color: #FF595A;
+        border: 0;
+
         p {
-          color: white;
+          color: black;
+        }
+
+        img {
+          filter: invert(0%) sepia(2%) saturate(0%) hue-rotate(239deg) brightness(100%) contrast(100%);
         }
       }
     }
   }
 
   .content {
-    height: 90%;
+    flex: 5;
   }
 }
 
@@ -197,6 +194,6 @@ body {
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #474747;
+  background: #002159;
   border-radius: 10px;
 }

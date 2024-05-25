@@ -3,21 +3,21 @@ body {
   flex-direction: column;
   height: 100%;
   width: 100%;
-  background-color: #cccccc;
+  background-color: #a1988f;
   overflow-y: auto;
 }
 
-
 #content {
-  background-color: #a1a1a1;
-  border-radius: 10px;
+  background-color: #5483dc;
+  border-radius: 15px;
   margin: 3em;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
 
   h1 {
-    background-color: #656565;
+    background-color: #002159;
+    color: #FF595A;
     margin: 0;
     padding: 1em;
     border-radius: 15px 15px 0 0;
@@ -31,20 +31,28 @@ body {
     margin-right: 1em;
 
     padding: 0 1em 1em 1.65em;
-    border-radius: 10px;
+    border-radius: 15px;
 
     #grouped {
       margin-top: 1em;
+
+      h3 {
+        color: #0c3185;
+      }
+
       .event {
-        background-color: #666666;
         display: flex;
         flex-direction: column;
         justify-content: center;
         padding: 1.5em;
 
+        border-radius: 10px;
+        border: 2px solid #CAC0B3;
+
         #evTitel {
           font-weight: bold;
           margin-right: auto;
+          margin-bottom: 0.25em;
         }
 
         #detailedInfo {
@@ -52,7 +60,7 @@ body {
           flex-direction: row;
 
           .evDescription {
-            margin-right: auto;
+            margin-right: 1em;
           }
 
           #evTime {
@@ -80,6 +88,6 @@ body {
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #474747;
+  background: #002159;
   border-radius: 10px;
 }

@@ -1,5 +1,6 @@
 #container{
-  background-color: purple;
+  background-color: #002159;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,7 +10,23 @@
 
   h1 {
     margin: 0px;
-    color: #fff;
+
+    color: #FF595A;
+    font-size: 40px;
+    font-weight: bold;
+  }
+
+  .button {
+    background-color: #002159;
+
+    color: #CAC0B3;
+    border-radius: 10px;
+    border: 2px solid #CAC0B3;
+
+    font-size: 20px;
+    font-weight: bold;
+    padding: 1.25em 2em;
+    cursor: pointer;
   }
 }
 

@@ -1,30 +1,47 @@
 import {Injectable} from '@angular/core';
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
+import {User} from "./DataTypes/user";
+import {DataService} from "./DataTypes/data.service";
+import {Organization} from "./DataTypes/organization";
+import {Request} from "./DataTypes/request";
+import {Event} from "./DataTypes/event";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
+  // API-URL
   private apiUrl = 'http://localhost:8080/api/';
-  session: any;
+  // SESSION (User)
+  session: User|undefined;
 
   constructor(private router: Router, private http: HttpClient) {
-    let session: any = localStorage.getItem('session');
+    // Finds If He Already Logged In
+    let session = localStorage.getItem('session');
 
     if(session) {
-      session = JSON.parse(session);
+      DataService.user = JSON.parse(session);
+      this.session = DataService.user;
     }
-
-    this.session = session;
   }
 
+
+  // Users-Operation
+
   login(username: string, password: string){
-    let user = this.http.get<User>(`${this.apiUrl}user/login?username=${username}&password=${password}`);
-    this.session = user;
-    localStorage.setItem('session', JSON.stringify(this.session));
-    return user;
+    this.http.get<User>(`${this.apiUrl}user/login?username=${username}&password=${password}`).subscribe(value => {
+      this.session = value;
+      DataService.user = value;
+      localStorage.setItem('session', JSON.stringify(value));
+      this.router.navigateByUrl('/homepage');
+      },
+    error => {
+      alert('Invalid username or password');
+    });
+
+    return false;
   }
 
   signup(firstname: string, lastname: string, username: string, password: string){
@@ -36,6 +53,19 @@ export class AuthService {
     }
     return this.http.post<User>(`${this.apiUrl}user/signup`, u);
   }
+
+  changeUser(user: User){
+    return this.http.put(`${this.apiUrl}user/modifyUser`, user);
+  }
+
+  logout(){
+    this.session = undefined;
+    localStorage.removeItem('session');
+    this.router.navigateByUrl('/')
+  }
+
+
+  // Organization-Operations
 
   getuserorganizations(userid: string){
     return this.http.get<Organization[]>(`${this.apiUrl}organization/searchOrganizations/${userid}`);
@@ -69,10 +99,6 @@ export class AuthService {
     return this.http.delete(`${this.apiUrl}organization/removeUser?userid=${userid}&orgid=${orgid}&adminid=${adminid}`);
   }
 
-  sendRequestToOrganization(request: Request) {
-    return this.http.post(`${this.apiUrl}request/send`, request, {responseType: "json"});
-  }
-
   getAllRequestsToOrganization(orgid: string) {
     return this.http.get<Request[]>(`${this.apiUrl}request/findToOrganization/${orgid}`);
   }
@@ -81,73 +107,25 @@ export class AuthService {
     return this.http.put(`${this.apiUrl}request/changeStatus?adminid=${DataService.user?.id}`, request);
   }
 
-  getEventsOfUser() {
-    return this.http.get<Event[]>(`${this.apiUrl}events/find/${DataService.user?.id}`);
+  deleteOrganization(org: Organization){
+    return this.http.delete(`${this.apiUrl}organization/delete/${org.id}`);
+  }
+
+
+  // Request
+
+  sendRequestToOrganization(request: Request) {
+    return this.http.post(`${this.apiUrl}request/send`, request, {responseType: "json"});
   }
 
   getAllRequestsOfUser() {
     return this.http.get<Request[]>(`${this.apiUrl}request/findOfUser/${DataService.user?.id}`);
   }
 
-  changeUser(user: User){
-    return this.http.put(`${this.apiUrl}user/modifyUser`, user);
+
+  // Events
+
+  getEventsOfUser() {
+    return this.http.get<Event[]>(`${this.apiUrl}events/find/${DataService.user?.id}`);
   }
-
-  deleteOrganization(org: Organization){
-    return this.http.delete(`${this.apiUrl}organization/delete/${org.id}`);
-  }
-
-  logout(){
-    this.session = undefined;
-    localStorage.removeItem('session');
-    this.router.navigateByUrl('/')
-  }
-}
-
-export interface User {
-  id?: string;
-  firstname: string;
-  lastname: string;
-  username: string;
-  password?: string;
-}
-
-export interface Organization {
-  id?: string;
-  name: string;
-  creatorid?: string;
-}
-
-export interface Event {
-  id?: string;
-  titel: string;
-  description?: string;
-  datetimestart: Date;
-  datetimeend: Date;
-  organizationid: string;
-}
-
-export interface Request {
-  id?: string;
-  user: User;
-  org: Organization;
-  status?: number;
-}
-
-@Injectable({
-  providedIn: 'root'
-})
-export class DataService {
-  static user: User;
-}
-
-export enum StatusType{
-  WAITING,
-  REJECTED,
-  ACCEPTED,
-}
-
-export interface GroupedEvent {
-  date: Date;
-  events: any[];
 }
