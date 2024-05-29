@@ -48,14 +48,12 @@ Die REST-API dient als einheitliche Schnittstelle für das Frontend und führt a
 
 ### Was tut die Software und wozu ist sie gut?
 
-
 Der Sinn hinter dieser Software ist, dass es Nutzern und Organisationen eine einfache Möglichkeit zur Verfügung gestellt wird, Termine innerhalb Organisationen und Personen zu verteilen und organisieren. 
 Dies ist möglich, indem die Software eine Benutzerverwaltung beinhaltet und diese verschiedenen Organisationen beitreten können.
 Nutzer können selber Organisationen und ebenfalls bei Organisationen anfragen dieser beizutreten. 
 Um diese Anfrage bearbeiten zu können sowie Einstellungen an der Organisation durchzuführen, muss dieser Nutzer die Admin-Rechte einer Organisation haben.
 Somit können Nutzer Mitglieder von mehreren Organisationen sein und all dessen Termine für sich selber verwalten. 
 Ebenso können Nutzer noch Veränderungen bei Ihrem eigenen Konto durchführen.
-
 
 ## Funktionalitäten
 
@@ -191,8 +189,131 @@ Das **X** zum Ablehnen.
 
 Organisation können mit dem Klicken auf dem **Mülltonnen-Icon** gelöscht werden.
 
-## Verwendung der API
+## API
 
+### Beschreibung
+
+Die API passiert auf dem REST-Prinzip und wurde in Java Spring Boot entwickelt. 
+Die REST-API dient für die Clients als Schnittstelle zur Datenbank.
+
+### Endpunkte
+
+Alle Endpunkte haben die Basis-URL **http://localhost:8080/api**
+
+#### User
+
+Zusätzlich zur Basis-URL haben Nutzerendpunkte immer **/user**.
+
+<details>
+  <summary>GET: /login</summary>
+
+### Beschreibung:
+Endpunkt checkt ob Nutzer mit dazugehörigem Passwort existiert.
+
+### Request-Parameter:
+
+`username`
+
+- Typ: String
+- Erforderlich: Ja
+- Beschreibung: Der Benutzername des Nutzers.
+- Beispiel: `maxmustermann`
+
+`password`
+
+- Typ: String
+- Erforderlich: Ja
+- Beschreibung: Das Password des Nutzers.
+- Beispiel: `123456`
+
+### Return-Wert:
+  ```json
+  {
+    "id": "663519a065014369ff6d96ac",
+    "firstname": "Max",
+    "lastname": "Mustermann",
+    "username": "maxmustermann"
+  }
+  ```
+</details>
+
+<details>
+  <summary>POST: /signup</summary>
+
+### Beschreibung:
+Endpunkt erstellt neuen Nutzer.
+
+### Request-Body:
+
+#### Felder
+- **firstname**: erforderlich
+- **lastname**: erforderlich
+- **username**: erforderlich
+- **password**: erforderlich
+
+#### Beispiel
+  ```json
+  {
+    "firstname": "Max",
+    "lastname": "Mustermann",
+    "username": "maxmustermann",
+    "password": "123456"
+  }
+  ```
+
+### Return-Wert:
+  ```json
+  {
+    "id": "663519a065014369ff6d96ac",
+    "firstname": "Max",
+    "lastname": "Mustermann",
+    "username": "maxmustermann"
+  }
+  ```
+</details>
+
+<details>
+  <summary>PUT: /modifyUser</summary>
+
+### Beschreibung:
+Endpunkt verändert Nutzereinstellungen.
+
+### Request-Body:
+
+#### Felder
+- **id**: erforderlich
+- **firstname**: optional
+- **lastname**: optional
+- **username**: optional
+
+#### Beispiele
+  ```json
+  {
+    "id": "663519a065014369ff6d96ac",
+    "firstname": "Maxi",
+    "lastname": "test",
+    "username": "maxmustermann2"
+  }
+  ```
+
+### Return-Wert:
+  ```json
+  {
+    "id": "663519a065014369ff6d96ac",
+    "firstname": "Max",
+    "lastname": "Mustermann",
+    "username": "maxmustermann"
+  }
+  ```
+</details>
+
+#### Organization
+
+#### Event
+
+#### Request
+
+### Anwendung
 Die API wird für die WPF-Anwendung sowie für Webseite immer wieder aufgerufen.
 
 Die WPF-App beinhaltet eine Klasse "APICall", welche die 4 benötigten HTTP-Methoden (GET, POST, PUT, DELETE) beinhalten und somit in den verschiedenen Windows und UserControls aufgerufen werden:
@@ -209,12 +330,46 @@ Die Web-App beinhaltet ebenso eine Klasse, welche alle API-Requests und dafür n
 
 #### WPF-App
 
+```mermaid
+classDiagram
+    GroupedEvent o-- Event
+    Request o-- User
+    Request o-- Organization
+    Request o-- RequestStatus
+    User o-- User
+    
+    class APICall
+    class Event
+    class GroupedEvent
+    class Organization
+    class Request
+    class RequestStatus { <<Enumeration>> }
+    class User
+```
+
 #### Web-App
 
 
-#### REST-API
+```mermaid
+classDiagram
+    DataService o-- User
+    Request o-- User
+    Request o-- Organization
+    Request o-- StatusType
+    GroupedEvent o-- Event
+    
+    class ComponentType { <<Enumeration>> }
+    class DataService
+    class Event { <<interface>> }
+    class GroupedEvent { <<interface>> }
+    class OrganizationComponentType { <<Enumeration>> }
+    class Organization { <<interface>> }
+    class Request { <<interface>> }
+    class StatusType { <<Enumeration>> }
+    class User { <<interface>> }
+```
 
-// TODO: Ueberarbeiten da Klassen bei anderen noch drinnen ist und kleiner Daten-Klasse mitimplementieren
+#### REST-API
 
 ```mermaid
 classDiagram
@@ -244,6 +399,8 @@ classDiagram
     OrganizationRepository <|-- MongoDBOrganizationRepository
     RequestRepository <|-- MongoDBRequestRepository
     UserRepository <|-- MongoDBUserRepository
+    
+    
 
     class Application
     

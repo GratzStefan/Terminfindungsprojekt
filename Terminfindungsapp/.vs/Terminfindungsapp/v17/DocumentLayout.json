@@ -3,11 +3,15 @@
   "WorkspaceRootPath": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|c:\\projekte\\terminfindungsprojekt\\terminfindungsapp\\apicall.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:apicall.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|c:\\projekte\\terminfindungsprojekt\\terminfindungsapp\\usercontrols\\notificationcontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:usercontrols\\notificationcontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|c:\\projekte\\terminfindungsprojekt\\terminfindungsapp\\usercontrols\\usersettingscontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\usercontrols\\usersettingscontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{6942685A-C9A6-4C3B-A6AB-4D09B376BFC5}|Terminfindungsapp.csproj|solutionrelative:usercontrols\\usersettingscontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
@@ -23,6 +27,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "APICall.cs",
+              "DocumentMoniker": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\APICall.cs",
+              "RelativeDocumentMoniker": "APICall.cs",
+              "ToolTip": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\APICall.cs",
+              "RelativeToolTip": "APICall.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T12:39:01.746Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "NotificationControl.xaml",
               "DocumentMoniker": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\UserControls\\NotificationControl.xaml",
               "RelativeDocumentMoniker": "UserControls\\NotificationControl.xaml",
@@ -34,15 +51,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "UserSettingsControl.xaml",
               "DocumentMoniker": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\UserControls\\UserSettingsControl.xaml",
               "RelativeDocumentMoniker": "UserControls\\UserSettingsControl.xaml",
               "ToolTip": "C:\\Projekte\\Terminfindungsprojekt\\Terminfindungsapp\\UserControls\\UserSettingsControl.xaml",
               "RelativeToolTip": "UserControls\\UserSettingsControl.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-27T09:35:16.176Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-27T09:35:16.176Z"
             }
           ]
         }

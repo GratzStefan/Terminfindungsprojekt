@@ -32,9 +32,4 @@ public class UserServiceImpl implements UserService{
     public long update(UserDTO UserDTO) {
         return userRepository.update(UserDTO.toUserEntity());
     }
-
-    @Override
-    public long delete(String id) {
-        return userRepository.delete(id);
-    }
 }

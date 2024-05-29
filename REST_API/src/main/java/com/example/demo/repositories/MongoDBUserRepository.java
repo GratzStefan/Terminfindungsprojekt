@@ -56,6 +56,8 @@ public class MongoDBUserRepository implements UserRepository {
         // Inserting new User into DB
         usersCollections.insertOne(userEntity);
 
+        userEntity.setPassword(null);
+
         return userEntity;
     }
 
@@ -106,12 +108,6 @@ public class MongoDBUserRepository implements UserRepository {
 
         // Updates the User
         return usersCollections.updateOne(filter, update).getModifiedCount();
-    }
-
-    @Override
-    public long delete(String id) {
-        // Deletes User
-        return usersCollections.deleteOne(eq("_id", new ObjectId(id))).getDeletedCount();
     }
 
     // Hashes Password

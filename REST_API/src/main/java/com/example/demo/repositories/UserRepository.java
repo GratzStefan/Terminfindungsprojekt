@@ -11,5 +11,4 @@ public interface UserRepository {
     UserEntity register(UserEntity userEntity);
     UserDTO login(String username, String password);
     long update(UserEntity userEntity);
-    long delete(String id);
 }

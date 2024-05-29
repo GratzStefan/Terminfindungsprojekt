@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Terminfindungsapp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7cda3972c39057084ca05f2b60d361978f859932")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1f8cbe8958d5e9b5d700ae08a6212cd072e21f16")]
 [assembly: System.Reflection.AssemblyProductAttribute("Terminfindungsapp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Terminfindungsapp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

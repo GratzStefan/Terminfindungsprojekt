@@ -7,5 +7,4 @@ public interface UserService {
     UserDTO register(UserDTO UserDTO);
     UserDTO login(String username, String password);
     long update(UserDTO UserDTO);
-    long delete(String id);
 }
