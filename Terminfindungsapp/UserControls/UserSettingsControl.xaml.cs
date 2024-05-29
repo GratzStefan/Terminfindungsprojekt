@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Terminfindungsapp.Entities;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace Terminfindungsapp.UserControls
 {
@@ -21,26 +19,36 @@ namespace Terminfindungsapp.UserControls
     /// </summary>
     public partial class UserSettingsControl : UserControl
     {
-        private List<PostRequest> requests = new List<PostRequest>();
+        // Displays List of sent Request of User
+        private List<Request> requests = new List<Request>();
+        
         public UserSettingsControl()
         {
             InitializeComponent();
 
+            // Displays Requests
             DisplayRequests();
+
+            // Displays Userinformation
             txtUsername.Text = User.GetInstance(null).Username;
             txtFirstname.Text = User.GetInstance(null).Firstname;
             txtLastname.Text = User.GetInstance(null).Lastname;
             
         }
 
+        // Click-Event on Change Button (Changes User Information
         private async void modifyUser_Click(object sender, RoutedEventArgs e)
         {
-            User user = new User();
-            user.ID = User.GetInstance(null).ID;
-            user.Username = txtUsername.Text;
-            user.Firstname = txtFirstname.Text;
-            user.Lastname = txtLastname.Text;
+            // Create User-Object
+            User user = new User()
+            {
+                ID = User.GetInstance(null).ID,
+                Username = txtUsername.Text,
+                Firstname = txtFirstname.Text,
+                Lastname = txtLastname.Text
+            };
 
+            // Request changes User-Information in DB
             if (await APICall.PutAsync($"http://localhost:8080/api/user/modifyUser", user))
             {
                 MessageBox.Show("Successfully changed User-Settings!");
@@ -51,73 +59,128 @@ namespace Terminfindungsapp.UserControls
             }
         }
 
-        private async void DisplayRequests()
+        private async void DisplayRequests() 
         {
+            // Reset GUI
             staRequests.Children.Clear();
 
-            requests = await APICall.RunAsync<List<PostRequest>>($"http://localhost:8080/api/request/findOfUser/{User.GetInstance(null).ID}", null);
+            // GET all requests
+            requests = await APICall.GetAsync<List<Request>>($"http://localhost:8080/api/request/findOfUser/{User.GetInstance(null).ID}", null);
 
+            // Displays if requests exists
             if (requests is not null)
             {
-                foreach (PostRequest req in requests)
+                foreach (Request req in requests)
                 {
-                    Grid grid = new Grid();
-                    Color color = (Color)ColorConverter.ConvertFromString("#778899FF");
-                    grid.Background = new SolidColorBrush(color);
-                    grid.Margin = new Thickness(10, 10, 0, 10);
-                    
+                    // Creating GUI-Request-Element
 
+                    // Border around GUI-Request
+                    Border border = new Border();
+                    border.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#CAC0B3"));
+                    border.BorderThickness = new Thickness(2);
+                    border.Margin = new Thickness(10);
+
+
+                    Grid grid = new Grid();
+                    grid.Background = new SolidColorBrush(Colors.Transparent);
+                    grid.Margin = new Thickness(10, 10, 0, 10);
 
                     ColumnDefinition column1 = new ColumnDefinition();
                     ColumnDefinition column2 = new ColumnDefinition();
                     column1.Width = new GridLength(1, GridUnitType.Star);
                     column2.Width = GridLength.Auto;
 
-                    // Add ColumnDefinitions to the Grid
                     grid.ColumnDefinitions.Add(column1);
                     grid.ColumnDefinitions.Add(column2);
 
                     // Label for org
                     Label label = new Label();
+                    label.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#CAC0B3"));
                     label.Content = req.org.name;
                     label.VerticalAlignment = VerticalAlignment.Center;
                     label.HorizontalAlignment = HorizontalAlignment.Left;
-                    label.FontSize = 18;
+                    label.FontSize = 20;
+                    label.FontWeight = FontWeights.Bold;
                     label.Margin = new Thickness
                     {
                         Bottom = 10,
                         Top = 10
                     };
 
-                    // Create the Image
-                    Image image = new Image();
+                    // Create a Grid to hold the rectangles
+                    Grid gridImage = new Grid();
+                    gridImage.Margin = new Thickness(15);
+                        
+                    // Detect, which image needed
                     string imgUrl = null;
                     switch (req.status)
                     {
                         case RequestStatus.WAITING:
-                            imgUrl = "/UserControls/hourglass.png";
+                            imgUrl = "UserControls/Images/hourglass.png";
                             break;
                         case RequestStatus.REJECTED:
-                            imgUrl = "/UserControls/cross.png";
+                            imgUrl = "UserControls/Images/cross.png";
                             break;
                         case RequestStatus.ACCEPTED:
-                            imgUrl = "/UserControls/tick.png";
+                            imgUrl = "UserControls/Images/tick.png";
                             break;
                     }
-                    image.Source = new BitmapImage(new Uri(imgUrl, UriKind.Relative));
-                    image.Width = 24;
-                    image.Height = 24;
-                    image.Margin = new Thickness
+
+                    // Assigns Image
+                    string absolutePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, imgUrl);
+
+                    BitmapImage bitmapImage = new BitmapImage();
+                    bitmapImage.BeginInit();
+                    bitmapImage.UriSource = new Uri(absolutePath, UriKind.Absolute);
+                    bitmapImage.EndInit();
+
+                    // Rectangle with image background
+                    Rectangle imageRectangle = new Rectangle
                     {
-                        Right = 10
+                        Width = 34,
+                        Height = 34
                     };
+                    ImageBrush imageBrush = new ImageBrush
+                    {
+                        ImageSource = bitmapImage
+                    };
+                    imageRectangle.Fill = imageBrush;
 
+                    // Rectangle with color filter
+                    Rectangle colorFilterRectangle = new Rectangle
+                    {
+                        Width = 34,
+                        Height = 34,
+                        Opacity = 1.0
+                    };
+                    SolidColorBrush colorBrush = new SolidColorBrush
+                    {
+                        Color = Color.FromRgb(202, 192, 179)
+                    };
+                    colorFilterRectangle.Fill = colorBrush;
+                    ImageBrush opacityMaskBrush = new ImageBrush
+                    {
+                        ImageSource = bitmapImage
+                    };
+                    colorFilterRectangle.OpacityMask = opacityMaskBrush;
+
+                    // Add rectangles to the Grid
+                    gridImage.Children.Add(imageRectangle);
+                    gridImage.Children.Add(colorFilterRectangle);
+
+                    
+                    // Add to Grid
                     Grid.SetColumn(label, 0);
-                    Grid.SetColumn(image, 1);
+                    Grid.SetColumn(gridImage, 1);
                     grid.Children.Add(label);
-                    grid.Children.Add(image);
+                    grid.Children.Add(gridImage);
 
-                    staRequests.Children.Add(grid);
+
+                    border.Child = grid;
+
+
+                    // Add to GUI
+                    staRequests.Children.Add(border);
                 }
             }
         }

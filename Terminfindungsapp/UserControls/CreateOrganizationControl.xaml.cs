@@ -25,12 +25,16 @@ namespace Terminfindungsapp
             InitializeComponent();
         }
 
+        // Click-Event on Button, which creates new Organization
         private async void btnCreate_Click(object sender, RoutedEventArgs e)
         {
+            // Checks if OrganizationName is not empty
             if (txtName.Text != "")
             {
-                if (await APICall.PostAsync<PostOrganization>($"http://localhost:8080/api/organization/create", new PostOrganization(txtName.Text, User.GetInstance(null).ID)))
+                // Request creates new Organization
+                if (await APICall.PostAsync<Organization>($"http://localhost:8080/api/organization/create", new Organization(txtName.Text, User.GetInstance(null).ID)))
                 {
+                    // Cleanup on GUI
                     txtName.Name = "";
                     MessageBox.Show("Successful!");
                 }

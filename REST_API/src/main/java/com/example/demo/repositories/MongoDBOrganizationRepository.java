@@ -28,8 +28,10 @@ public class MongoDBOrganizationRepository implements OrganizationRepository{
             .writeConcern(WriteConcern.MAJORITY)
             .build();
     private final MongoClient client;
+
     private MongoCollection<OrganizationEntity> organizationsCollection;
     private MongoCollection<UserEntity> usersCollection;
+
     public MongoDBOrganizationRepository(MongoClient mongoClient) {
         this.client = mongoClient;
     }
@@ -39,13 +41,19 @@ public class MongoDBOrganizationRepository implements OrganizationRepository{
         organizationsCollection = client.getDatabase("Terminfindungsapp").getCollection("organizations", OrganizationEntity.class);
         usersCollection = client.getDatabase("Terminfindungsapp").getCollection("users", UserEntity.class);
     }
+
     @Override
     public ObjectId create(OrganizationEntity organizationEntity) {
+        // Filter-Criteria
         Document doc = new Document();
         doc.append("name", organizationEntity.getName());
+
+        // Checks if OrganizationName already exists
         if(organizationsCollection.find(doc).first() != null) return null;
 
+        // Sets new ID
         organizationEntity.setId(new ObjectId());
+        // Inserts new Organization
         organizationsCollection.insertOne(organizationEntity);
 
         return organizationEntity.getId();
@@ -53,15 +61,20 @@ public class MongoDBOrganizationRepository implements OrganizationRepository{
 
     @Override
     public int addUser(String userid, String organizationid, String adminid) {
+        // Filter-Criteria
         Document doc = new Document();
         doc.append("_id", new ObjectId(organizationid));
         doc.append("userlist." + adminid, 0);
 
+        // Check if user has rights to Add User
         OrganizationEntity organization = organizationsCollection.find(doc).first();
+        // When organization return HTTP-Status Code 404
         if(organization == null) return 404;
 
+        // Add User to organization
         organization.addUser(userid);
 
+        // Adding new User To Organization in DB
         FindOneAndReplaceOptions options = new FindOneAndReplaceOptions().returnDocument(AFTER);
         if(organizationsCollection.findOneAndReplace(eq("_id", new ObjectId(organizationid)), organization, options) == null) return 500;
 
@@ -70,36 +83,47 @@ public class MongoDBOrganizationRepository implements OrganizationRepository{
 
     @Override
     public List<OrganizationEntity> search(String organizationName) {
+        // Regex to filter after OrganizationName for Search
         var regexFilter = Filters.regex("name", ".*?" + organizationName + ".*?", "i");
 
+        // Gets Organizations
         return organizationsCollection.find(regexFilter).limit(25).into(new ArrayList<>());
     }
 
     @Override
     public List<OrganizationEntity> searchOrganization(String userid) {
+        // Filter-Criteria
         Document doc = new Document();
         doc.append("userlist." + userid, new Document("$exists", true));
+        // Finds Organizations of User
         return organizationsCollection.find(doc).into(new ArrayList<>());
     }
 
     @Override
     public List<UserEntity> userListOfOrganization(String orgid) {
+        // Filter-Criteria
         Document doc = new Document();
         doc.append("_id", new ObjectId(orgid));
 
+        // Finds specific Organization
         OrganizationEntity dto = organizationsCollection.find(doc).first();
         if(dto==null){
             return null;
         }
+
+        // Converts Hashmap into List of UserEntity
         List<UserEntity> userList = new ArrayList<>();
 
         for(var userid : dto.getUserlist().entrySet()){
+            // Filter-Criteria
             Document user = new Document();
             user.append("_id", new ObjectId(userid.getKey()));
 
+            // Projection
             Document projection = new Document("password", 0);
             projection.append("password", 0);
 
+            // Finds all Userinformation
             UserEntity entity = usersCollection.find(user).projection(projection).first();
             if(entity != null){
                 userList.add(entity);
@@ -110,6 +134,7 @@ public class MongoDBOrganizationRepository implements OrganizationRepository{
 
     @Override
     public OrganizationEntity modify(OrganizationEntity organizationEntity) {
+        // Modifies Organization
         FindOneAndReplaceOptions options = new FindOneAndReplaceOptions().returnDocument(AFTER);
         return organizationsCollection.findOneAndReplace(eq("_id", organizationEntity.getId()), organizationEntity, options);
     }
@@ -118,11 +143,14 @@ public class MongoDBOrganizationRepository implements OrganizationRepository{
     public boolean promoteUser(String orgid, String userid, String adminid) {
         FindOneAndReplaceOptions options = new FindOneAndReplaceOptions().returnDocument(AFTER);
 
+        // Filter-Criteria
         Document doc = new Document();
         doc.append("_id", new ObjectId(orgid));
         doc.append("userlist." + adminid, 0);
+        // Checks if User has Right to Promote user
         OrganizationEntity org = organizationsCollection.find(doc).first();
         if(org!=null){
+            // Changes Rights of User
             org.getUserlist().replace(userid, 0);
             return organizationsCollection.findOneAndReplace(eq("_id", new ObjectId(orgid)), org, options) != null;
         }
@@ -132,17 +160,22 @@ public class MongoDBOrganizationRepository implements OrganizationRepository{
 
     @Override
     public long delete(String id) {
+        // Deletes Organization
         return organizationsCollection.deleteOne(eq("_id", new ObjectId(id))).getDeletedCount();
     }
 
     @Override
     public boolean removeUser(String userid, String orgid, String adminid) {
         FindOneAndReplaceOptions options = new FindOneAndReplaceOptions().returnDocument(AFTER);
+        // Filter-Criteria
         Document doc = new Document();
         doc.append("_id", new ObjectId(orgid));
         doc.append("userlist." + adminid, 0);
+
+        // Checks if User has Right to Remove User from Organization
         OrganizationEntity org = organizationsCollection.find(doc).first();
         if(org!=null){
+            // Removes User from Organization
             org.getUserlist().remove(userid);
             return organizationsCollection.findOneAndReplace(eq("_id", new ObjectId(orgid)), org, options) != null;
         }

@@ -5,38 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Terminfindungsapp"
         mc:Ignorable="d"
-        Title="RegisterWindow" Height="450" Width="800">
-    <Grid Background="#cccccc">
+        Title="SuperPlaner" Icon="Images/icon.png"
+        Height="450" Width="800">
+    <Grid Background="#002159">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="35*" />
             <ColumnDefinition Width="30*" />
             <ColumnDefinition Width="35*" />
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="1" Background="#666666" Margin="0,20,0,20">
+        <Grid Grid.Column="1" Margin="0,20,0,20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="100*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Sign Up" 
-            FontWeight="Bold" FontSize="30" Padding="15"/>
-            <StackPanel Grid.Row="1" Background="#a1a1a1">
-                <Label Content="Firstname:" FontWeight="Bold" Margin="10,0,0,0"/>
-                <TextBox Name="txtFirstname"  TextWrapping="Wrap" Margin="15,0,10,10"/>
+            <Label Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Content="SIGN UP" 
+            FontWeight="Bold" FontSize="35" Padding="15" Foreground="#FF595A"/>
+            <StackPanel Grid.Row="1">
+                <Label Content="FIRSTNAME" FontWeight="Bold" Margin="10,0,0,0" Foreground="#CAC0B3" FontSize="15"/>
+                <TextBox Name="txtFirstname"  TextWrapping="Wrap" Margin="15,0,10,10" Background="#CAC0B3" FontSize="15"/>
 
-                <Label Content="Lastname:" FontWeight="Bold" Margin="10,0,0,0"/>
-                <TextBox Name="txtLastname"  TextWrapping="Wrap" Margin="15,0,10,10"/>
+                <Label Content="LASTNAME" FontWeight="Bold" Margin="10,0,0,0" Foreground="#CAC0B3" FontSize="15"/>
+                <TextBox Name="txtLastname"  TextWrapping="Wrap" Margin="15,0,10,10" Background="#CAC0B3" FontSize="15"/>
 
-                <Label Content="Username:" FontWeight="Bold" Margin="10,0,0,0"/>
-                <TextBox Name="txtUsername"  TextWrapping="Wrap" Margin="15,0,10,10"/>
+                <Label Content="USERNAME" FontWeight="Bold" Margin="10,0,0,0" Foreground="#CAC0B3" FontSize="15"/>
+                <TextBox Name="txtUsername"  TextWrapping="Wrap" Margin="15,0,10,10" Background="#CAC0B3" FontSize="15"/>
 
-                <Label Content="Password:" FontWeight="Bold" Margin="10,0,0,0"/>
-                <TextBox Name="txtPassword" TextWrapping="Wrap" Margin="15,0,10,10"/>
+                <Label Content="PASSWORD" FontWeight="Bold" Margin="10,0,0,0" Foreground="#CAC0B3" FontSize="15"/>
+                <PasswordBox Name="txtPassword" Margin="15,0,10,10" Background="#CAC0B3" FontSize="15"/>
             </StackPanel>
-            <StackPanel Grid.Row="2" Background="#a1a1a1">
-                <Button Name="btnRegister" Content="Register" FontWeight="Bold" Background="CornflowerBlue" Margin="10" Padding="5" Click="btnRegister_Click"/>
-                <Button Name="btnLogin" Content="Login-Page" Margin="10,0,10,10" Padding="5" Click="btnLogin_Click"/>
+            <StackPanel Grid.Row="2">
+                <Button Name="btnRegister" Content="REGISTER" FontWeight="Bold" Margin="10" Padding="5" Click="btnRegister_Click" Background="#FF595A" BorderThickness="0" FontSize="15"/>
+                <Button Name="btnLogin" Content="Do you want to LOGIN" FontWeight="Bold" Margin="10,0,10,10" Padding="5" Click="btnLogin_Click" Background="Transparent" BorderBrush="#CAC0B3" Foreground="#CAC0B3" FontSize="15"/>
             </StackPanel>
         </Grid>
 

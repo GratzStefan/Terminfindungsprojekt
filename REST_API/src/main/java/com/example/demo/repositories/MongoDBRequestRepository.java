@@ -1,6 +1,5 @@
 package com.example.demo.repositories;
 
-import com.example.demo.controllers.OrganizationController;
 import com.example.demo.models.OrganizationEntity;
 import com.example.demo.models.OrganizationRole;
 import com.example.demo.models.RequestEntity;
@@ -44,7 +43,9 @@ public class MongoDBRequestRepository implements RequestRepository {
 
     @Override
     public RequestEntity create(RequestEntity requestEntity) {
+        // Sets Status of Request to Waiting
         requestEntity.setStatus(RequestStatus.WAITING.ordinal());
+        // Inserts Request into DB
         BsonValue id = requestsCollection.insertOne(requestEntity).getInsertedId();
 
         if(id==null) return null;
@@ -54,25 +55,32 @@ public class MongoDBRequestRepository implements RequestRepository {
 
     @Override
     public List<RequestEntity> findToOrganization(String orgid) {
+        // Filter-Criteria
         Document doc = new Document();
         doc.append("org._id", new ObjectId(orgid));
         doc.append("status", 0);
+        // Finds all Request to an Organization
         return requestsCollection.find(doc).into(new ArrayList<>());
     }
 
     @Override
     public List<RequestEntity> findOfUser(String userid) {
+        // Filter-Criteria
         Document doc = new Document();
         doc.append("user._id", new ObjectId(userid));
 
+        // Finds all Request Sent by an User
         return requestsCollection.find(doc).into(new ArrayList<>());
     }
 
     @Override
     public long changeStatus(String adminid, RequestEntity requestEntity) {
+        // Filter-Criteria
         Document doc = new Document();
         doc.append("_id", requestEntity.getOrg().getId());
         doc.append("userlist." + adminid, 0);
+
+        // Checks if user has Right to Accept/Reject Request
         OrganizationEntity org = organizationsCollection.find(doc).first();
         if(org == null)
             return 0;
@@ -80,15 +88,18 @@ public class MongoDBRequestRepository implements RequestRepository {
         Document filter = new Document("_id", requestEntity.getId());
         Document update = new Document("$set", new Document("status", requestEntity.getStatus()));
 
+        // Accepts/Rejects Request of User To Join Organization
         long count = requestsCollection.updateOne(filter, update).getModifiedCount();
 
+        // If Accepted To Organization, now we add him in Userlist of Organization
         if(count==1 && requestEntity.getStatus() == RequestStatus.ACCEPTED.ordinal()) {
             filter = new Document("_id", org.getId());
 
+            // Add user to userlist
             HashMap<String, Integer> userlist = org.getUserlist();
             userlist.put(requestEntity.getUser().getId().toHexString(), OrganizationRole.User.ordinal());
             update = new Document("$set", new Document("userlist", userlist));
-
+            // Updating in DB
             organizationsCollection.updateOne(filter, update);
         }
 

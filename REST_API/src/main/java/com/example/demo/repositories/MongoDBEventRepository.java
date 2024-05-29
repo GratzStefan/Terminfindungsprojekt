@@ -42,6 +42,7 @@ public class MongoDBEventRepository implements EventRepository{
 
     @Override
     public ObjectId create(EventEntity eventEntity) {
+        // Inserting Event into DB
         eventsCollection.insertOne(eventEntity);
 
         return eventEntity.getId();
@@ -49,25 +50,31 @@ public class MongoDBEventRepository implements EventRepository{
 
     @Override
     public List<EventEntity> search(String organizationId) {
+        // Search-Criteria
         Document doc = new Document();
         doc.append("organizationid", organizationId);
 
+        // Searching Events of Organization
         return eventsCollection.find(doc).into(new ArrayList<>());
     }
 
     @Override
     public List<EventEntity> findEventsOfUser(String userId) {
+        // Search-Criteria
         Document filter = new Document();
         filter.append("userlist." + userId, new Document("$exists", true));
+
+        // Finds all Organizations, where User is in
         List<String> usersOrgs = organizationsCollection.find(filter)
                 .projection(new Document("_id", 1))
                 .map(doc -> doc.getId().toHexString())
                 .into(new ArrayList<>());
 
-
+        // Filter-Criteria
         Document doc = new Document();
         doc.append("organizationid", new Document("$in", usersOrgs));
 
+        // Finds all Events of Users Organizations
         return eventsCollection.find(doc).into(new ArrayList<>());
     }
 }

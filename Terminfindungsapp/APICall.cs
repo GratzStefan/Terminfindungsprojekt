@@ -21,21 +21,28 @@ namespace Terminfindungsapp
     {
         private static HttpClient GetHttpClient(string url)
         {
+            // Creates HTTPClient with wanted URL
             var client = new HttpClient { BaseAddress = new Uri(url) };
+            
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
             return client;
         }
 
-        private static async Task<T> GetAsync<T>(string url, string urlParameters)
+        // GET-Request
+        public static async Task<T> GetAsync<T>(string url, string urlParameters)
         {
             try
             {
                 using (var client = GetHttpClient(url))
                 {
+                    // Get response of Request
                     HttpResponseMessage response = await client.GetAsync(urlParameters);
+                    // Checks if Everything went good
                     if (response.StatusCode == HttpStatusCode.OK)
                     {
+                        // Returning Response in wanted Object
                         string json = await response.Content.ReadAsStringAsync();
                         var result = JsonSerializer.Deserialize<T>(json);
                         return result;
@@ -51,21 +58,20 @@ namespace Terminfindungsapp
             }
         }
 
-        public static async Task<T> RunAsync<T>(string url, string urlParameters)
-        {
-            return await GetAsync<T>(url, urlParameters);
-        }
-
+        // POST-Request
         public static async Task<bool> PostAsync<T>(string url, T data)
         {
             try
             {
                 using (var client = GetHttpClient(url))
                 {
+                    // Formats Object into JSON
                     string json = JsonSerializer.Serialize<T>(data);
                     
+                    // Sends POST-Request
                     var response = client.PostAsync(url, new StringContent(json, Encoding.UTF8, "application/json")).Result;
 
+                    // Return if everything went good
                     return response.IsSuccessStatusCode;
                 }
             }
@@ -76,15 +82,18 @@ namespace Terminfindungsapp
             }
         }
 
+        // PUT-Request
         public static async Task<bool> PutAsync<T>(string url, T data)
         {
             try
             {
                 using (var client = GetHttpClient(url))
                 {
+                    // Formats Object into JSON
                     string json = JsonSerializer.Serialize(data);
-
+                    // Sends PUT-Request
                     var response = client.PutAsync(url, new StringContent(json, Encoding.UTF8, "application/json")).Result;
+                    // Return if everything went good (Checks also if one element got changed)
                     return response.IsSuccessStatusCode && Convert.ToInt32(await response.Content.ReadAsStringAsync()) == 1;
                 }
             }
@@ -95,14 +104,17 @@ namespace Terminfindungsapp
             }
         }
 
+        // DELETE-Request
         public static async Task<T> RemoveAsync<T>(string url)
         {
             try
             {
                 using (var client = GetHttpClient(url))
                 {
+                    // Sends DELETE-Request
                     var response = client.DeleteAsync(url).Result;
 
+                    // Returns Response in wanted Object
                     return (T)Convert.ChangeType(await response.Content.ReadAsStringAsync(), typeof(T));
                 }
             }

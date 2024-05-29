@@ -1,19 +1,9 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Terminfindungsapp.Entities;
 
@@ -24,30 +14,42 @@ namespace Terminfindungsapp.UserControls
     /// </summary>
     public partial class NotificationControl : UserControl
     {
-        private PostOrganization org;
-        private List<PostRequest> requests = new List<PostRequest>();
+        // Current Organization
+        private Organization org;
+        
+        // Displayed List of Sent Request of User 
+        private List<Request> requests = new List<Request>();
 
-        public NotificationControl(PostOrganization org)
+        public NotificationControl(Organization org)
         {
             InitializeComponent();
             this.org = org;
+            // Displaying Requests
             DisplayRequests();
         }
 
         private async void DisplayRequests()
         {
+            // Clear GUI
             staRequests.Children.Clear();
 
-            requests = await APICall.RunAsync<List<PostRequest>>($"http://localhost:8080/api/request/findToOrganization/{org.id}", null);
+            // Request gets all Sent Request of User
+            requests = await APICall.GetAsync<List<Request>>($"http://localhost:8080/api/request/findToOrganization/{org.id}", null);
 
+            // Displays Requests if any exist
             if (requests is not null)
             {
-                foreach (PostRequest req in requests)
+                foreach (Request req in requests)
                 {
+                    // Border
+                    Border border = new Border();
+                    border.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#CAC0B3"));
+                    border.BorderThickness = new Thickness(2);
+                    border.Margin = new Thickness(10);
+
                     Grid grid = new Grid();
-                    Color color = (Color)ColorConverter.ConvertFromString("#778899FF");
-                    grid.Background = new SolidColorBrush(color);
-                    grid.Margin = new Thickness(10, 10, 0, 10);
+                    grid.Background = new SolidColorBrush(Colors.Transparent);
+                    grid.Margin = new Thickness(10);
 
                     ColumnDefinition column1 = new ColumnDefinition();
                     ColumnDefinition column2 = new ColumnDefinition();
@@ -58,12 +60,14 @@ namespace Terminfindungsapp.UserControls
                     grid.ColumnDefinitions.Add(column1);
                     grid.ColumnDefinitions.Add(column2);
 
-                    //Labe for org
+                    // Label for org
                     Label label = new Label();
-                    label.Content = req.org.name;
+                    label.Content = req.user.Username;
                     label.VerticalAlignment = VerticalAlignment.Center;
                     label.HorizontalAlignment = HorizontalAlignment.Left;
-                    label.FontSize = 18;
+                    label.FontSize = 20;
+                    label.FontWeight = FontWeights.Bold;
+                    label.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#CAC0B3"));
 
                     // Create the Image
                     Grid buttons = new Grid();
@@ -77,51 +81,99 @@ namespace Terminfindungsapp.UserControls
                     
                     //Accept Button
                     Button accept = new Button();
+                    accept.Background = new SolidColorBrush(Colors.Transparent);
+                    accept.BorderThickness = new Thickness(0);
                     accept.HorizontalAlignment = HorizontalAlignment.Right;
                     accept.Margin = new Thickness(5, 0, 15, 0);
                     accept.Click += btnAccept_Click;
-
-                    Image image = new Image();
-                    image.Source = new BitmapImage(new Uri("/UserControls/tick.png", UriKind.Relative));
-                    image.Width = 24;
-                    image.Height = 24;
-                    accept.Content = image;
+                    accept.Content = CreateImage("UserControls/Images/tick.png");
+                    
                     Grid.SetColumn(accept, 0);
                     buttons.Children.Add(accept);
 
                     //Reject Button
                     Button reject = new Button();
+                    reject.Background = new SolidColorBrush(Colors.Transparent);
+                    reject.BorderThickness = new Thickness(0);
                     reject.HorizontalAlignment = HorizontalAlignment.Right;
                     reject.Margin = new Thickness(5, 0, 15, 0);
                     reject.Click += btnReject_Click;
-
-                    Image img = new Image();
-                    img.Source = new BitmapImage(new Uri("/UserControls/cross.png", UriKind.Relative));
-                    img.Width = 24;
-                    img.Height = 24;
-                    reject.Content = img;
+                    reject.Content = CreateImage("UserControls/Images/cross.png");
+                    
                     Grid.SetColumn(reject, 1);
                     buttons.Children.Add(reject);
 
-
-
-
+                    // Add to Grid
                     Grid.SetColumn(label, 0);
                     Grid.SetColumn(buttons, 1);
-
-
                     grid.Children.Add(label);
                     grid.Children.Add(buttons);
 
-                    staRequests.Children.Add(grid);
+                    border.Child = grid;
+
+                    // Add to GUI
+                    staRequests.Children.Add(border);
                 }
             }
         }
 
-        private async void btnAccept_Click(object sender, EventArgs e)
+        // Creates Image, which has a different Color
+        private Grid CreateImage(string url)
         {
-            PostRequest request = FindRequest(sender);
+            // Create a Grid to hold the rectangles
+            Grid gridImage = new Grid();
 
+            string absolutePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, url);
+
+            BitmapImage bitmapImage = new BitmapImage();
+            bitmapImage.BeginInit();
+            bitmapImage.UriSource = new Uri(absolutePath, UriKind.Absolute);
+            bitmapImage.EndInit();
+
+            // Rectangle with image background
+            Rectangle imageRectangle = new Rectangle
+            {
+                Width = 36,
+                Height = 36
+            };
+            ImageBrush imageBrush = new ImageBrush
+            {
+                ImageSource = bitmapImage
+            };
+            imageRectangle.Fill = imageBrush;
+
+            // Rectangle with color filter
+            Rectangle colorFilterRectangle = new Rectangle
+            {
+                Width = 36,
+                Height = 36,
+                Opacity = 1.0
+            };
+            SolidColorBrush colorBrush = new SolidColorBrush
+            {
+                Color = Color.FromRgb(202, 192, 179)
+            };
+            colorFilterRectangle.Fill = colorBrush;
+            ImageBrush opacityMaskBrush = new ImageBrush
+            {
+                ImageSource = bitmapImage
+            };
+            colorFilterRectangle.OpacityMask = opacityMaskBrush;
+
+            // Add rectangles to the Grid
+            gridImage.Children.Add(imageRectangle);
+            gridImage.Children.Add(colorFilterRectangle);
+
+            return gridImage;
+        }
+
+        // Click-Event on Accept-Button, which Accepts Request to Organization
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            // Finds Request
+            Request request = FindRequest(sender);
+
+            // Sends Request
             if(request != null)
             {
                 request.status = RequestStatus.ACCEPTED;
@@ -130,10 +182,13 @@ namespace Terminfindungsapp.UserControls
 
         }
 
+        // Click-Event on Reject-Button, which Rejects Request to Organization
         private void btnReject_Click(object sender, EventArgs e)
         {
-            PostRequest request = FindRequest(sender);
+            // Finds Request
+            Request request = FindRequest(sender);
 
+            // Sends Request
             if (request != null)
             {
                 request.status = RequestStatus.REJECTED;
@@ -141,10 +196,13 @@ namespace Terminfindungsapp.UserControls
             }
         }
 
-        private async void ChangeStatus(PostRequest request)
+        // Sends the Request with the new Status
+        private async void ChangeStatus(Request request)
         {
+            // PUT-Request
             if(await APICall.PutAsync($"http://localhost:8080/api/request/changeStatus?adminid={User.GetInstance(null).ID}", request))
             {
+                // Resetting GUI
                 DisplayRequests();
                 MessageBox.Show("Successfully modified Status!");
             }
@@ -154,18 +212,19 @@ namespace Terminfindungsapp.UserControls
             }
         }
 
-        private PostRequest FindRequest(object sender)
-        {
+        private Request FindRequest(object sender)
+        {    
             Button btn = sender as Button;
             Grid btnGrid = btn.Parent as Grid;
             Grid grid = btnGrid.Parent as Grid;
             Label lbl = grid.Children[0] as Label;
 
-            PostRequest request = null;
+            Request request = null;
 
-            foreach (PostRequest r in requests)
+            // Searches after clicked Request
+            foreach (Request r in requests)
             {
-                if (r.org.name == lbl.Content.ToString())
+                if (r.user.Username == lbl.Content.ToString())
                 {
                     request = r;
                     break;

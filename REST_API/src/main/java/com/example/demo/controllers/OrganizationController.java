@@ -2,8 +2,6 @@ package com.example.demo.controllers;
 
 import com.example.demo.dtos.OrganizationDTO;
 import com.example.demo.dtos.UserDTO;
-import com.example.demo.models.UserEntity;
-import com.example.demo.repositories.Pair;
 import com.example.demo.services.OrganizationService;
 import org.bson.types.ObjectId;
 import org.slf4j.Logger;
@@ -12,9 +10,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
-    
+
+// Organization-Controller
+
 @RestController
 @RequestMapping("/api/organization")
 public class OrganizationController {

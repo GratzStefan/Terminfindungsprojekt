@@ -95,3 +95,10 @@ C:\Projekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-windows\Use
 C:\Projekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-windows\UserControls\NotificationControl.baml
 C:\Projekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-windows\UserControls\HomepageControl.g.cs
 C:\Projekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-windows\UserControls\HomepageControl.baml
+C:\Projekte\Terminfindungsprojekt\Terminfindungsapp\obj\Debug\net6.0-windows\Terminfindungsapp_Content.g.cs
+C:\Projekte\Terminfindungsprojekt\Terminfindungsapp\bin\Debug\net6.0-windows\UserControls\Images\cross.png
+C:\Projekte\Terminfindungsprojekt\Terminfindungsapp\bin\Debug\net6.0-windows\UserControls\Images\hourglass.png
+C:\Projekte\Terminfindungsprojekt\Terminfindungsapp\bin\Debug\net6.0-windows\UserControls\Images\promote.png
+C:\Projekte\Terminfindungsprojekt\Terminfindungsapp\bin\Debug\net6.0-windows\UserControls\Images\remove.png
+C:\Projekte\Terminfindungsprojekt\Terminfindungsapp\bin\Debug\net6.0-windows\UserControls\Images\tick.png
+C:\Projekte\Terminfindungsprojekt\Terminfindungsapp\bin\Debug\net6.0-windows\UserControls\Images\request.png

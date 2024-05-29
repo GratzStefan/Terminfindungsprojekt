@@ -2,11 +2,10 @@ package com.example.demo.dtos;
 
 import com.example.demo.models.OrganizationEntity;
 import com.example.demo.models.OrganizationRole;
-import com.example.demo.models.UserEntity;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import org.bson.types.ObjectId;
-
 import java.util.HashMap;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public record OrganizationDTO (
         String id,

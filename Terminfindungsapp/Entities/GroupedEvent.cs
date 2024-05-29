@@ -14,6 +14,6 @@ namespace Terminfindungsapp.Entities
         }
 
         public DateTime date;
-        public List<PostEvent> events = new List<PostEvent>();
+        public List<Event> events = new List<Event>();
     }
 }

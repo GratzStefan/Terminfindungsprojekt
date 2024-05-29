@@ -13,68 +13,42 @@
     <None Remove="UserControls\delete.png" />
     <None Remove="UserControls\notification.png" />
     <None Remove="user_icon.png" />
-    <None Remove="Images\cross.png" />
-    <None Remove="Images\dashboard.png" />
-    <None Remove="Images\exit.png" />
-    <None Remove="Images\home.png" />
-    <None Remove="Images\hourglass.png" />
-    <None Remove="Images\notification.png" />
-    <None Remove="Images\promote.png" />
-    <None Remove="Images\remove.png" />
-    <None Remove="Images\request.png" />
-    <None Remove="Images\right_arrow.png" />
-    <None Remove="Images\tick.png" />
-    <None Remove="Images\user.png" />
     <None Remove="Windows\exit.png" />
     <None Remove="Windows\home.png" />
+    <None Remove="Windows\icon.png" />
     <None Remove="Windows\user.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="UserControls\cross.png">
+    <Content Include="UserControls\Images\cross.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="UserControls\Images\delete.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\dashboard.png">
+    <Content Include="UserControls\Images\hourglass.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UserControls\Images\promote.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UserControls\Images\remove.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="UserControls\Images\dashboard.png" />
+    <Resource Include="UserControls\Images\notification.png" />
+    <Content Include="UserControls\Images\request.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UserControls\Images\tick.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Windows\Images\exit.png" />
+    <Resource Include="Windows\Images\home.png" />
+    <Resource Include="Windows\Images\icon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\exit.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\home.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="UserControls\delete.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="UserControls\hourglass.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\notification.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="UserControls\promote.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="UserControls\remove.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="UserControls\dashboard.png" />
-    <Resource Include="UserControls\notification.png" />
-    <Resource Include="UserControls\request.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\right_arrow.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="UserControls\tick.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\user.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Windows\exit.png" />
-    <Resource Include="Windows\home.png" />
-    <Resource Include="Windows\user.png" />
+    <Resource Include="Windows\Images\user.png" />
   </ItemGroup>
 
 </Project>

@@ -24,28 +24,36 @@ namespace Terminfindungsapp
     /// </summary>
     public partial class OrganizationControl : UserControl
     {
-        private PostOrganization org;
-        public OrganizationControl(PostOrganization org)
+        // Current Organization
+        private Organization org;
+
+        public OrganizationControl(Organization org)
         {
             InitializeComponent();
+            // Assigning Organization
             this.org = org;
+            // Displaying OrganizationName
             lblName.Content = org.name;
+            // Setting Default User-Control
             contentControl.Content = new DashboardControl(org);
         }
         
-
+        // Navigate to Dashboard-UserControl
         private void btnDashboard_Click(object sender, RoutedEventArgs e)
         {
             contentControl.Content = new DashboardControl(org);
         }
 
+        // Navigate to Notification-UserControl
         private void btnNotifcation_Click(object sender, RoutedEventArgs e)
         {
             contentControl.Content = new NotificationControl(org);
         }
 
+        // Click Event on Delete-Button, which deletes current Organization
         private async void btnDeleteOrganization_Click(object sender, RoutedEventArgs e)
         {
+            // Request, that deletes current Organization (returns how many organizations got deleted)
             if(await APICall.RemoveAsync<int>($"http://localhost:8080/api/organization/delete/{org.id}")==1)
             {
                 MessageBox.Show("Successfully deleted organization!");

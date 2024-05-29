@@ -5,95 +5,154 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Terminfindungsapp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1000">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="17*" />
-            <ColumnDefinition Width="83*" />
-        </Grid.ColumnDefinitions>
+        Title="SuperPlaner" Icon="Images/icon.png"
+        Height="600" Width="1000">
+    <Grid Grid.Column="1" Background="#CAC0B3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="100*" />
+        </Grid.RowDefinitions>
 
-        <Grid Grid.Column="0" Background="gainsboro" Width="Auto">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="15*" />
-                <RowDefinition Height="85*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+        <Grid Grid.Row="0"  Background="#001233">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="0" Content="Organizations:" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Padding="10, 0, 0, 0"
-                   FontWeight="Bold" FontSize="16" Background="#a1a1a1"/>
-            <ScrollViewer Grid.Row="1" DockPanel.Dock="Top" VerticalScrollBarVisibility="Auto" Margin="10, 5, 5, 5">
-                <StackPanel Name="staUserOrganizations" Margin="0, 0, 5, 0"></StackPanel>
-            </ScrollViewer>
-            <StackPanel Grid.Row="2"
-                        Background="LightSlateGray">
-                <Button x:Name="btnCreateOrganization" Content="Create Organization" Height="35" Margin="10,10,10,0" Click="btnCreateOrganization_Click"
-                        Background="#778899FF"/>
-                <Button x:Name="btnSearchOrganization" Content="Search Organization" Height="35" Margin="10,10,10,10" Click="btnSearchOrganization_Click"
-                        Background="#778899FF"/>
-            </StackPanel>
-        </Grid>
-        
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="10*" />
-                <RowDefinition Height="90*" />
-            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Content="SUPERPLANER" VerticalAlignment="Stretch" VerticalContentAlignment="Center"
+                FontWeight="Bold" FontSize="35" Foreground="#FF595A"
+                Margin="15"/>
 
-            <Grid Grid.Row="0"  Background="#505050">
+            <Grid Grid.Column="1">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="90*" />
-                    <ColumnDefinition Width="350" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="0" Content="SuperPlaner" VerticalAlignment="Stretch" VerticalContentAlignment="Center"
-                    FontWeight="Bold" FontSize="25" Foreground="White"
-                       Margin="10, 0, 0, 0"/>
+                <Button Grid.Column="0" Margin="5" Width="Auto" Height="50" VerticalAlignment="Center" Click="btnHomepage_Click" Background="Transparent" BorderBrush="#CAC0B3">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
 
-                <Grid Grid.Column="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="33*" />
-                        <ColumnDefinition Width="33*" />
-                        <ColumnDefinition Width="33*" />
-                    </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Margin="10, 0, 10, 0">
+                            <!-- Rectangle to serve as the background -->
+                            <Rectangle Width="28" Height="28">
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="/Windows/Images/home.png" />
+                                </Rectangle.Fill>
+                            </Rectangle>
 
-                    <Button Grid.Column="0" Margin="5" Width="100" Height="50" VerticalAlignment="Center" Click="btnHomepage_Click">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Image Grid.Column="0" Source="/Windows/home.png" Width="24" Height="24" Margin="0 0 15 0" />
-                            <TextBlock Grid.Column="1" Text="Home" VerticalAlignment="Center" />
+                            <!-- Rectangle to apply color filter -->
+                            <Rectangle Width="28" Height="28" Opacity="1.0">
+                                <Rectangle.Fill>
+                                    <SolidColorBrush Color="#CAC0B3" />
+                                </Rectangle.Fill>
+                                <Rectangle.OpacityMask>
+                                    <ImageBrush ImageSource="/Windows/Images/home.png" />
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
                         </Grid>
-                    </Button>
 
-                    <Button Grid.Column="1" Margin="5" Width="100" Height="50" VerticalAlignment="Center" Click="btnUser_Click">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Image Grid.Column="0" Source="/Windows/user.png" Width="24" Height="24" Margin="0 0 15 0" />
-                            <TextBlock x:Name="lblUsername" Grid.Column="1" Text="" VerticalAlignment="Center" />
+                        <Label Grid.Column="1" Content="HOME" VerticalAlignment="Center" FontSize="20" Foreground="#CAC0B3" FontWeight="Bold" Padding="0 0 10 0"/>
+                    </Grid>
+                </Button>
+
+                <Button Grid.Column="1" Margin="5" Width="Auto" Height="50" VerticalAlignment="Center" Click="btnUser_Click" Background="Transparent" BorderBrush="#CAC0B3">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0" Margin="10, 0, 10, 0">
+                            <!-- Rectangle to serve as the background -->
+                            <Rectangle Width="28" Height="28">
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="/Windows/Images/user.png" />
+                                </Rectangle.Fill>
+                            </Rectangle>
+
+                            <!-- Rectangle to apply color filter -->
+                            <Rectangle Width="28" Height="28" Opacity="1.0">
+                                <Rectangle.Fill>
+                                    <SolidColorBrush Color="#CAC0B3" />
+                                </Rectangle.Fill>
+                                <Rectangle.OpacityMask>
+                                    <ImageBrush ImageSource="/Windows/Images/user.png" />
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
                         </Grid>
-                    </Button>
 
-                    <Button Grid.Column="2" Margin="5" Width="100" Height="50" VerticalAlignment="Center" Click="btnLogout_Click">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Image Grid.Column="0" Source="/Windows/exit.png" Width="24" Height="24" Margin="0 0 15 0" />
-                            <TextBlock Grid.Column="1" Text="Logout" VerticalAlignment="Center" />
+                        <Label x:Name="lblUsername" Grid.Column="1" Content="" VerticalAlignment="Center" FontSize="20" Foreground="#CAC0B3" FontWeight="Bold" Padding="0 0 10 0"/>
+                    </Grid>
+                </Button>
+
+                <Button Grid.Column="2" Margin="5" Width="Auto" Height="50" VerticalAlignment="Center" Click="btnLogout_Click" Background="Transparent" BorderBrush="#CAC0B3">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0" Margin="10, 0, 10, 0">
+                            <!-- Rectangle to serve as the background -->
+                            <Rectangle Width="28" Height="28">
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="/Windows/Images/exit.png" />
+                                </Rectangle.Fill>
+                            </Rectangle>
+
+                            <!-- Rectangle to apply color filter -->
+                            <Rectangle Width="28" Height="28" Opacity="1.0">
+                                <Rectangle.Fill>
+                                    <SolidColorBrush Color="#CAC0B3" />
+                                </Rectangle.Fill>
+                                <Rectangle.OpacityMask>
+                                    <ImageBrush ImageSource="/Windows/Images/exit.png" />
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
                         </Grid>
-                    </Button>
 
-                </Grid>
-             </Grid>
-            
-            <ContentControl Grid.Row="1"  Name="contentControl" Margin="0,0,0,0" />
-            
+                        <Label Grid.Column="1" Content="LOGOUT" VerticalAlignment="Center" FontSize="20" Foreground="#CAC0B3" FontWeight="Bold" Padding="0 0 10 0"/>
+                    </Grid>
+                </Button>
+
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="21*" />
+                <ColumnDefinition Width="79*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Background="#5483dc" Width="Auto">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="100*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Content="ORGANIZATIONS" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Padding="20"
+                   FontWeight="Bold" FontSize="27" Background="#002c7a" Foreground="#FF595A"/>
+                
+                <ScrollViewer Grid.Row="1" DockPanel.Dock="Top" VerticalScrollBarVisibility="Auto" Margin="10, 5, 5, 5">
+                    <StackPanel Name="staUserOrganizations" Margin="0, 0, 5, 0"></StackPanel>
+                </ScrollViewer>
+                
+                <StackPanel Grid.Row="2"
+                        Background="#002159">
+                    <Button x:Name="btnCreateOrganization" Content="CREATE ORGANIZATION" Height="35" Margin="10,10,10,0" Click="btnCreateOrganization_Click"
+                        Background="Transparent" BorderBrush="#CAC0B3" Foreground="#CAC0B3" FontSize="20" FontWeight="Bold"/>
+                    <Button x:Name="btnSearchOrganization" Content="SEARCH ORGANIZATION" Height="35" Margin="10,10,10,10" Click="btnSearchOrganization_Click"
+                        Background="Transparent" BorderBrush="#CAC0B3" Foreground="#CAC0B3" FontSize="20" FontWeight="Bold"/>
+                </StackPanel>
+            </Grid>
+
+            <ContentControl Grid.Column="1"  Name="contentControl" Margin="0,0,0,0" Background="#CAC0B3"/>
         </Grid>
     </Grid>
 </Window>

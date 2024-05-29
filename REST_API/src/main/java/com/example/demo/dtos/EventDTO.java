@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import org.bson.types.ObjectId;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public record EventDTO (
         String id,

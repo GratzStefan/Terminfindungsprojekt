@@ -25,25 +25,31 @@ namespace Terminfindungsapp
             InitializeComponent();
         }
 
+        // Click-Event on Login-Button (Validates if username and password is valid)
         private async void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+            // Input-Fields
             string username = txtUsername.Text;
-            string password = txtPassword.Text;
+            string password = txtPassword.Password;
 
-            User user = await APICall.RunAsync<User>($"http://localhost:8080/api/user/login?username={username}&password={password}", null);
+            // Gets Return of User If Worked
+            User user = await APICall.GetAsync<User>($"http://localhost:8080/api/user/login?username={username}&password={password}", null);
+            
             if (user == null)
             {
                 return;
             }
 
+            // Assigns Current User globally
             User.GetInstance(user);
 
-
+            // Navigates to MainWindow
             MainWindow window = new MainWindow();
             window.Show();
             this.Close();
         }
 
+        // Navigates to RegisterWindow
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
             RegisterWindow register = new RegisterWindow();

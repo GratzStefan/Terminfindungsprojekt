@@ -6,12 +6,11 @@
              xmlns:local="clr-namespace:Terminfindungsapp.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="#cccccc">
-       <Grid.ColumnDefinitions>
+    <Grid Background="#CAC0B3">
+        <Grid.ColumnDefinitions>
             <ColumnDefinition Width="60*" />
             <ColumnDefinition Width="40*" />
         </Grid.ColumnDefinitions>
-
 
         <Grid Grid.Column="0" Margin="20, 0">
             <Grid.RowDefinitions>
@@ -19,11 +18,14 @@
                 <RowDefinition Height="100*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="16" Content="Events:"
-                   Margin="0,10"/>
+
+            <Label Grid.Row="0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="30" Content="EVENTS"
+                   Padding="10, 20, 10, 20" Margin="0, 10, 0, 0" Foreground="#FF595A" Background="#002159"/>
+
             <ScrollViewer Grid.Row="1"  VerticalScrollBarVisibility="Auto">
-                <StackPanel Name="staEvents" Background="#a1a1a1"/>
+                <StackPanel Name="staEvents" Background="#5483dc"/>
             </ScrollViewer>
+
             <Grid Grid.Row="2" Margin="0, 10, 0, 0" Background="#666666">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
@@ -31,14 +33,16 @@
                 </Grid.RowDefinitions>
 
                 <!-- Toggle Button -->
-                <Button Grid.Row="0" Name="toggleButton" Content="New Event" FontSize="18" Click="toggleButton_Click" Background="#555555" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Padding="10, 5, 0, 5" FontWeight="Bold"/>
-                <!-- Button and Input Fields -->
+                <Button Grid.Row="0" Name="toggleButton" Content="NEW EVENT" FontSize="25" Click="toggleButton_Click" Background="#002159" Foreground="#FF595A" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Padding="15" FontWeight="Bold"/>
+                <!-- Below Button and Input Fields -->
                 <StackPanel Grid.Row="1" Name="inputPanel" Height="0" VerticalAlignment="Bottom" Margin="20, 0, 20, 0">
-                    <Label HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="14" Content="Titel:"/>
-                    <TextBox Name="inpTitel" HorizontalAlignment="Stretch" Margin="5"/>
-                    <Label HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="14" Content="Description:"/>
-                    <TextBox Name="inpDescription" HorizontalAlignment="Stretch" Margin="5"/>
-                    <Label HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="14" Content="Timeline:"/>
+                    <Label HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="20" Content="TITEL" Foreground="#CAC0B3"/>
+                    <TextBox Name="inpTitel" HorizontalAlignment="Stretch" Margin="5" Background="#CAC0B3" FontSize="20"/>
+
+                    <Label HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="20" Content="DESCRIPTION" Foreground="#CAC0B3"/>
+                    <TextBox Name="inpDescription" HorizontalAlignment="Stretch" Margin="5" Background="#CAC0B3" FontSize="20"/>
+
+                    <Label HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="20" Content="TIMELINE" Foreground="#CAC0B3"/>
                     <Grid Margin="10, 0, 10, 0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="45*" />
@@ -52,56 +56,89 @@
                                 <ColumnDefinition Width="60" />
                             </Grid.ColumnDefinitions>
 
-                            <DatePicker x:Name="inpStartDate" Grid.Column="0" BorderThickness="0" VerticalContentAlignment="Center"/>
+                            <DatePicker x:Name="inpStartDate" Grid.Column="0" VerticalContentAlignment="Center" Background="#CAC0B3" FontSize="20">
+                                <DatePicker.Style>
+                                    <Style TargetType="{x:Type DatePicker}">
+                                        <Style.Resources>
+                                            <Style TargetType="DatePickerTextBox">
+                                                <Setter Property="Background">
+                                                    <Setter.Value>
+                                                        <SolidColorBrush Color="#CAC0B3"/>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </Style.Resources>
+                                    </Style>
+                                </DatePicker.Style>
+                            </DatePicker>
 
-                            <Grid Grid.Column="1" Background="White">
+
+                            <Grid Grid.Column="1" Background="#CAC0B3">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="50*" />
                                     <ColumnDefinition Width="15" />
                                     <ColumnDefinition Width="50*" />
                                 </Grid.ColumnDefinitions>
-                                <TextBox x:Name="inpStartHour" Grid.Column="0" MaxLength="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="0"/>
-                                <Label Grid.Column="1" Content=":" HorizontalContentAlignment="Center"/>
-                                <TextBox x:Name="inpStartMin" Grid.Column="2" MaxLength="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="0"/>
+
+                                <TextBox x:Name="inpStartHour" Grid.Column="0" MaxLength="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="0" Background="#CAC0B3" FontSize="20"/>
+                                <Label Grid.Column="1" Content=":" HorizontalContentAlignment="Center" FontSize="20"/>
+                                <TextBox x:Name="inpStartMin" Grid.Column="2" MaxLength="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="0" Background="#CAC0B3" FontSize="20"/>
                             </Grid>
                         </Grid>
-                        <Label Grid.Column="1" Content="-" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0" Padding="0"/>
+
+                        <Label Grid.Column="1" Content="-" FontSize="30" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0" Padding="0" Foreground="#CAC0B3"/>
+
                         <Grid Grid.Column="2">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="100*" />
                                 <ColumnDefinition Width="60" />
                             </Grid.ColumnDefinitions>
 
-                            <DatePicker x:Name="inpEndDate" Grid.Column="0" BorderThickness="0" VerticalContentAlignment="Center"/>
-
-                            <Grid Grid.Column="1" Background="White">
+                            <DatePicker x:Name="inpEndDate" Grid.Column="0" BorderThickness="0" VerticalContentAlignment="Center" Background="#CAC0B3" FontSize="20">
+                                <DatePicker.Style>
+                                    <Style TargetType="{x:Type DatePicker}">
+                                        <Style.Resources>
+                                            <Style TargetType="DatePickerTextBox">
+                                                <Setter Property="Background">
+                                                    <Setter.Value>
+                                                        <SolidColorBrush Color="#CAC0B3"/>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </Style.Resources>
+                                    </Style>
+                                </DatePicker.Style>
+                            </DatePicker>
+                            
+                            <Grid Grid.Column="1" Background="#CAC0B3">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="50*" />
                                     <ColumnDefinition Width="15" />
                                     <ColumnDefinition Width="50*" />
                                 </Grid.ColumnDefinitions>
-                                <TextBox x:Name="inpEndHour" Grid.Column="0" MaxLength="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="0"/>
-                                <Label Grid.Column="1" Content=":" HorizontalContentAlignment="Center"/>
-                                <TextBox x:Name="inpEndMin" Grid.Column="2" MaxLength="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="0"/>
+
+                                <TextBox x:Name="inpEndHour" Grid.Column="0" MaxLength="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="0" Background="#CAC0B3" FontSize="20"/>
+                                <Label Grid.Column="1" Content=":" HorizontalContentAlignment="Center" FontSize="20"/>
+                                <TextBox x:Name="inpEndMin" Grid.Column="2" MaxLength="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="0" Background="#CAC0B3" FontSize="20"/>
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Button Content="Add" Margin="0, 20, 0, 20" Background="#1da81d" HorizontalAlignment="Stretch" Click="btnAddEvent_Click" FontSize="16" FontWeight="Bold" Padding="7"/>
+                    <Button Content="ADD" Margin="0, 20, 0, 20" Background="#1da81d" HorizontalAlignment="Stretch" Click="btnAddEvent_Click" FontSize="20" FontWeight="Bold" Padding="7"/>
                 </StackPanel>
             </Grid>
-
         </Grid>
-        <GridSplitter Width="3" IsEnabled="True" Margin="0,10,0,10" Background="Black"></GridSplitter>
+
         <Grid Grid.Column="1" Margin="20, 0" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="100*" />
-                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="16" Content="Users:"
-               Margin="0,10"/>
+            
+            <Label Grid.Row="0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="30" Content="USERS"
+               Padding="10, 20, 10, 20" Margin="0, 10, 0, 0" Foreground="#FF595A" Background="#002159"/>
+            
             <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0,0,0,10">
-                <StackPanel Name="staUsers" Background="#a1a1a1"/>
+                <StackPanel Name="staUsers" Background="#5483dc"/>
             </ScrollViewer>
         </Grid>
     </Grid>

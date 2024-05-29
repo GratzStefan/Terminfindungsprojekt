@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Terminfindungsapp
 {
@@ -11,6 +12,7 @@ namespace Terminfindungsapp
     {
         private string id;
         private string username;
+        private string password;
         private string firstname;
         private string lastname;
 
@@ -20,6 +22,14 @@ namespace Terminfindungsapp
         public User()
         {
 
+        }
+
+        public User(string username, string password, string firstname, string lastname)
+        {
+            this.username = username;
+            this.password = password;
+            this.firstname = firstname;
+            this.lastname = lastname;
         }
 
         public static User GetInstance(User value)
@@ -64,6 +74,13 @@ namespace Terminfindungsapp
         {
             set { lastname = value; }
             get { return lastname; }
+        }
+
+        [JsonPropertyName("password")]
+        public string Password
+        {
+            set { password = value; }
+            get { return password; }
         }
     }
 }

@@ -2,10 +2,8 @@ package com.example.demo.services;
 
 import com.example.demo.dtos.OrganizationDTO;
 import com.example.demo.dtos.UserDTO;
-import com.example.demo.repositories.Pair;
 import org.bson.types.ObjectId;
 
-import java.util.HashMap;
 import java.util.List;
 
 public interface OrganizationService {

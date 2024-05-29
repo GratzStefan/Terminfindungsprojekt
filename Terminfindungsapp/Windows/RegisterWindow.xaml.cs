@@ -27,16 +27,20 @@ namespace Terminfindungsapp
             InitializeComponent();
         }
 
+        // When Clicked On Register (Creates new User)
         private async void btnRegister_Click(object sender, RoutedEventArgs e)
         {
+            // Input-Fields
             string firstname = txtFirstname.Text;
             string lastname = txtLastname.Text;
             string username = txtUsername.Text;
-            string password = txtPassword.Text;
+            string password = txtPassword.Password;
 
+            // Checks if Username and password is long enough
             if (username.Count() > 4 && password.Count() > 8)
             {
-                if(await APICall.PostAsync<PostUser>("http://localhost:8080/api/user/signup", new PostUser(username, password, firstname, lastname)))
+                // Request to Server To Create new User
+                if(await APICall.PostAsync<User>("http://localhost:8080/api/user/signup", new User(username, password, firstname, lastname)))
                 {
                     MessageBox.Show("Registration successful!");
                 }
@@ -46,8 +50,13 @@ namespace Terminfindungsapp
 
                 }
             }
+            else
+            {
+                MessageBox.Show("Username or password is too short!");
+            }
         }
 
+        // Navigates to LoginWindow
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             LoginWindow login = new LoginWindow();
