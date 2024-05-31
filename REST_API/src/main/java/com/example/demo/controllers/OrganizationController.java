@@ -32,9 +32,9 @@ public class OrganizationController {
         return ResponseEntity.ok(organizationDTOS);
     }
 
-    @GetMapping("/searchOrganizations/{pattern}")
-    public ResponseEntity<List<OrganizationDTO>> getOrganizations(@PathVariable String pattern) {
-        List<OrganizationDTO> organizations = organizationService.searchOrganizations(pattern);
+    @GetMapping("/searchOrganizations/{userid}")
+    public ResponseEntity<List<OrganizationDTO>> getOrganizations(@PathVariable String userid) {
+        List<OrganizationDTO> organizations = organizationService.searchOrganizations(userid);
 
         if (organizations.isEmpty()) return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         return ResponseEntity.ok(organizations);
@@ -54,20 +54,6 @@ public class OrganizationController {
         ObjectId id = organizationService.create(OrganizationDTO);
         if(id == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         return ResponseEntity.ok(id.toHexString());
-    }
-
-    @PutMapping("/addUser")
-    @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<String> addUser(@RequestParam String userid, @RequestParam String organizationid, @RequestParam String adminid) {
-        if(userid.equals(adminid)) return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
-        int id = organizationService.addUser(userid, organizationid, adminid);
-
-        return ResponseEntity.status(HttpStatus.valueOf(id)).build();
-    }
-
-    @PutMapping("/modify")
-    public OrganizationDTO putOrganization(@RequestBody OrganizationDTO OrganizationDTO) {
-        return organizationService.modify(OrganizationDTO);
     }
 
     @PutMapping("/promote")

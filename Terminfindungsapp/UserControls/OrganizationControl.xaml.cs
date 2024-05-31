@@ -54,7 +54,7 @@ namespace Terminfindungsapp
         private async void btnDeleteOrganization_Click(object sender, RoutedEventArgs e)
         {
             // Request, that deletes current Organization (returns how many organizations got deleted)
-            if(await APICall.RemoveAsync<int>($"http://localhost:8080/api/organization/delete/{org.id}")==1)
+            if(await APICall.DeleteAsync<int>($"http://localhost:8080/api/organization/delete/{org.id}")==1)
             {
                 MessageBox.Show("Successfully deleted organization!");
             }

@@ -24,9 +24,9 @@ public class EventController {
         this.eventService = eventService;
     }
 
-    @GetMapping("/search/{organizationid}")
-    public ResponseEntity<List<EventDTO>> getUser(@PathVariable String organizationid) {
-        List<EventDTO> eventDTOs = eventService.search(organizationid);
+    @GetMapping("/search/{orgid}")
+    public ResponseEntity<List<EventDTO>> getUser(@PathVariable String orgid) {
+        List<EventDTO> eventDTOs = eventService.search(orgid);
 
         if (eventDTOs.isEmpty()) return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         return ResponseEntity.ok(eventDTOs);

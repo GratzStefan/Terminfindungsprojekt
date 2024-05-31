@@ -46,6 +46,8 @@ export class SearchComponent {
         org: org,
       }
 
+      console.log(request);
+
       // Sends POST-Request to REST-API, so Request to Organization gets saved
       this.authService.sendRequestToOrganization(request).subscribe(value => {
         // Output for User If worked

@@ -60,28 +60,6 @@ public class MongoDBOrganizationRepository implements OrganizationRepository{
     }
 
     @Override
-    public int addUser(String userid, String organizationid, String adminid) {
-        // Filter-Criteria
-        Document doc = new Document();
-        doc.append("_id", new ObjectId(organizationid));
-        doc.append("userlist." + adminid, 0);
-
-        // Check if user has rights to Add User
-        OrganizationEntity organization = organizationsCollection.find(doc).first();
-        // When organization return HTTP-Status Code 404
-        if(organization == null) return 404;
-
-        // Add User to organization
-        organization.addUser(userid);
-
-        // Adding new User To Organization in DB
-        FindOneAndReplaceOptions options = new FindOneAndReplaceOptions().returnDocument(AFTER);
-        if(organizationsCollection.findOneAndReplace(eq("_id", new ObjectId(organizationid)), organization, options) == null) return 500;
-
-        return 200;
-    }
-
-    @Override
     public List<OrganizationEntity> search(String organizationName) {
         // Regex to filter after OrganizationName for Search
         var regexFilter = Filters.regex("name", ".*?" + organizationName + ".*?", "i");
@@ -130,13 +108,6 @@ public class MongoDBOrganizationRepository implements OrganizationRepository{
             }
         }
         return userList;
-    }
-
-    @Override
-    public OrganizationEntity modify(OrganizationEntity organizationEntity) {
-        // Modifies Organization
-        FindOneAndReplaceOptions options = new FindOneAndReplaceOptions().returnDocument(AFTER);
-        return organizationsCollection.findOneAndReplace(eq("_id", organizationEntity.getId()), organizationEntity, options);
     }
 
     @Override

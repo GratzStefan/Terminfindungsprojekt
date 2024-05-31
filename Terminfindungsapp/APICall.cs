@@ -19,6 +19,7 @@ namespace Terminfindungsapp
 {
     public static class APICall
     {
+        // Erstellt HTTP-Client
         private static HttpClient GetHttpClient(string url)
         {
             // Creates HTTPClient with wanted URL
@@ -105,7 +106,7 @@ namespace Terminfindungsapp
         }
 
         // DELETE-Request
-        public static async Task<T> RemoveAsync<T>(string url)
+        public static async Task<T> DeleteAsync<T>(string url)
         {
             try
             {
