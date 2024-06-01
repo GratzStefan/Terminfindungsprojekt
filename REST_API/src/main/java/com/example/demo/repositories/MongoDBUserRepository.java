@@ -69,7 +69,7 @@ public class MongoDBUserRepository implements UserRepository {
 
         // Checks first if UserName exists
         UserEntity entity = usersCollections.find(doc).first();
-        // If user exists, then check Response-Password with entered Passwors
+        // If user exists, then check Response-Password with entered Password
         if(entity != null){
             SCryptPasswordEncoder encoder = new SCryptPasswordEncoder(16384, 8, 4, 32, 64);
             // Checking if Hashes are matching

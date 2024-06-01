@@ -2,6 +2,10 @@
  
 ## Softwaredesign (Architektur)
 
+Die Architektur der Terminfindungsapp besteht aus dem Backend und dem Frontend.
+Im Backend befindet sich als Kommunikationsschnittstelle eine REST-API, die in Java Spring Boot implementiert wurde. Die Daten, die von und zur REST-API gesendet werden, werden in MongoDB gespeichert.
+Im Frontend gibt es zwei Clients, die dieselbe Funktionalität haben: Zum einen eine WPF-Anwendung und zum anderen eine WebApp.
+
 ```mermaid
 graph TD;
     A[WPF-Client] <==> C[REST-API];
@@ -9,81 +13,75 @@ graph TD;
     C[REST-API] <==> D[MongoDB];
 ```
 
-Die Architektur der Terminfindungsapp besteht aus dem Backend sowie dem Frontend.
-Im Backend befindet sich als Kommunikationsschnittstelle eine REST-API, welche in Java Spring Boot implementiert wurde.
-Diese Daten werden, welche von und zur REST-API gesendet werden, in MongoDB gespeichert. 
-Im Fronted gibt es zwei Clients, die die gleiche Funktionalität haben.
-Zu einem Seite haben wir eine WPF-Anwendung und auf der Anderen eine WebApp.
-
 ### Frontend
 
 #### WPF
 
-Wie in der Angabe vorgegeben, wurde eine WPF-Desktop Applikation erstellt. 
-Diese Applikation hat eine intuitive GUI, wo Nutzer einfach und klar Termine von verschiedenen Organisationen verwalten können.
-Hierbei wird mit REST-API Schnittstelle auf die Daten/Informationen zugegriffen.
+Wie in der Vorgabe beschrieben, wurde eine WPF-Desktop-Applikation erstellt. 
+Diese Applikation bietet eine intuitive Benutzeroberfläche, über die Nutzer Termine verschiedener Organisationen einfach und verständlich verwalten können. 
+Der Zugriff auf die Daten und Informationen erfolgt über die REST-API-Schnittstelle.
 
 #### Angular-Web-App
 
-Die Web-App, welche in Angular erstellt wurde, beinhaltet den gleichen inhaltlichen Aufbau wie die WPF-Desktop-App.
-Es wurde sich für Angular entschieden, da es den Code lesbarer, einfacher und übersichtlicher macht. 
-
-Hierbei wird auch auf die Daten/Informationen mithilfe der REST-API zugegriffen.
+Die Web-App, die in Angular erstellt wurde, hat denselben inhaltlichen Aufbau wie die WPF-Desktop-App. 
+Für Angular wurde entschieden, da es den Code lesbarer, einfacher und übersichtlicher macht. 
+Auch hier erfolgt der Zugriff auf die Daten und Informationen über die REST-API.
 
 ### Backend
 
 #### MongoDB
 
 Die Daten werden letztendlich in MongoDB persistent gespeichert. 
-Es wurde MongoDB als Datenbank ausgewählt, da MongoDB sehr schnell Datenbankoperationen ausführen können.
+MongoDB wurde als Datenbank ausgewählt, da es sehr schnelle Datenbankoperationen ausführen kann.
 
 #### Java Spring Boot (REST-API)
 
-Für die REST-API wurde sich für Java Spring Boot entschieden.
-Diese Entscheidung liegt auf der Grundlage, da bereits vorhandene Erkenntnisse in Java Spring Boot vorhanden waren.
-Ebenso ist es sehr einfach und schnell eine API zu erstellen.
-Die REST-API dient als einheitliche Schnittstelle für das Frontend und führt alle Datenbankoperationen Richtung der Datenbank.
+Für die REST-API wurde Java Spring Boot gewählt. 
+Diese Entscheidung basierte auf den bereits vorhandenen Kenntnissen in Java Spring Boot. 
+Zudem ist es sehr einfach und schnell, eine API zu erstellen. 
+Die REST-API dient als einheitliche Schnittstelle für das Frontend und führt alle Datenbankoperationen aus.
 
 ## Beschreibung der Software
 
-### Was tut die Software und wozu ist sie gut?
+### Was macht die Software und wofür ist sie nützlich?
 
-Der Sinn hinter dieser Software ist, dass es Nutzern und Organisationen eine einfache Möglichkeit zur Verfügung gestellt wird, Termine innerhalb Organisationen und Personen zu verteilen und organisieren. 
-Dies ist möglich, indem die Software eine Benutzerverwaltung beinhaltet und diese verschiedenen Organisationen beitreten können.
-Nutzer können selber Organisationen und ebenfalls bei Organisationen anfragen dieser beizutreten. 
-Um diese Anfrage bearbeiten zu können sowie Einstellungen an der Organisation durchzuführen, muss dieser Nutzer die Admin-Rechte einer Organisation haben.
-Somit können Nutzer Mitglieder von mehreren Organisationen sein und all dessen Termine für sich selber verwalten. 
-Ebenso können Nutzer noch Veränderungen bei Ihrem eigenen Konto durchführen.
+Der Zweck dieser Software ist es, Nutzern und Organisationen eine einfache Möglichkeit zu bieten, Termine innerhalb von Organisationen und zwischen Personen zu verteilen und zu organisieren. 
+Dies wird ermöglicht durch die Benutzerverwaltung, die es Nutzern erlaubt, verschiedenen Organisationen beizutreten.
+
+Nutzer können selbst Organisationen erstellen und auch Anfragen stellen, um anderen Organisationen beizutreten. 
+Um diese Anfragen bearbeiten und Einstellungen an der Organisation vornehmen zu können, muss der Nutzer über Admin-Rechte in der Organisation verfügen.
+
+Auf diese Weise können Nutzer Mitglieder mehrerer Organisationen sein und alle deren Termine für sich selbst verwalten. 
+Zudem können Nutzer Änderungen an ihrem eigenen Konto vornehmen.
 
 ## Funktionalitäten
 
-Die Web-App sowie die WPF-App beinhalten die gleichen Funktionalitäten und sind gleich aufgebaut 
+Die Web-App und die WPF-App bieten die gleichen Funktionalitäten und haben denselben Aufbau.
 
 ### Login
 
 ![Images_Documentation/login.png](Images_Documentation/login.png)
 
-Mit klicken auf den **LOGIN**-Button wird sich für einen Nutzer eingeloggt.
-Hierfür müssen **USERNAME**-Feld für den Nutzernamen und das dazugehörige Passwort in **PASSWORD** eingegeben werden.
+Durch Klicken auf den **LOGIN**-Button loggt sich der Nutzer ein. 
+Dazu müssen der **USERNAME** und das dazugehörige Passwort im **PASSWORD**-Feld eingegeben werden.
 
 ### Registrieren
 
 ![Images_Documentation/signup.png](Images_Documentation/signup.png)
 
-Mit klicken auf den **SIGN UP**-Button wird ein neuer Nutzer erstellt.
-Hierfür müssen **FIRST NAME**, **LAST NAME**, **USERNAME** und **PASSWORD** eingegeben werden.
-
+Durch Klicken auf den **SIGN UP**-Button wird ein neuer Nutzer erstellt. 
+Dazu müssen **FIRST NAME**, **LAST NAME**, **USERNAME** und **PASSWORD** eingegeben werden.
 
 ### Hauptfenster
 
 ![Images_Documentation/mainwindow.png](Images_Documentation/mainwindow.png)
 
-Nach dem Einloggen in einen Nutzerkonto öffnet sich dieses Hauptfenster.
-Dort gibt es die Möglichkeit zwischen den Fenstern **Home**, **Nutzer-Information**, **Organisation erstellen** und **Organisation suchen** 
-sowie die Möglichkeit einen gewünschte **Organisation** auszuwählen.
-Des Weiteren kann sich unter **LOGOUT** abgemeldet werden.
+Nach dem Einloggen in ein Nutzerkonto öffnet sich das Hauptfenster. 
+Dort stehen die Optionen **Home**, **Nutzerinformation**, **Create Organization** und **Search Organization** zur Verfügung.
+Zusätzlich kann eine gewünschte **Organisation** ausgewählt werden. 
+Unter **LOGOUT** besteht außerdem die Möglichkeit, sich abzumelden.
 
-Als Default-Fenster wird das **Home** Fenster angezeigt
+Standardmäßig wird das **Home**-Fenster angezeigt.
 
 #### Anzeige aller Nutzertermine
 
@@ -102,33 +100,33 @@ Auf der linken Seite werden die aktuellen Nutzereinstellungen angezeigt.
 Diese können durch Veränderungen der Eingabefelder und das Drücken des **CHANGE** Buttons verändert werden.
 
 Auf der rechten Seite werden alle Beitrittsanfragen des Nutzers und deren Status angezeigt. 
-Hierbei steht das **Hakerl** dafür das der Nutzer akzeptiert wurde,
+Hierbei steht das **✓** dafür das der Nutzer akzeptiert wurde,
 das **X** dafür, dass er abgelehnt wurde 
 und die **Sanduhr**, dass darüber noch nicht entschieden wurde.
 
 #### Abmelden
 
-Durch das Klicken auf den **LOGOUT** Button wird man mit dem Nutzer abgemeldet und zur Login-Seite navigiert.
+Durch das Klicken auf den **LOGOUT** Button wird man als Nutzer abgemeldet und zur Login-Seite navigiert.
 
 #### Organisation erstellen
 
 ![Images_Documentation/createorg.png](Images_Documentation/createorg.png)
 
 Mit dem Klicken auf den **CREATE ORGANIZATION** Button gelangt man zu diesem Fenster.
-Mit Eingabe des Organisationsname in dem vorgesehenen Eingabefeld 
-und durch das anschließende Klicken auf den **CREATE**-Button wird eine Organisation erstellt.
+Mit Eingabe des Organisationsnamen in dem vorgesehenen Eingabefeld 
+und durch das anschließende Klicken auf den **CREATE**-Button, wird eine Organisation erstellt.
 
 #### Beitrittsanfrage an Organisation
 
 ![Images_Documentation/anfrage.png](Images_Documentation/anfrage.png)
 
 Mit dem Klicken auf den **SEARCH ORGANIZATION** Button gelangt man zu diesem Fenster.
-Organisationen, welche den Input des Eingabefelds entspricht, werden darunter angezeigt.
-Wenn bei diesen dann auf das Image klickt, wird eine Anfrage zum Beitritt der Organisation geschickt.
+Organisationen, welche den Input des Eingabefelds entsprechen, werden darunter angezeigt.
+Wenn man bei diesen dann auf das **Anfragen**-Icon klickt, wird eine Anfrage zum Beitritt der Organisation geschickt.
 
 #### Organisation auswählen
 
-Auf der linken Navigationsbar kann zwischen den verschiedenen Organisationen auswählen, indem man auf diese klickt.
+Auf der linken Navigationsbar kann zwischen den verschiedenen Organisationen ausgewählt werden, indem man auf diese klickt.
 
 Anschließend öffnet sich das Organisations-Fenster der Organisation:
 ![Images_Documentation/organisations.png](Images_Documentation/organisations.png)
@@ -159,35 +157,36 @@ Die **DESCRIPTION** ist optional einzugeben.
 
 ![Images_Documentation/users.png](Images_Documentation/users.png)
 
-Alle Nutzer einer Organisation werden auf der rechten Seite des Dashboard-Fenster angezeigt.
+Alle Nutzer einer Organisation werden auf der rechten Seite des Dashboard-Fensters angezeigt.
 
 ###### Nutzer befördern
 
-Diese angezeigten Nutzer können durch Klicken auf das **Megafon-Icon** zum Admin dieser Organisation befördert werden.
-Um diese Operation durchzuführen, muss der Nutzer der Adminrechte besitzen.
+Diese angezeigten Nutzer können durch Klicken auf das **Megafon**-Icon zum Admin befördert werden.
+Um diese Operation durchzuführen, muss der Nutzer Adminrechte besitzen.
 
 ###### Nutzer entfernen
 
-Ebenso ist es möglich durch Klicken auf das **Mülltonnen-Icon** einen Nutzer zu löschen.
-Um diese Operation durchzuführen, muss der Nutzer der Adminrechte besitzen.
+Ebenso ist es möglich durch Klicken auf das **Mülltonnen**-Icon einen Nutzer zu löschen.
+Um diese Operation durchzuführen, muss der Nutzer Adminrechte besitzen.
 
 ##### Organisationsanfragen
 
 ![Images_Documentation/requests.png](Images_Documentation/requests.png)
 
 Wenn die Anfragen-Seite ausgewählt wurde, werden wie in der oberen Abbildung alle Anfragen zum Beitritt der Organisation angezeigt.
+
 ###### Anfragen an- und ablehnen
 
 Bei jeder Anfrage stehen neben den Nutzernamen, auch zwei Icons nebenan.
 Mit diesen ist es möglich den Nutzer an- bzw. abzulehnen.
-Das **Hakerl** steht hierfür zum Annehmen.
+Das **✓** steht hierfür zum Annehmen.
 Das **X** zum Ablehnen.
 
 ##### Organisation löschen
 
 ![Images_Documentation/dashboard.png](Images_Documentation/dashboard.png)
 
-Organisation können mit dem Klicken auf dem **Mülltonnen-Icon** gelöscht werden.
+Organisation können mit dem Klicken auf dem **Mülltonnen**-Icon gelöscht werden.
 
 ## API
 
@@ -198,14 +197,14 @@ Die REST-API dient für die Clients als Schnittstelle zur Datenbank.
 
 ### Endpunkte
 
-Alle Endpunkte haben die Basis-URL **http://localhost:8080/api**
+Alle Endpunkte haben die Basis-URL **http://localhost:8080/api**.
 
 #### User
 
 Zusätzlich zur Basis-URL haben Nutzerendpunkte immer **/user**.
 
 <details>
-  <summary>GET: /login</summary>
+  <summary>/login [GET]</summary>
 
 ##### Beschreibung:
 Endpunkt checkt ob Nutzer mit dazugehörigem Passwort existiert.
@@ -238,7 +237,7 @@ Endpunkt checkt ob Nutzer mit dazugehörigem Passwort existiert.
 </details>
 
 <details>
-  <summary>POST: /signup</summary>
+  <summary>/signup [POST]</summary>
 
 ##### Beschreibung:
 Endpunkt erstellt neuen Nutzer.
@@ -273,7 +272,7 @@ Endpunkt erstellt neuen Nutzer.
 </details>
 
 <details>
-  <summary>PUT: /modifyUser</summary>
+  <summary>/modifyUser [PUT]</summary>
 
 ##### Beschreibung:
 Endpunkt verändert Nutzereinstellungen.
@@ -312,7 +311,7 @@ Endpunkt verändert Nutzereinstellungen.
 Zusätzlich zur Basis-URL haben Organisationsendpunkte immer **/organization**.
 
 <details>
-  <summary>GET: /search/{pattern}</summary>
+  <summary>/search/{pattern} [GET]</summary>
 
 ##### Beschreibung:
 Endpunkt sucht nach allen Organisationen, die Pattern entsprechen.
@@ -342,10 +341,10 @@ Endpunkt sucht nach allen Organisationen, die Pattern entsprechen.
 </details>
 
 <details>
-  <summary>GET: /searchOrganizations/{userid}</summary>
+  <summary>/searchOrganizations/{userid} [GET]</summary>
 
 ##### Beschreibung:
-Endpunkt sucht nach allen Organisationen eines Nutzers
+Endpunkt sucht nach allen Organisationen eines Nutzers.
 
 ##### Path-Variable:
 
@@ -376,10 +375,10 @@ Endpunkt sucht nach allen Organisationen eines Nutzers
 </details>
 
 <details>
-  <summary>GET: /userListOrganization/{orgID}</summary>
+  <summary>/userListOrganization/{orgID} [GET]</summary>
 
 ##### Beschreibung:
-Endpunkt returned alle Nutzer einer Organisation.
+Endpunkt gibt alle Nutzer einer Organisation zurück.
 
 ##### Path-Variable:
 
@@ -410,7 +409,7 @@ Endpunkt returned alle Nutzer einer Organisation.
 </details>
 
 <details>
-  <summary>POST: /create</summary>
+  <summary>/create [POST]</summary>
 
 ##### Beschreibung:
 Endpunkt erstellt neue Organisation.
@@ -436,7 +435,7 @@ Endpunkt erstellt neue Organisation.
 </details>
 
 <details>
-  <summary>PUT: /promote</summary>
+  <summary>/promote [PUT]</summary>
 
 ##### Beschreibung:
 Endpunkt befördert Nutzer zum Admin in einer Organisation.
@@ -454,7 +453,7 @@ Endpunkt befördert Nutzer zum Admin in einer Organisation.
 
 - Typ: String
 - Erforderlich: Ja
-- Beschreibung: Die ID des Nutzers, welchen befördert werden soll
+- Beschreibung: Die ID des Nutzers, welcher befördert werden soll.
 - Beispiel: `663518b065014369ff6d96ac`
 
 `adminid`
@@ -476,7 +475,7 @@ Endpunkt befördert Nutzer zum Admin in einer Organisation.
 </details>
 
 <details>
-  <summary>DELETE: /delete/{id}</summary>
+  <summary>/delete/{id} [DELETE]</summary>
 
 ##### Beschreibung:
 Endpunkt löscht Organisation.
@@ -502,7 +501,7 @@ Gibt Anzahl der gelöschten Organisationen zurück.
 </details>
 
 <details>
-  <summary>DELETE: /removeUser</summary>
+  <summary>/removeUser [DELETE]</summary>
 
 ##### Beschreibung:
 Endpunkt entfernt Nutzer von Organisation.
@@ -545,10 +544,10 @@ Gibt zurück ob Nutzer entfernt werden konnte.
 Zusätzlich zur Basis-URL haben Event-Endpunkte immer **/events**.
 
 <details>
-  <summary>GET: /search/{orgid}</summary>
+  <summary>/search/{orgid} [GET]</summary>
 
 ##### Beschreibung:
-Endpunkt returned alle Events einer Organisation.
+Endpunkt gibt alle Events einer Organisation zurück.
 
 ##### Path-Variable:
 
@@ -591,10 +590,10 @@ Endpunkt returned alle Events einer Organisation.
 </details>
 
 <details>
-  <summary>GET: /find/{userid}</summary>
+  <summary>/find/{userid} [GET]</summary>
 
 ##### Beschreibung:
-Endpunkt returned alle Events eines Nutzers.
+Endpunkt gibt alle Events eines Nutzers zurück.
 
 ##### Path-Variable:
 
@@ -636,7 +635,7 @@ Endpunkt returned alle Events eines Nutzers.
 </details>
 
 <details>
-  <summary>POST: /add</summary>
+  <summary>/add [POST]</summary>
 
 ##### Beschreibung:
 Endpunkt erstellt neues Event in einer Organisation.
@@ -671,10 +670,10 @@ Endpunkt erstellt neues Event in einer Organisation.
 Zusätzlich zur Basis-URL haben Request-Endpunkte immer **/request**.
 
 <details>
-  <summary>GET: /findToOrganization/{orgid}</summary>
+  <summary>/findToOrganization/{orgid} [GET]</summary>
 
 ##### Beschreibung:
-Endpunkt sucht nach allen Requests, die an Organisationen gesendet wurden.
+Endpunkt sucht nach allen Requests, die an Organisation gesendet wurden.
 
 ##### Path-Variable:
 
@@ -707,7 +706,7 @@ Endpunkt sucht nach allen Requests, die an Organisationen gesendet wurden.
 </details>
 
 <details>
-  <summary>GET: /findOfUser/{userid}</summary>
+  <summary>/findOfUser/{userid} [GET]</summary>
 
 ##### Beschreibung:
 Endpunkt sucht nach allen Beitritts-Anfragen, welche ein Nutzer versendet hat.
@@ -718,7 +717,7 @@ Endpunkt sucht nach allen Beitritts-Anfragen, welche ein Nutzer versendet hat.
 
 - Typ: String
 - Erforderlich: Ja
-- Beschreibung: ID des Nutzers
+- Beschreibung: ID des Nutzers.
 - Beispiel: `663519a065014369ff6d96ac`
 
 ##### Return-Wert:
@@ -771,10 +770,10 @@ Endpunkt sucht nach allen Beitritts-Anfragen, welche ein Nutzer versendet hat.
 </details>
 
 <details>
-  <summary>POST: /send</summary>
+  <summary>/send [POST]</summary>
 
 ##### Beschreibung:
-Endpunkt sendet neue Anfrage an eine Organisation von einem Nutzer.
+Endpunkt sendet neue Anfrage von Nutzer an eine Organisation.
 
 ##### Request-Body:
 
@@ -818,10 +817,10 @@ Endpunkt sendet neue Anfrage an eine Organisation von einem Nutzer.
 </details>
 
 <details>
-  <summary>PUT: /changeStatus</summary>
+  <summary>/changeStatus [PUT]</summary>
 
 ##### Beschreibung:
-Endpunkt verändert den Status der Request und somit wird hier übermittelt, ob der Nutzer angenommen bzw. abgelehnt wurde.
+Endpunkt verändert den Status der Anfrage und somit wird übermittelt, ob der Nutzer angenommen bzw. abgelehnt wurde.
 
 ##### Request-Parameter:
 
@@ -860,7 +859,7 @@ Endpunkt verändert den Status der Request und somit wird hier übermittelt, ob 
 
 
 ##### Return-Wert:
-Gibt die Anzahl der veränderten Requests zurück
+Gibt die Anzahl der veränderten Requests/Anfragen zurück
   ```text
     1
   ```
@@ -871,10 +870,11 @@ Gibt die Anzahl der veränderten Requests zurück
 </details>
 
 ### Anwendung
-Die API wird für die WPF-Anwendung sowie für Webseite immer wieder aufgerufen.
+Die API wird von der WPF-Anwendung sowie der Webseite aus aufgerufen.
 
 #### WPF
-Die WPF-App beinhaltet eine statische Klasse **APICall**, welche die 4 benötigten HTTP-Methoden (GET, POST, PUT, DELETE) beinhalten und in den verschiedenen Windows sowie UserControls aufgerufen werden.
+Die WPF-App beinhaltet eine statische Klasse **APICall**, welche die 4 benötigten HTTP-Methoden (GET, POST, PUT, DELETE) beinhalten.
+Diese Funktionen werden in den verschiedenen Windows sowie UserControls aufgerufen.
 
 Diese 4 Methoden rufen alle diese private Funktion auf, welche den HTTPClient erstellt:
 
@@ -892,7 +892,7 @@ private static HttpClient GetHttpClient(string url)
 ```
 
 <details>
-  <summary>GET</summary>
+  <summary>GET-Request</summary>
 
 ```csharp
 public static async Task<T> GetAsync<T>(string url, string urlParameters)
@@ -925,7 +925,7 @@ public static async Task<T> GetAsync<T>(string url, string urlParameters)
 </details>
 
 <details>
-  <summary>POST</summary>
+  <summary>POST-Request</summary>
 
 ```csharp
 public static async Task<bool> PostAsync<T>(string url, T data)
@@ -954,7 +954,7 @@ public static async Task<bool> PostAsync<T>(string url, T data)
 </details>
 
 <details>
-  <summary>PUT</summary>
+  <summary>PUT-Request</summary>
 
 ```csharp
 public static async Task<bool> PutAsync<T>(string url, T data)
@@ -981,7 +981,7 @@ public static async Task<bool> PutAsync<T>(string url, T data)
 </details>
 
 <details>
-  <summary>DELETE</summary>
+  <summary>DELETE-Request</summary>
 
 ```csharp
 public static async Task<T> DeleteAsync<T>(string url)
@@ -1008,12 +1008,13 @@ public static async Task<T> DeleteAsync<T>(string url)
 
 #### Web-App
 
-Die Web-App beinhaltet ebenso eine statische Klasse **AuthService**, welche alle API-Requests und dafür notwendigen Objekte beinhaltet und somit ebenso in den unterschiedlichen Components aufgerufen werden.
+Die Web-App beinhaltet ebenso eine statische Klasse **AuthService**, welche alle API-Requests und dafür notwendigen Objekte beinhaltet.
+Diese werden in den unterschiedlichen Components aufgerufen.
 
-Hier sind exemplarische Beispiele, wie eine Anfrage an die REST-API gestellt wurde.
+Hier sind exemplarische Beispiele dafür, wie eine Anfrage an die REST-API gestellt wird.
 
 <details>
-  <summary>GET</summary>
+  <summary>GET-Request</summary>
 
 ```typescript
 getuserorganizations(userid: string){
@@ -1023,7 +1024,7 @@ getuserorganizations(userid: string){
 </details>
 
 <details>
-  <summary>POST</summary>
+  <summary>POST-Request</summary>
 
 ```typescript
 createorganization(org: Organization){
@@ -1033,7 +1034,7 @@ createorganization(org: Organization){
 </details>
 
 <details>
-  <summary>PUT</summary>
+  <summary>PUT-Request</summary>
 
 ```typescript
 promoteUser(userid: string | undefined, orgid: string | undefined, adminid: string | undefined) {
@@ -1043,7 +1044,7 @@ promoteUser(userid: string | undefined, orgid: string | undefined, adminid: stri
 </details>
 
 <details>
-  <summary>DELETE</summary>
+  <summary>DELETE-Request</summary>
 
 ```typescript
 removeuserorganization(userid: string | undefined, orgid: string | undefined, adminid: string | undefined) {
@@ -1163,17 +1164,16 @@ classDiagram
 
 ### Zusammenfassung
 
-Insgesamt bietet das Terminfindungsprojekt eine effiziente Lösung für die Verwaltung von Terminen in verschiedenen Organisationen.
-Mithilfe einer intuitiven und benutzerfreundlichen Arbeitsumgebung ist das Programm sehr einfach zu verwenden.
-Durch die Nutzung moderner Technologien wie WPF, Angular, MongoDB und Java Spring Boot wird eine hohe Flexibilität und Skalierbarkeit gewährleistet.
+Insgesamt bietet das Terminfindungsprojekt eine effiziente Lösung für die Verwaltung von Terminen in verschiedenen Organisationen. 
+Mithilfe einer intuitiven und benutzerfreundlichen Arbeitsumgebung ist das Programm sehr einfach zu verwenden. 
+Durch die Nutzung moderner Technologien wie WPF, Angular, MongoDB und Java Spring Boot wird eine hohe Flexibilität und Skalierbarkeit gewährleistet. 
 Ebenso wurde auch sehr auf die Sicherheit der Daten geachtet.
 
-Während der Durchführung des Projektes kam es zum Spontanen weglassen von Funktionalitäten sowie Abänderungen.
-Zum Beispiel wurde keine Funktionalität implementiert, welche den Nutzer benachrichtigt, wenn ein Termin ihm zugewiesen wurde oder ein Termin beginnt.
-Dies hat der Grund da, dass Projekt-Umfang schon ziemlich groß war und für die Implementierung einer solchen Funktion keine Zeit mehr gab.
-Des Weiteren wurde umentschieden, dass statt wie im Projektauftrag Einladungen von Admins aus Organisationen kommen, nun der Nutzer die Organisationen anfragt und diese können ihn dann ablehnen bzw. annehmen.
-Die Entscheidung beruhte darauf, dass es vom Design der GUI leichter gestalten ließ, 
-dies im Main-Window als zusätzliche Funktionalität zu implementieren als alle Funktionalitäten in die Organisations-Pages reinzustopfen.
+Während der Durchführung des Projektes kam es zum spontanen Weglassen von Funktionalitäten sowie zu Änderungen. 
+Zum Beispiel wurde keine Funktionalität implementiert, die den Nutzer benachrichtigt, wenn ein Termin ihm zugewiesen wurde oder ein Termin beginnt. 
+Dies hatte den Grund, dass der Projektumfang bereits ziemlich groß war und es für die Implementierung einer solchen Funktion keine Zeit mehr gab. 
+Des Weiteren wurde entschieden, dass statt wie im Projektauftrag vorgesehen Einladungen von Admins aus Organisationen kommen, nun der Nutzer die Organisationen anfragt und diese ihn dann ablehnen oder annehmen können. 
+Die Entscheidung beruhte darauf, dass es das Design der GUI erleichterte, dies im Hauptfenster als zusätzliche Funktionalität zu implementieren, anstatt alle Funktionalitäten in die Organisationsseiten zu integrieren.
 
 ### Hintergründe
 
@@ -1186,7 +1186,7 @@ MongoDB wurde aufgrund seiner schnellen Datenbankoperationen gewählt, und Java 
 Zukünftige Erweiterungen könnten die Integration weiterer Funktionen wie verschiedene Kalenderansichten und Benachrichtigungssysteme umfassen. 
 Zudem könnten Sicherheitsmaßnahmen wie Zwei-Faktor-Authentifizierung und erweiterte Rechteverwaltung implementiert werden, um die Anwendung noch sicherer und benutzerfreundlicher zu gestalten.
 
-Aspekte, die nicht implementiert werden konnten, wie Benachrichtigungen an Nutzer, wenn ein Termin zugewiesen oder ansteht, können ebenso in Zukunft auch noch implementiert werden.
+Aspekte, die nicht implementiert werden konnten, wie Benachrichtigungen an Nutzer, wenn ein Termin zugewiesen oder ansteht, könnten ebenso in Zukunft implementiert werden.
 
 ## Quellenverzeichnis / Links
 
