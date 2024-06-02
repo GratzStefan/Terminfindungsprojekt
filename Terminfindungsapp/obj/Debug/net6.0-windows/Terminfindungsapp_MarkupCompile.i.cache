@@ -16,5 +16,5 @@ C:\Projekte\Terminfindungsprojekt\Terminfindungsapp\App.xaml
 203354107726
 UserControls\CreateOrganizationControl.xaml;UserControls\DashboardControl.xaml;UserControls\HomepageControl.xaml;UserControls\NotificationControl.xaml;UserControls\OrganizationControl.xaml;UserControls\SearchOrganizationControl.xaml;UserControls\UserSettingsControl.xaml;Windows\LoginWindow.xaml;Windows\MainWindow.xaml;Windows\RegisterWindow.xaml;
 
-True
+False
 
